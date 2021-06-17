@@ -1,0 +1,53 @@
+.columns {
+    display: flex;
+  }
+  
+  .columns .column {
+    flex: 2;
+  }
+
+  .logo {
+    max-width:200px;
+    max-height:150px;
+    width: auto;
+    height: auto;
+  }
+
+  h1 {
+      color: black;
+      text-align: center;
+  }
+
+nav {
+    border: solid cadetblue;
+    width: auto;
+    margin: 0px;
+    padding: 20px;
+    height: 17px;
+}
+ul {
+    float: left;
+    margin: auto 40px;
+    border: solid black;
+    width: 90px;
+    padding: 0px;  
+}
+li {
+    text-align: center;
+}
+input{
+    border: solid cadetblue;
+    width: 550px;
+    margin: 0px 10px;
+    padding: 17px;  
+}
+button {
+    margin: 1px 0px 0px 11px;
+    padding: 6px;
+}
+.sports {
+    margin: 10px 3px;
+    border: cadetblue solid;
+    height: 500px;
+    text-align: center;
+}
