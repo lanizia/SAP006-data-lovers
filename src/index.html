@@ -11,10 +11,15 @@
           <nav> <!--tag de barra de navegação-->
               <div class="nav-container">
                   <img id="logo" src="logo_olimpiadas.png" alt="logo">
+                  <ul class="ul1">
+                    <li><input type="athlete" name="athlete" id="athlete" placeholder="digite o nome do atleta"></li>
+                    <li><input class="buttom" type="submit" value="Filtrar"></li>
+                  </ul>
                   <ul>
                       <li><a href="#">Atletas</a></li> <!--Representam os links-->
                       <li><a href="#">Países</a></li>
-                      <li><a href="#">Medalhas</a></li>
+                      <li><a href="#">Esportes</a></li>
+                      <li><a href="#">Estatisticas</a></li>
                   </ul>
               </div>
           </nav>
@@ -22,22 +27,67 @@
               <div id="search-form">
                   <h1>A maneira mais facil de navegar pela Olimpíada</h1>
                   <p>Nesse site é possivel descobrir mais sobre seus atletas preferidos.</p>
-                  <form action="">
-                      <input type="text" name="esportes" id="esportes" placeholder="digite o esporte">
-                      <select name="pais" id="pais">
+                   <!--<form action="">
+                     <select name="pais" id="pais">
                           <option value="">Todos os países</option>
                       </select>
                       <select name="medalha" id="medalha">
                           <option value="">Medalha</option>
-                      </select>
-                      <input class="buttom" type="submit" value="Filtrar">
-                  </form>
-
+                      </select>       
+                  </form>-->
               </div>
-
           </div>
       </header>
-      <a target="_blank" href="https://www.vexels.com/vetores/previsualizar/124935/fundo-colorido-abstrato-das-olimp-iacute-adas-rio-2016"> Fundo colorido abstrato das Olimp&iacute;adas Rio 2016 </a> | Free vector by <a target="_blank" href="https://www.vexels.com/">Vexels</a>
+      <main id="best-athletes-container" class="wrapper">
+        <h1>Os 3 países com mais medalha</h1>
+        <ul>
+          <li>
+            <a href="#" class="clickarea">
+              <div class="country-box">
+                <img src="imagens/eua.png" alt="">
+                <div class="country-info">
+                  <h3>Estados Unidos</h3>
+                  <p>País com maior número de medalhas</p>
+                </div>
+              </div>
+              <div class="medal-type">
+                <p>Número total de medalhas: 46</p>
+              </div>
+            </a>
+          </li>
+          <li>
+            <a href="#" class="clickarea">
+              <div class="country-box">
+                <img src="imagens/reinounido.png" alt="">
+                <div class="country-info">
+                  <h3>Reino Unido</h3>
+                  <p>Segundo país com maior número de medalhas</p>
+                </div>
+              </div>
+              <div class="medal-type">
+                <p>Número total de medalhas: 27</p>
+              </div>
+            </a>
+          </li>
+          <li>
+            <a href="#" class="clickarea">
+              <div class="country-box">
+                <img src="imagens/china.png" alt="">
+                <div class="country-info">
+                  <h3>China</h3>
+                  <p>Terceiro país commaior número de medalhas</p>
+                </div>
+              </div>
+              <div class="medal-type">
+                <p>Número total de medalhas: 26</p>
+              </div>
+            </a>
+          </li>
+        </ul>
+        <div class="btncountry-container">
+          <a href="#" class="btn-country">Ver mais países</a>
+        </div>
+      </main>
   </div>
     <script src="main.js" type="module"></script>
   </body>
