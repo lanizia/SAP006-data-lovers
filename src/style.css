@@ -89,7 +89,7 @@ nav:after {
     background-size: cover;
     background-position: 0 55%;
     position: relative;
-    margin-top: 100px;
+    margin-top: -23px;
 }
 #search-form {
     position: relative;
@@ -109,11 +109,11 @@ nav:after {
 #search-form p {
     margin-top: 30px;
     margin-bottom: 60px;
-    font-size: 18px;
+    font-size: 25px;
     font-weight: 300;
 }
 
-#search-form input, #search-form select {
+ #athlete {
     background-color: #fff;
     border-radius: 5px;
     border-color: transparent;
@@ -124,12 +124,128 @@ nav:after {
 }
 
 .buttom {
+    border-radius: 5px;
+    border-color: transparent;
+    padding: 7px 15px;
+    font-size: 11px;
+    margin: 0 10px;
     background-color: #3381F3;
     text-transform: uppercase;
     cursor: poiter;
     transition: 0.5s;
 }
    .buttom:hover {
-    background-color: #387be0;
+    background-color: #387be049;
 
-}/*       
+}/*   
+
+/* Seção dos 3 paises*/
+
+#best-athletes-container {
+    text-align: center;
+    padding: 100px 0;
+}
+
+.wrapper {
+    max-width: 1200px;
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#best-athletes-container h1 {
+    font-size: 36px;
+    margin-bottom: 50px;
+}
+
+#best-athletes-container ul {
+    padding: 0;
+    border: 1px solid #CCC;
+    border-radius: 10px;
+}
+
+#best-athletes-container ul li {
+    list-style: none;
+    text-align:  left;
+    border-bottom: solid 1px #CCC ;
+    height: 80px;
+    position: relative;
+}
+
+#best-athletes-container ul li:last-child {
+    border: none;
+}
+
+.clickarea {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.country-box {
+    display: inline-block;
+    width: 60%;
+    position: relative;
+    padding-left: 1%;
+}
+
+.country-box img {
+    width: 77px;
+    margin-top: 2.5px;
+}
+
+.country-info {
+    display: inline-block;
+    margin-left: 50px;
+    margin-top: 10px;
+    text-align: left;
+    position: absolute;
+}
+.country-info h3 {
+    font-weight: 300;
+    margin-bottom: 10px;
+}
+
+.country-info p {
+    font-weight: bold;
+}
+
+.medal-type {
+   color: #6d6d6d;
+   display: inline-block;
+   width: 25%;
+   position: absolute;
+   height: 100%;
+   line-height: 80px;
+}
+.medal-type i, .medal-type p {
+    display: inline-block;
+}
+
+.medal-type i {
+    margin-right: 5px;
+}
+
+.btncountry-container {
+    margin-top: 50px;
+}
+
+.btn-country {
+    text-transform: uppercase;
+    background-color: #fff;
+    color: #3381f3;
+    border: 2px solid #3381f3;
+    border-radius: 5px;
+    text-decoration: none;
+    padding: 10px 20px;
+    font-weight: bold;
+    transition: 0.5s;
+}
+
+.btn-country:houver {
+    background-color: #3381F3;
+    color: #fff;
+
+}
