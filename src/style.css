@@ -1,53 +1,135 @@
-.columns {
-    display: flex;
-  }
-  
-  .columns .column {
-    flex: 2;
-  }
+/*Fazendo um 'reset' para o estilo do navegador não afetar o que esta sendo feito nesse layout*/
+html {
+    font-family: 'Open Sans', sans-serif;
+}
 
-  .logo {
-    max-width:200px;
-    max-height:150px;
-    width: auto;
+body {
+    margin: 0;
+}
+
+h1, h2, h3, h4, h5, p, span {
+    margin: 0;
+    color: rgb(7, 6, 6);
+}
+
+.container1 {
+    max-width: 1920px;
+    width: 100%;
+}
+
+/*Header*/
+
+header {
+    position: relative; /* posição fixa, começa no topo da pagina*/
+    top: 0;
     height: auto;
-  }
-
-  h1 {
-      color: black;
-      text-align: center;
-  }
-
-nav {
-    border: solid cadetblue;
-    width: auto;
-    margin: 0px;
-    padding: 20px;
-    height: 17px;
+    width: 100%;
 }
-ul {
+
+/* navbar*/
+
+nav { 
+    position: fixed;
+    top: 0;
+    height: 100px;
+    width: 100%;
+    z-index: 1; /*pra sobresair independente em qual altura da pagina eu estiver*/
+    background-color: #fff;
+    border-bottom: 1px solid #ccc;
+}
+
+nav:after {
+    clear: both;
+    content: "";
+    display: block;
+} /* vai fazer todos os elementos depois do nav se comportarem normalmente, como se os elementos dela não estivessem floating */
+
+.nav-container {
+    /*elementos com largura um pouco menor que 1920px*/
+    max-width: 1200px;
+    position: relative;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+#logo {
+    width: 127px;
+    height: 63px;
+    margin-top: 22px;
+}
+
+.nav-container ul{
+    float: right;
+    height: 100px;
+    line-height: 100px;
+    margin: 0;
+
+}
+
+.nav-container li {
+    list-style: none;
     float: left;
-    margin: auto 40px;
-    border: solid black;
-    width: 90px;
-    padding: 0px;  
+    margin: 0 15px;
+
 }
-li {
+
+.nav-container li a {
+    text-decoration: none;
+    color: #666;
+    transition: 5s;
+}
+/* transition pq vai mudar de cor com o houver*/
+.nav-container li a:houver {
+    color: #3381F3;
+}
+
+/* banner */
+#main-banner {
+    background: url(backgroundcheguei.jpg) no-repeat;
+    background-size: cover;
+    background-position: 0 55%;
+    position: relative;
+    margin-top: 100px;
+}
+#search-form {
+    position: relative;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 15em;
+    padding-bottom: 15em;
     text-align: center;
+
 }
-input{
-    border: solid cadetblue;
-    width: 550px;
-    margin: 0px 10px;
-    padding: 17px;  
+
+#search-form h1 {
+    font-size: 40px;
 }
-button {
-    margin: 1px 0px 0px 11px;
-    padding: 6px;
+
+#search-form p {
+    margin-top: 30px;
+    margin-bottom: 60px;
+    font-size: 18px;
+    font-weight: 300;
 }
-.sports {
-    margin: 10px 3px;
-    border: cadetblue solid;
-    height: 500px;
-    text-align: center;
+
+#search-form input, #search-form select {
+    background-color: #fff;
+    border-radius: 5px;
+    border-color: transparent;
+    padding: 10px 20px;
+    font-size: 18px;
+    margin: 0 10px;
+
 }
+
+.buttom {
+    background-color: #3381F3;
+    text-transform: uppercase;
+    cursor: poiter;
+    transition: 0.5s;
+}
+   .buttom:hover {
+    background-color: #387be0;
+
+}/*       

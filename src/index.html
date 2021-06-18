@@ -6,41 +6,39 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <header>
-      <div class="columns" id="root">
-        <div class="column">
-          <img class="logo" src="./imagens/logo-olimpiadas-rio-2016-oficial.png" alt="">
-        </div>
-        <div class="column">
-          <h1>Nome do site</h1>
-        </div>
-        </div>
-        <div class="columns" >
-          <div class="column" id="navegation">
-            <nav>
-              <ul>
-                <li>home</li>
-              </ul>
-              <ul>
-                <li>atletas</li>
-              </ul>
-              <ul>
-                <li>medalhas</li>
-              </ul>
-            </nav>
+    <div class="container1"> <!--vai ter a area util desse container por isso fazer tudo dentro dela-->
+      <header>
+          <nav> <!--tag de barra de navegação-->
+              <div class="nav-container">
+                  <img id="logo" src="logo_olimpiadas.png" alt="logo">
+                  <ul>
+                      <li><a href="#">Atletas</a></li> <!--Representam os links-->
+                      <li><a href="#">Países</a></li>
+                      <li><a href="#">Medalhas</a></li>
+                  </ul>
+              </div>
+          </nav>
+          <div id="main-banner">
+              <div id="search-form">
+                  <h1>A maneira mais facil de navegar pela Olimpíada</h1>
+                  <p>Nesse site é possivel descobrir mais sobre seus atletas preferidos.</p>
+                  <form action="">
+                      <input type="text" name="esportes" id="esportes" placeholder="digite o esporte">
+                      <select name="pais" id="pais">
+                          <option value="">Todos os países</option>
+                      </select>
+                      <select name="medalha" id="medalha">
+                          <option value="">Medalha</option>
+                      </select>
+                      <input class="buttom" type="submit" value="Filtrar">
+                  </form>
+
+              </div>
+
           </div>
-          <div class="column">
-            <input type="text" id="search" placeholder="Pesquise por esporte">
-            <button>search</button>
-          </div>
-      </div>
-    </header>
-
-    <section>
-      <div class="sports"> Listar sports</div>
-    </section>
-
-
+      </header>
+      <a target="_blank" href="https://www.vexels.com/vetores/previsualizar/124935/fundo-colorido-abstrato-das-olimp-iacute-adas-rio-2016"> Fundo colorido abstrato das Olimp&iacute;adas Rio 2016 </a> | Free vector by <a target="_blank" href="https://www.vexels.com/">Vexels</a>
+  </div>
     <script src="main.js" type="module"></script>
   </body>
 </html>
