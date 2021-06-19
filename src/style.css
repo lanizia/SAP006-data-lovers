@@ -249,3 +249,60 @@ nav:after {
     color: #fff;
 
 }
+
+/* Cards */
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@1,500&display=swap');
+
+.content {
+    display: flex;
+    justify-content: center; /* Para centralizar no eixo x*/
+    align-items: center; /* Para centralizar no eixo y*/
+    align-content: center;
+    width: 100%; /* width: largura height: altura*/
+    height: 100%;
+    font-family: 'Roboto', sans-serif;
+}
+.card {
+    background: #fff;
+    border-radius: 20px;
+    box-shadow: 0px 2px 23px rgba(9, 11, 31, 0.329);
+    width: 400px;
+
+}
+
+.mediaCard {
+    background: url("https://image.freepik.com/vetores-gratis/icone-olimpiadas-rio_1057-1461.jpg") center/cover;
+    /* sempre chamar só o background, jogar a url e marcar center e cover pq não importa o tamanho da largura e altura
+    a imagem vai preencher e centralizar*/
+    height: 300px;
+    width: 100%;
+} 
+
+.title {
+    color: #2b3d59; /*Contraste da cor*/
+}
+
+.secondText {
+    color: #828fa1
+}
+
+.bottomText {
+    color: #445b73;
+}
+
+.topCard {
+    padding: 20px;
+    padding-top: 0px;
+
+} 
+
+.bottomCard {
+    padding: 20px;
+}
+
+.actions {
+    background: none;
+    border: none;
+    color: rgb(65, 65, 2);
+}
