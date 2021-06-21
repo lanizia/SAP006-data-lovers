@@ -256,9 +256,14 @@ nav:after {
 
 .content {
     display: flex;
-    justify-content: center; /* Para centralizar no eixo x*/
-    align-items: center; /* Para centralizar no eixo y*/
-    align-content: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-content: space-between;
+    justify-content: space-around;
+    align-items: flex-start;
+   /* justify-content: center;  Para centralizar no eixo x*/
+   /* align-items: center; /* Para centralizar no eixo y
+   /*align-content: center;*/
     width: 100%; /* width: largura height: altura*/
     height: 100%;
     font-family: 'Roboto', sans-serif;
