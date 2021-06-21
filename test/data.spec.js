@@ -1,23 +1,27 @@
-import { example, anotherExample } from '../src/data.js';
+import { showAthletes, filterByName } from '../src/data.js';
+const atletas =[
+  {name: "Giovanni Abagnale", sport: "Rowing", team: "Italy"},
+  {name: "Patimat Abakarova", sport: "Taekwondo", team: "Azerbaijan"},
+  {name: "Luc Abalo", sport: "Handball", team: "France"}
+]
 
-
-describe('example', () => {
+describe('showAthletes', () => {
   it('is a function', () => {
-    expect(typeof example).toBe('function');
-  });
+    expect(typeof showAthletes).toBe('function');
+  })});
 
-  it('returns `example`', () => {
-    expect(example()).toBe('example');
-  });
-});
-
-
-describe('anotherExample', () => {
+describe('filterByName', () => {
   it('is a function', () => {
-    expect(typeof anotherExample).toBe('function');
+    expect(typeof filterByName).toBe('function');
   });
 
-  it('returns `anotherExample`', () => {
-    expect(anotherExample()).toBe('OMG');
+  it('should return athlete when inform partial name', () => {
+    expect(filterByName(atletas, "giova")).toEqual([{
+      name: "Giovanni Abagnale", sport: "Rowing", team: "Italy"
+    }]);
+  });
+
+  it('should return athlete when inform name with capital letters', () => {
+    expect(filterByName(atletas, "LUC ABALO")).toEqual([{name: "Luc Abalo", sport: "Handball", team: "France"}]);
   });
 });

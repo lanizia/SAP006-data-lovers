@@ -1,11 +1,6 @@
-export const obterAtletas = (atletas) => atletas.slice(0, 10);
+export const showAthletes = (athletesList) => athletesList.slice(0, 9);
 
-export const obterAtletasPorNome = (atletas, athleteName) => {
+export const filterByName = (athletesList, athleteName) => {
   const lowerCaseName = athleteName.toLowerCase();
-  return atletas.filter(atleta => atleta.name.toLowerCase().startsWith(lowerCaseName)).slice(0, 10);
+  return athletesList.filter(athlete => athlete.name.toLowerCase().startsWith(lowerCaseName)).slice(0, 9);
 }
-
-
-// const obterAtletasPor = (propriedade, valor) =>
-//   data.athletes.filter(atleta => atleta[propriedade] === valor);
-
