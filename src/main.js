@@ -1,3 +1,4 @@
+import data from './data/athletes/athletes.js'
 import { obterAtletas, obterAtletasPorNome } from './data.js';
 
 const imprimirAtletas = (atletas) => {
@@ -26,7 +27,7 @@ const imprimirAtletas = (atletas) => {
     });
 }
 
-const atletas = obterAtletas()
+const atletas = obterAtletas(data.athletes)
 imprimirAtletas(atletas);
 
 
@@ -34,7 +35,7 @@ const btnSearch = document.getElementById("searchAthlete");
 const athleteName = document.getElementById("athlete");
 
 btnSearch.addEventListener("click", () => {
-    const searchAthleteByName = obterAtletasPorNome(athleteName.value);
+    const searchAthleteByName = obterAtletasPorNome(data.athletes, athleteName.value);
     imprimirAtletas(searchAthleteByName);
 } )
 
