@@ -1,10 +1,10 @@
 import data from './data/athletes/athletes.js'
 
-export const obterAtletas = () => data.athletes.slice(0, 10)
+export const obterAtletas = () => data.athletes.slice(0, 9)
 
 export const obterAtletasPorNome = (athleteName) => {
   const lowerCaseName = athleteName.toLowerCase();
-  return data.athletes.filter(atleta => atleta.name.toLowerCase().startsWith(lowerCaseName)).slice(0, 10);
+  return data.athletes.filter(atleta => atleta.name.toLowerCase().startsWith(lowerCaseName)).slice(0, 9);
 }
 
 
