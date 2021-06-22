@@ -89,7 +89,7 @@ nav:after {
 
 /* banner */
 #main-banner {
-    background: url(backgroundcheguei.jpg) no-repeat;
+    background: url(imagens/backgroundcheguei.jpg) no-repeat;
     background-size: cover;
     background-position: 0 55%;
     position: relative;
@@ -318,4 +318,102 @@ nav:after {
     background: none;
     border: none;
     color: rgb(65, 65, 2);
+}
+
+/*Cards Paises*/
+
+.base {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    background: #fefefe;
+    font-family: sans-serif;
+}
+
+.container-three {
+    width:  90%;
+    margin: 50px auto; 
+}
+
+.heading {
+    text-align: center;
+    font-size: 30px;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+.row-two {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    flex-flow: wrap;
+}
+
+.card-two {
+    width: 20%;
+    background: #fff;
+    border: 1px solic #ccc;
+    margin-bottom: 50px;
+    transition: 0.3s;
+}
+
+.card-two-header {
+    text-align: center;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    padding: 50px 10px;
+    background: linear-gradient(to right, #4144ff, #2ba0ff);
+    color:#fff;
+}
+
+.card-two-body {
+    background: url(imagens/teste2.png) center/cover;
+    padding: 40px 40px;
+    text-align: center;
+    font-size: 18px; 
+    border-style: ridge;
+    border-bottom-right-radius: 8px;
+    border-bottom-left-radius: 8px;
+}
+
+ /*.fake-btn {
+    display: block;
+    color:#fff;
+    text-align: center;
+    border-radius: 5px;
+    background: linear-gradient(to right, #4144ff, #2ba0ff);
+    margin-top: 30px;
+    text-decoration: none;
+    padding: 10px 5px;  
+} */
+
+.card-two:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 40px -10px rgba(0, 0, 0, 0.25);
+
+}
+
+/*Responsive media queries*/
+
+@media screen and (max-width: 1000px) {
+    .card-two {
+        width: 40%;   
+    }
+}
+
+@media screen and (max-width: 620px) {
+
+    .container-three {
+        width: 100%;
+
+    }
+
+    .heading {
+        padding:20px;
+        font-size: 20px;
+    }
+
+    .card-two {
+        width: 80%;   
+    }
 }
