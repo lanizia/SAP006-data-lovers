@@ -1,12 +1,40 @@
 import data from './data/athletes/athletes.js'
-import { showAthletes, filterByName } from './data.js';
+import { getAthletes, getAthletesByName, getSports } from './data.js';
+
+const containerHome = document.getElementById("best-athletes-container");
+const cardsElement = document.getElementById("containerCards");
+const homeButton = document.getElementById("homePage");
+const athletesButton = document.getElementById("athl");
+const btnSearch = document.getElementById("searchAthlete");
+const athleteName = document.getElementById("athlete");
+const btnSports = document.getElementById("sports");
+const btnTeam = document.getElementById("team");
+
+const clean = () => {
+    containerHome.innerHTML = "";
+    cardsElement.innerHTML = "";
+}
+
+
+// const printHome = (athletesList) => {
+//     cardsElement.innerHTML = ""
+//     cardsElement.innerHTML += ` <div class="containerCards">
+//         <div class="card-two">
+//             <div class="card-two-header">
+//                 <h1>${listSports}</h1>
+//             </div>
+//             <div class="card-two-body">
+//                 <p></p>
+//                 <!--<a href="#" class="fake-btn">Saiba mais</a> </!-->
+//             </div>
+//         </div>`;
+    
+// }
 
 const printAthletes = (athletesList) => {
-    const cardsElement = document.getElementById("cards");
-    cardsElement.innerHTML = "";
-
-    athletesList.forEach(athlete => {
-        cardsElement.innerHTML += `<div class="card">
+    clean()
+        athletesList.forEach(athlete => {
+        cardsElement.innerHTML += `<div class="containerCards">
         <div class="topCard">
             <h2 class="title">${athlete.name}</h2>
             <span class="secondText"><b>Gênero:</b> ${athlete.gender} <b>Idade:</b> ${athlete.age} <b>País:</b> ${athlete.team} </span> <!--Usou span pois não tem margens como a tag de paragrafo-->
@@ -19,26 +47,47 @@ const printAthletes = (athletesList) => {
             <b>Esporte:</b> ${athlete.sport}</br>
             <b>Modalidade:</b> ${athlete.event}</br>
             <b>Medalha:</b> ${athlete.medal}</p>
-            <div class="actionsCard">
-                
+            <div class="actionsCard">   
             </div>
         </div>
         </div>`;
     });
 }
 
-const athletesList = showAthletes(data.athletes)
-printAthletes(athletesList);
+const printSports = (athletesList) => {
+    clean()
+    athletesList.forEach(listSports => {
+        cardsElement.innerHTML += ` <div class="containerCards">
+        <div class="card-two">
+            <div class="card-two-header">
+                <h1>${listSports}</h1>
+            </div>
+            <div class="card-two-body">
+                <p></p>
+                <!--<a href="#" class="fake-btn">Saiba mais</a> </!-->
+            </div>
+        </div>`;
+    });
+}
 
+homeButton.addEventListener("click", clean);
 
-const btnSearch = document.getElementById("searchAthlete");
-const athleteName = document.getElementById("athlete");
+athletesButton.addEventListener("click", () => {
+    clean()
+    const athletesList = getAthletes(data.athletes)
+    printAthletes(athletesList);
+});
 
 btnSearch.addEventListener("click", () => {
-    const searchAthleteByName = filterByName(data.athletes, athleteName.value);
+    clean()
+    const searchAthleteByName = getAthletesByName(data.athletes, athleteName.value);
     printAthletes(searchAthleteByName);
-} )
+});
 
-
+btnSports.addEventListener("click", () => {
+    clean()
+    const listSports = getSports(data.athletes);
+    printSports(listSports);
+});
 
 
