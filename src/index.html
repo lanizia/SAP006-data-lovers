@@ -1,35 +1,43 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <title>Data Lovers</title>
-    <link rel="stylesheet" href="style.css" />
-    <link rel="shortcut icon" href="imagens/olimpiada.ico" type="image/x-icon">
-  </head>
-  <body>
-    <div class="container1"> <!--vai ter a area util desse container por isso fazer tudo dentro dela-->
-      <header>
-          <nav> <!--tag de barra de navegação-->
-              <div class="nav-container">
-                  <img id="logo" src="imagens/logo_olimpiadas.png" alt="logo">
-                  <ul class="ul1">
-                    <li><input type="athlete" name="athlete" id="athlete" placeholder="Digite o nome do atleta"></li>
-                    <li><input class="buttom" id="searchAthlete" type="submit" value="Filtrar"></li>
-                  </ul>
-                  <ul>
-                      <li><a href="#" id="homePage">Home</a></li>
-                      <li><a href="#" id="athl">Atletas</a></li> <!--Representam os links-->
-                      <li><a href="#" id="team">Países</a></li>
-                      <li><a href="#" id="sports">Esportes</a></li>
-                      <li><a href="#">Estatísticas</a></li>
-                  </ul>
-              </div>
-          </nav>
-          <div id="main-banner">
-              <div id="search-form">
-                  <h1></h1>
-                  <p></p>
-                   <!--<form action="">
+
+<head>
+  <meta charset="utf-8">
+  <title>Data Lovers</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="shortcut icon" href="imagens/olimpiada.ico" type="image/x-icon">
+</head>
+
+<body>
+  <div class="container1">
+    <!--vai ter a area util desse container por isso fazer tudo dentro dela-->
+    <header>
+      <nav>
+        <!--tag de barra de navegação-->
+        <div class="nav-container">
+          <img id="logo" src="imagens/logo_olimpiadas.png" alt="logo">
+          <ul class="ul1">
+            <li><input type="athlete" name="athlete" id="athlete" placeholder="Digite o nome do atleta"></li>
+            <li><input class="buttom" id="searchAthlete" type="submit" value="Filtrar"></li>
+          </ul>
+          <ul>
+            <li><a href="#" id="homePage">Home</a></li>
+            <li><a href="#" id="athl">Atletas</a></li>
+            <!--Representam os links-->
+            <!-- <li><a href="#" id="team">Países</a></li> -->
+            <!-- <li><a href="#" id="sports">Esportes</a></li> -->
+            <li><a href="#" class="btn-sport" data-direction="asc">Esportes [a-z]</a></li>
+            <li><a href="#" class="btn-sport" data-direction="desc">Esportes [z-a]</a></li>
+
+            <li><a href="#">Estatísticas</a></li>
+          </ul>
+        </div>
+      </nav>
+      <div id="main-banner">
+        <div id="search-form">
+          <h1></h1>
+          <p></p>
+          <!--<form action="">
                      <select name="pais" id="pais">
                           <option value="">Todos os países</option>
                       </select>
@@ -37,65 +45,67 @@
                           <option value="">Medalha</option>
                       </select>       
                   </form>-->
-              </div>
-          </div>
-      </header>
-      <main id="best-athletes-container" class="wrapper">
-        <h1>Os 3 países com mais medalhas</h1>
-        <ul>
-          <li>
-            <a href="#" class="clickarea">
-              <div class="country-box">
-                <img src="imagens/estados-unidos-icone.png" alt="">
-                <div class="country-info">
-                  <h3>Estados Unidos</h3>
-                  <p>País com maior número de medalhas</p>
-                </div>
-              </div>
-              <div class="medal-type">
-                <p>Número total de medalhas: 46</p>
-              </div>
-            </a>
-          </li>
-          <li>
-            <a href="#" class="clickarea">
-              <div class="country-box">
-                <img src="imagens/reino-unido.png" alt="">
-                <div class="country-info">
-                  <h3>Reino Unido</h3>
-                  <p>Segundo país com maior número de medalhas</p>
-                </div>
-              </div>
-              <div class="medal-type">
-                <p>Número total de medalhas: 27</p>
-              </div>
-            </a>
-          </li>
-          <li>
-            <a href="#" class="clickarea">
-              <div class="country-box">
-                <img src="imagens/china.png" alt="">
-                <div class="country-info">
-                  <h3>China</h3>
-                  <p>Terceiro país commaior número de medalhas</p>
-                </div>
-              </div>
-              <div class="medal-type">
-                <p>Número total de medalhas: 26</p>
-              </div>
-            </a>
-          </li>
-        </ul>
-        <div class="btncountry-container">
-          <a href="#" class="btn-country">Estatísticas</a>
         </div>
-      </main>
-      
+      </div>
+    </header>
+    <main id="best-athletes-container" class="wrapper">
+      <h1>Os 3 países com mais medalhas</h1>
+      <ul>
+        <li>
+          <a href="#" class="clickarea">
+            <div class="country-box">
+              <img src="imagens/estados-unidos-icone.png" alt="">
+              <div class="country-info">
+                <h3>Estados Unidos</h3>
+                <p>País com maior número de medalhas</p>
+              </div>
+            </div>
+            <div class="medal-type">
+              <p>Número total de medalhas: 46</p>
+            </div>
+          </a>
+        </li>
+        <li>
+          <a href="#" class="clickarea">
+            <div class="country-box">
+              <img src="imagens/reino-unido.png" alt="">
+              <div class="country-info">
+                <h3>Reino Unido</h3>
+                <p>Segundo país com maior número de medalhas</p>
+              </div>
+            </div>
+            <div class="medal-type">
+              <p>Número total de medalhas: 27</p>
+            </div>
+          </a>
+        </li>
+        <li>
+          <a href="#" class="clickarea">
+            <div class="country-box">
+              <img src="imagens/china.png" alt="">
+              <div class="country-info">
+                <h3>China</h3>
+                <p>Terceiro país commaior número de medalhas</p>
+              </div>
+            </div>
+            <div class="medal-type">
+              <p>Número total de medalhas: 26</p>
+            </div>
+          </a>
+        </li>
+      </ul>
+      <div class="btncountry-container">
+        <a href="#" class="btn-country">Estatísticas</a>
+      </div>
+    </main>
+
   </div>
+
+  </section>
+  <div class="content" id="containerCards"></div>
   
-</section>
-  <div class="content" id="containerCards"></div>     
-</section>
-    <script src="main.js" type="module"></script>
-  </body>
+  </section>
+  <script src="main.js" type="module"></script>
+</body>
+
 </html>

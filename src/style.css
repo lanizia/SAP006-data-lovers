@@ -235,7 +235,7 @@ nav:after {
 .btncountry-container {
     margin-top: 50px;
 }
-
+ 
 .btn-country {
     text-transform: uppercase;
     background-color: #fff;
@@ -273,7 +273,7 @@ nav:after {
     font-family: 'Roboto', sans-serif;
     gap: 20px;
 }
-.card {
+.containerCards{
     background: #fff;
     border-radius: 20px;
     box-shadow: 0px 2px 23px rgba(9, 11, 31, 0.329);

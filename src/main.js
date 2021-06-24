@@ -1,18 +1,24 @@
 import data from './data/athletes/athletes.js'
-import { getAthletes, getAthletesByName, getSports } from './data.js';
+import {
+  getAthletes,
+  getAthletesByName,
+  getSports,
+  sortSports
+} from './data.js';
 
+// let currentPage = 'home';
 const containerHome = document.getElementById("best-athletes-container");
 const cardsElement = document.getElementById("containerCards");
 const homeButton = document.getElementById("homePage");
 const athletesButton = document.getElementById("athl");
 const btnSearch = document.getElementById("searchAthlete");
 const athleteName = document.getElementById("athlete");
-const btnSports = document.getElementById("sports");
-const btnTeam = document.getElementById("team");
+// const btnSports = document.getElementById("sports");
+// const btnTeam = document.getElementById("team");
 
 const clean = () => {
-    containerHome.innerHTML = "";
-    cardsElement.innerHTML = "";
+  containerHome.innerHTML = "";
+  cardsElement.innerHTML = "";
 }
 
 
@@ -28,16 +34,16 @@ const clean = () => {
 //                 <!--<a href="#" class="fake-btn">Saiba mais</a> </!-->
 //             </div>
 //         </div>`;
-    
+
 // }
 
 const printAthletes = (athletesList) => {
-    clean()
-        athletesList.forEach(athlete => {
-        cardsElement.innerHTML += `<div class="containerCards">
+  clean()
+  athletesList.forEach(athlete => {
+    cardsElement.innerHTML += `<div class="containerCards">
         <div class="topCard">
             <h2 class="title">${athlete.name}</h2>
-            <span class="secondText"><b>Gênero:</b> ${athlete.gender} <b>Idade:</b> ${athlete.age} <b>País:</b> ${athlete.team} </span> <!--Usou span pois não tem margens como a tag de paragrafo-->
+            <span class="secondText"><b>Gênero:</b> ${athlete.gender} <b>Idade:</b> ${athlete.age} <b>País:</b> ${athlete.team} 
         </div>
         <div class="mediaCard"></div>
         <div class="bottomCard">
@@ -51,43 +57,60 @@ const printAthletes = (athletesList) => {
             </div>
         </div>
         </div>`;
-    });
+  });
 }
 
-const printSports = (athletesList) => {
-    clean()
-    athletesList.forEach(listSports => {
-        cardsElement.innerHTML += ` <div class="containerCards">
+const printSports = (sortedListSport) => {
+  clean()
+  sortedListSport.forEach(sportName => {
+    cardsElement.innerHTML += ` <div class="containerCards">
         <div class="card-two">
             <div class="card-two-header">
-                <h1>${listSports}</h1>
+                <h1>${sportName}</h1>
             </div>
             <div class="card-two-body">
                 <p></p>
-                <!--<a href="#" class="fake-btn">Saiba mais</a> </!-->
             </div>
         </div>`;
-    });
+  });
 }
 
-homeButton.addEventListener("click", clean);
+homeButton.addEventListener("click", () => {
+  // currentPage = 'home';
+  clean()
+});
 
 athletesButton.addEventListener("click", () => {
-    clean()
-    const athletesList = getAthletes(data.athletes)
-    printAthletes(athletesList);
+  // currentPage = 'athletes';
+  clean()
+  const athletesList = getAthletes(data.athletes)
+  printAthletes(athletesList);
 });
 
 btnSearch.addEventListener("click", () => {
-    clean()
-    const searchAthleteByName = getAthletesByName(data.athletes, athleteName.value);
-    printAthletes(searchAthleteByName);
+  clean()
+
+  // console.log(currentPage);
+  const searchAthleteByName = getAthletesByName(data.athletes, athleteName.value);
+  printAthletes(searchAthleteByName);
 });
 
-btnSports.addEventListener("click", () => {
+// btnSports.addEventListener("click", () => {
+//     clean()
+//     const listSports = getSports(data.athletes);
+//     printSports(listSports);
+// });
+
+
+const btnSportsWithSort = document.querySelectorAll('.btn-sport');
+
+btnSportsWithSort.forEach(btn => {
+  btn.addEventListener("click", event => {
     clean()
+    const sortDirection = event.target.getAttribute('data-direction');
+    // currentPage = 'sports-' + sortDirection;
     const listSports = getSports(data.athletes);
-    printSports(listSports);
+    const sortedListSport = sortSports(listSports, sortDirection);
+    printSports(sortedListSport);
+  })
 });
-
-
