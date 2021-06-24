@@ -53,10 +53,9 @@ const printAthletes = (athletesList) => {
             <b>Esporte:</b> ${athlete.sport}</br>
             <b>Modalidade:</b> ${athlete.event}</br>
             <b>Medalha:</b> ${athlete.medal}</p>
-            <div class="actionsCard">   
-            </div>
+            
         </div>
-        </div>`;
+    </div>`;
   });
 }
 
@@ -64,14 +63,14 @@ const printSports = (sortedListSport) => {
   clean()
   sortedListSport.forEach(sportName => {
     cardsElement.innerHTML += ` <div class="containerCards">
-        <div class="card-two">
-            <div class="card-two-header">
-                <h1>${sportName}</h1>
-            </div>
-            <div class="card-two-body">
-                <p></p>
-            </div>
-        </div>`;
+
+        <div class="topCardTwo">
+        <h2 class="titleTwo">${sportName}</h2>
+    
+        </div>
+        <div class="mediaCardTwo"></div>
+        <div class="bottomCardTwo"></div>
+</div>`;;
   });
 }
 
