@@ -35,7 +35,6 @@ header {
 nav { 
     position: fixed;
     top: 0;
-    height: 100px;
     width: 100%;
     z-index: 1; /*pra sobresair independente em qual altura da pagina eu estiver*/
     background-color: #fff;
@@ -48,60 +47,58 @@ nav:after {
     display: block;
 } /* vai fazer todos os elementos depois do nav se comportarem normalmente, como se os elementos dela não estivessem floating */
 
-.nav-container {
-    /*elementos com largura um pouco menor que 1920px*/
-    max-width: 1200px;
-    position: relative;
-    margin-right: auto;
-    margin-left: auto;
-}
-
 #logo {
     width: 127px;
     height: 63px;
-    margin-top: 22px;
+    margin: 20px 45px;
+}
+
+.nav-container ul,.nav-container li, .nav-container li li a {
+    margin:0;
+    padding: 0;
+    border-radius: 10px;
 }
 
 .nav-container ul{
-    float: right;
-    height: 100px;
-    line-height: 100px;
-    margin: 0;
-    position: relative;  /*add isso agora*/
+    display: inline-block;
+    margin: 18px;
+    position: relative;
+    vertical-align: top;
 }
 
 .nav-container li {
+    display: inline-flex;
     list-style: none;
-    float: left;
-    margin: 0 15px;
-
+    position: relative;
+    text-align: center;
 }
 
 .nav-container li a {
     text-decoration: none;
-    color: #666;
-    transition: 0.5s; 
+    color: #666; 
+    padding: 25px;
 }
 
-.nav-container li a:hover {
+.nav-container li li:hover a {
     background-color: #7b7bfacc;    
+}
+
+.nav-container li li a {
+    width: 157px;
+    padding: 15px;     
 }
 
 .nav-container ul ul {
     position: absolute;
-    min-width: 200px;
+    top: 50px;
+    left: 0;
     display: none;
     background: #ffff; 
 }
 
-.nav-container ul ul li:hover {
+.nav-container ul li:hover ul {
     display: block;
     background: #e3e3e3;
-
-}
-
-.nav-container ul li:hover ul{
-    display: block;
 }
 
 /* banner */
@@ -120,7 +117,6 @@ nav:after {
     padding-top: 15em;
     padding-bottom: 15em;
     text-align: center;
-
 }
 
 #search-form h1 {
@@ -140,8 +136,7 @@ nav:after {
     border-color: rgba(0, 0, 0, 0.432);
     padding: 10px 20px;
     font-size: 15px;
-    margin: 0px 10px;
-
+    margin: 15px 10px;
 }
 
 .buttom {
@@ -157,7 +152,6 @@ nav:after {
 }
 .buttom:hover {
     background-color: #387be049;
-
 }  
 
 /* Seção dos 3 paises*/
@@ -268,7 +262,6 @@ nav:after {
 .btn-country:hover {
     background-color: #3381F3;
     color: #fff;
-
 }
 
 /* Cards */
@@ -294,7 +287,7 @@ nav:after {
     background: #fff;
     border-radius: 20px;
     box-shadow: 0px 2px 23px rgba(9, 11, 31, 0.329);
-    width: 400px;
+    width: 267px;
 
 }
 
@@ -330,14 +323,15 @@ nav:after {
 
 .bottomText {
     color: #445b73;
+    inline-size: 153px;
+
 }
 
 .topCard {
-    padding: 30px;
+    padding: 15px;
     background: linear-gradient(to top, #ffcb05, #fdfca5);
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
-
 } 
 
 .topCardTwo {
@@ -352,8 +346,7 @@ nav:after {
     max-height: max-content;
     background: linear-gradient(to bottom, #ffcb05, #fff);
     border-bottom-left-radius: 10px;
-    border-bottom-right-radius: 10px;
-    
+    border-bottom-right-radius: 10px; 
 }
 
 .bottomCardTwo {
@@ -361,12 +354,9 @@ nav:after {
     max-height: max-content;
 }
 
-.containerCards:hover{
-     
+.containerCards:hover{  
      transform: scale(1.05);
-     box-shadow: 0 0 40px -10px rgba(0, 0, 0, 0.25);
-    
-    
+     box-shadow: 0 0 40px -10px rgba(0, 0, 0, 0.25);   
 }
 
 

@@ -17,8 +17,8 @@ export const getSports = (athletesList) => {
   return sportsNewList;
 }
 
-export const sortSports = (sportList, direction) => {
-  const sorted = sportList.sort((a, z) => {
+export const ordenation = (list, direction) => {
+  const sorted = list.sort((a, z) => {
     if (direction === 'desc') {
       return z.localeCompare(a);
     } else {
