@@ -63,13 +63,26 @@ const printSports = (sortedListSport) => {
   clean()
   containerHome.innerHTML = " PENSAR ALGO LEGAL PARA COLOCAR AQUI"
   sortedListSport.forEach(sportName => {
-    cardsElement.innerHTML += ` <div class="containerCards">
-        <div class="topCardTwo">
+    cardsElement.innerHTML += `<div class="containerCards">
+    <div class="flip-card">
+    <div class="flip-card-inner">
+      
+    <div class="flip-card-front">
+      <div class="topCardTwo">
         <h2 class="titleTwo">${sportName}</h2>
         </div>
         <div class="mediaCardTwo"></div>
         <div class="bottomCardTwo"></div>
-</div>`;
+    </div>
+    
+      <div class="flip-card-back">
+        <h1>MODALIDADES</h1>
+        <p>bla vla vla</p>
+      </div>
+    
+      </div>
+    </div>
+                              </div>`;
   });
 }
 

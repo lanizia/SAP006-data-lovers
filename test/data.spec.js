@@ -1,4 +1,4 @@
-import {  agruparAtletas, getAthletes, getAthletesByName, getElement  } from '../src/data.js';
+import {groupedAthletes, getAthletes, getAthletesByName, getElement, sortBy} from '../src/data.js';
 const athletes =[
   {
     "name": "Giovanni Abagnale",
@@ -98,12 +98,12 @@ const athletes =[
   },
 ];
 
-describe('agruparAtletas', () => {
+describe("groupedAthletes", () => {
   it('is a function', () => {
-    expect(typeof agruparAtletas).toEqual('function');
+    expect(typeof groupedAthletes).toEqual('function');
   })
-  it('shouldreturn only one object for each athlete with a unique list that includes all sports', () => {
-    expect(agruparAtletas (athletes)).toEqual([{
+  it('should return only one object for each athlete with a unique list that includes all sports', () => {
+    expect(groupedAthletes (athletes)).toEqual([{
         "name": "Giovanni Abagnale",
         "gender": "M",
         "height": "198",
@@ -215,12 +215,27 @@ describe('getAthletesByName', () => {
       "medal": "Silver"}]);
   });
   
-  describe("getElement"), () => {
-    it("is a function", () => {
-      expect(typeof getElement).toBe("function");
-    })
-  }
+  describe('getElement', () => {
+    it('is a function', () => {
+      expect(typeof getElement).toBe('function');
+    })});
+
   it('should returns a list of non-repeating teams, when a list with repeated teams is entered', () => {
     expect(getElement (athletes, "team")).toEqual(["Italy", "Azerbaijan", "France", "Iran", "Russia", "Australia"]);
   });
+
+  const teams = ["Italy", "Azerbaijan", "France", "Iran", "Russia", "Australia"]
+
+  describe('sortBy', () => {
+    it('is a function', () => {
+      expect(typeof sortBy).toBe('function');
+    })});
+
+  it('should returns a sort asc list of non-repeating teams, when a list with repeated teams is entered', () => {
+    expect(sortBy (teams, "asc")).toEqual(["Australia", "Azerbaijan", "France", "Iran", "Italy", "Russia"]);
+  });
+  it('should returns a sort desc list of non-repeating teams, when a list with repeated teams is entered', () => {
+    expect(sortBy (teams, "desc")).toEqual(["Russia", "Italy", "Iran", "France", "Azerbaijan", "Australia"]);
+  });
+
 
