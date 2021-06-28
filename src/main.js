@@ -2,11 +2,9 @@ import data from './data/athletes/athletes.js'
 import {
   getAthletes,
   getAthletesByName,
-  getTeams,
-  getSports,
-  ordenation
+  getElement,
+  sortBy 
 } from './data.js';
-
 
 const containerHome = document.getElementById("best-athletes-container");
 const cardsElement = document.getElementById("containerCards");
@@ -39,9 +37,8 @@ const printAthletes = (athletesList) => {
             <b>Altura:</b> ${athlete.height} cm
             <b>Peso:</b> ${athlete.weight} kg</br>
             <b>Esporte:</b> ${athlete.sport}</br>
-            <b>Modalidade:</b> ${athlete.event}</br>
-            <b>Medalha:</b> ${athlete.medal}</p>
-            
+            <b>Modalidade:</b> ${athlete.events.join(', ')}</br>
+            <b>Medalha:</b> ${athlete.medal}</p> 
         </div>
     </div>`;
   });
@@ -50,15 +47,15 @@ const printAthletes = (athletesList) => {
 const printTeams = (listTeams) => {
   clean()
   containerHome.innerHTML = " PENSAR ALGO LEGAL PARA COLOCAR AQUI"
-  listTeams.forEach(AthleteTeam => {
+  listTeams.forEach(athleteTeam => {
     cardsElement.innerHTML += ` <div class="containerCards">
         <div class="topCardTwo">
-        <h2 class="titleTwo">${AthleteTeam}</h2>
+        <h2 class="titleTwo">${athleteTeam}</h2>
     
         </div>
         <div class="mediaCardTwo"></div>
         <div class="bottomCardTwo"></div>
-</div>`;;
+</div>`;
   });
 }
 
@@ -72,7 +69,7 @@ const printSports = (sortedListSport) => {
         </div>
         <div class="mediaCardTwo"></div>
         <div class="bottomCardTwo"></div>
-</div>`;;
+</div>`;
   });
 }
 
@@ -82,7 +79,7 @@ homeButton.addEventListener("click", () => {
 
 athletesButton.addEventListener("click", () => {
   clean()
-  const athletesList = getAthletes(data.athletes)
+  const athletesList = getAthletes(data.athletes);
   printAthletes(athletesList);
 });
 
@@ -94,7 +91,7 @@ btnSearch.addEventListener("click", () => {
 
 btnTeam.addEventListener("click", () => {
   clean()
-  const listTeams = getTeams(data.athletes);
+  const listTeams = getElement(data.athletes, "team");
   printTeams(listTeams);
 });
 
@@ -102,15 +99,15 @@ btnTeamsWithSort.forEach(btn => {
 btn.addEventListener("click", event => {
   clean()
   const sortDirection = event.target.getAttribute('data-direction');
-  const listTeams = getTeams(data.athletes);
-  const sortedListTeams = ordenation(listTeams, sortDirection);
+  const listTeams = getElement(data.athletes, "team");
+  const sortedListTeams = sortBy(listTeams, sortDirection);
   printSports(sortedListTeams);
 })
 });
 
 btnSports.addEventListener("click", () => {
     clean()
-    const listSports = getSports(data.athletes);
+    const listSports = getElement(data.athletes, "sport");
     printSports(listSports);
 });
 
@@ -118,8 +115,8 @@ btnSportsWithSort.forEach(btn => {
   btn.addEventListener("click", event => {
     clean()
     const sortDirection = event.target.getAttribute('data-direction');
-    const listSports = getSports(data.athletes);
-    const sortedListSport = ordenation(listSports, sortDirection);
+    const listSports = getElement(data.athletes, "sport");
+    const sortedListSport = sortBy(listSports, sortDirection);
     printSports(sortedListSport);
   })
 });
