@@ -7,6 +7,7 @@ import {
 } from './data.js';
 
 const containerHome = document.getElementById("best-athletes-container");
+const containerHomeTwo = document.getElementById("container-home-1");
 const cardsElement = document.getElementById("containerCards");
 const homeButton = document.getElementById("homePage");
 const athletesButton = document.getElementById("athl");
@@ -20,6 +21,7 @@ const btnSportsWithSort = document.querySelectorAll('.btn-sport');
 const clean = () => {
   containerHome.innerHTML = "";
   cardsElement.innerHTML = "";
+  containerHomeTwo.innerHTML = "";
 }
 
 const printAthletes = (athletesList) => {
