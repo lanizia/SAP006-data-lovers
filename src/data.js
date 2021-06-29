@@ -1,29 +1,40 @@
-export const getAthletes = (athletesList) => athletesList.slice(0, 9);
+export const groupedAthletes = athletesList => {
+  const indexed = athletesList.reduce((grouped, athlete) => {
+    if(grouped[athlete.name]) {
+      grouped[athlete.name].events.push(athlete.event);
+    } else {
+      grouped[athlete.name] = {...athlete};
+      grouped[athlete.name].events = [athlete.event];
+      delete grouped[athlete.name].event;
+    }
+    return grouped;
+  }, {});
+  return Object.values(indexed);
+}
+
+export const getAthletes = athletesList => {
+  const agrupados = groupedAthletes(athletesList)
+  return agrupados.slice(0, 30);
+}
 
 export const getAthletesByName = (athletesList, athleteName) => {
   const lowerCaseName = athleteName.toLowerCase();
-  return athletesList.filter(athlete => athlete.name.toLowerCase().startsWith(lowerCaseName)).slice(0, 9);
+  const agrupados = groupedAthletes(athletesList)
+  return agrupados.filter(athlete => athlete.name.toLowerCase().startsWith(lowerCaseName));
 }
 
-export const getTeams = (athletesList) => {
-  const teamOfAthletes = athletesList.map(atleta => atleta.team)
-  const teamNewList = [...new Set(teamOfAthletes)];
-  return teamNewList;
+export const getElement = (athletesList, element) => {
+  const elementOfAthletes = athletesList.map(athlete => athlete[element])
+  return [...new Set(elementOfAthletes)];
 }
 
-export const getSports = (athletesList) => {
-  const sportsOfAthletes = athletesList.map(atleta => atleta.sport)
-  const sportsNewList = [...new Set(sportsOfAthletes)];
-  return sportsNewList;
-}
-
-export const ordenation = (list, direction) => {
-  const sorted = list.sort((a, z) => {
-    if (direction === 'desc') {
-      return z.localeCompare(a);
+export const sortBy = (list, direction) => {
+  return list.sort((a, b) => {
+    if (direction === "desc") {
+      return b.localeCompare(a);
     } else {
-      return a.localeCompare(z);
+      return a.localeCompare(b);
     }
-  })
-  return sorted;
+  }) 
 }
+
