@@ -296,9 +296,10 @@ nav:after {
     background: #fff;
     border-radius: 20px;
     box-shadow: 0px 2px 23px rgba(9, 11, 31, 0.329);
+    width: 267px;
 }
 
-.flip-card {
+/* .flip-card {
     background-color: transparent;
     width: 300px;
     height: 300px;
@@ -338,7 +339,7 @@ nav:after {
   .flip-card-back h1, p {
     color: white;
     padding: 50px;
-  }
+  } */
   
 .mediaCard {
     background: url("https://image.freepik.com/vetores-gratis/icone-olimpiadas-rio_1057-1461.jpg") center/cover;

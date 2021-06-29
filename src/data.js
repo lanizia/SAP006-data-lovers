@@ -13,14 +13,14 @@ export const groupedAthletes = athletesList => {
 }
 
 export const getAthletes = athletesList => {
-  const agrupados = groupedAthletes(athletesList)
-  return agrupados.slice(0, 30);
+  const  grouped = groupedAthletes(athletesList)
+  return  grouped.slice(0, 30);
 }
 
 export const getAthletesByName = (athletesList, athleteName) => {
   const lowerCaseName = athleteName.toLowerCase();
-  const agrupados = groupedAthletes(athletesList)
-  return agrupados.filter(athlete => athlete.name.toLowerCase().startsWith(lowerCaseName));
+  const  grouped = groupedAthletes(athletesList)
+  return  grouped.filter(athlete => athlete.name.toLowerCase().startsWith(lowerCaseName));
 }
 
 export const getElement = (athletesList, element) => {
