@@ -6,13 +6,14 @@ import {
   sortBy 
 } from './data.js';
 
+const sectionText = document.getElementById("texto-olimpiadas");
+const containerHomeCards = document.getElementById ("container-home-1")
 const containerHome = document.getElementById("best-athletes-container");
-const containerHomeTwo = document.getElementById("container-home-1");
 const cardsElement = document.getElementById("containerCards");
 const homeButton = document.getElementById("homePage");
 const athletesButton = document.getElementById("athl");
-const btnSearch = document.getElementById("searchAthlete");
 const athleteName = document.getElementById("athlete");
+const btnSearch = document.getElementById("searchAthlete");
 const btnTeam = document.getElementById("team");
 const btnTeamsWithSort = document.querySelectorAll('.btn-team');
 const btnSports = document.getElementById("sports");
@@ -21,12 +22,12 @@ const btnSportsWithSort = document.querySelectorAll('.btn-sport');
 const clean = () => {
   containerHome.innerHTML = "";
   cardsElement.innerHTML = "";
-  containerHomeTwo.innerHTML = "";
+  sectionText.innerHTML = "";
+  containerHomeCards.innerHTML = "";
 }
 
 const printAthletes = (athletesList) => {
   clean()
-  containerHome.innerHTML = " PENSAR ALGO LEGAL PARA COLOCAR AQUI"
   athletesList.forEach(athlete => {
     cardsElement.innerHTML += `<div class="containerCards">
         <div class="topCard">
@@ -48,7 +49,6 @@ const printAthletes = (athletesList) => {
 
 const printTeams = (listTeams) => {
   clean()
-  containerHome.innerHTML = " PENSAR ALGO LEGAL PARA COLOCAR AQUI"
   listTeams.forEach(athleteTeam => {
     cardsElement.innerHTML += ` <div class="containerCards">
         <div class="topCardTwo">
@@ -63,7 +63,6 @@ const printTeams = (listTeams) => {
 
 const printSports = (sortedListSport) => {
   clean()
-  containerHome.innerHTML = " PENSAR ALGO LEGAL PARA COLOCAR AQUI"
   sortedListSport.forEach(sportName => {
     cardsElement.innerHTML += `<div class="containerCards">
     <div class="topCardTwo">

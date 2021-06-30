@@ -26,6 +26,8 @@ a {
     font-size: 17px;
 }
 
+/* verificar o css dessa parte */
+
 .container1 {
     max-width: 1920px;
     width: 100%;
@@ -55,7 +57,7 @@ nav:after {
     clear: both;
     content: "";
     display: block;
-} /* vai fazer todos os elementos depois do nav se comportarem normalmente, como se os elementos dela não estivessem floating */
+}
 
 #logo {
     width: 127px;
@@ -115,29 +117,28 @@ nav:after {
 #main-banner {
     background: url(imagens/backgroundcheguei.jpg) no-repeat;
     background-size: cover;
-    background-position: 0 55%;
+    background-position: 0 50%;
     position: relative;
-    margin-top: -23px;
-}
-#search-form {
-    position: relative;
-    width: 80%;
-    margin-left: auto;
-    margin-right: auto;
-    padding-top: 15em;
-    padding-bottom: 15em;
-    text-align: center;
+    padding: 20%
 }
 
-#search-form h1 {
-    font-size: 40px;
+.texto-introducao p {
+    padding: 15px;
 }
 
-#search-form p {
-    margin-top: 30px;
-    margin-bottom: 60px;
-    font-size: 25px;
-    font-weight: 300;
+.texto-introducao h1 {
+    font-family: 'Rio2016';
+    font-size: 50px;
+    text-align: center;  
+    font-weight: 500 bold;
+    color: rgb(38, 69, 156);
+    padding: 30px;
+}
+.texto-introducao{
+    text-align: justify;
+    line-height: 30px;
+    /* padding: 30px; */
+    margin-inline: 80px;
 }
 
  #athlete {
@@ -168,7 +169,7 @@ nav:after {
 
 #best-athletes-container {
     text-align: center;
-    padding: 100px 0;
+    padding-top: 2%;
 }
 
 .wrapper {
