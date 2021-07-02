@@ -50,13 +50,24 @@ const printAthletes = (athletesList) => {
 const printTeams = (listTeams) => {
   clean()
   listTeams.forEach(athleteTeam => {
-    cardsElement.innerHTML += ` <div class="containerCards">
-        <div class="topCardTwo">
-        <h2 class="titleTwo">${athleteTeam}</h2>
-    
-        </div>
-        <div class="mediaCardTwo"></div>
-        <div class="bottomCardTwo"></div>
+    cardsElement.innerHTML += `<div class="containerCards">
+    <div class="flip">
+            <div class="front-card">
+                    <div class="topCardTwo">
+                    <h2 class="titleTwo">${athleteTeam}</h2>
+                    </div>
+                    <div class="mediaCardTwo"></div>
+                    <div class="bottomCardTwo"></div>
+            </div>
+
+            <div class="back-card">
+                <div class="topCardTwo">
+                    <h2 class="titleTwo">Mudou</h2>
+                    </div>
+                    <div class="mediaCardThree"></div>
+                    <div class="bottomCardTwo"></div>
+            </div>
+    </div>   
 </div>`;
   });
 }
@@ -65,12 +76,23 @@ const printSports = (sortedListSport) => {
   clean()
   sortedListSport.forEach(sportName => {
     cardsElement.innerHTML += `<div class="containerCards">
-    <div class="topCardTwo">
-        <h2 class="titleTwo">${sportName}</h2>
-    
-        </div>
-        <div class="mediaCardTwo"></div>
-        <div class="bottomCardTwo"></div>
+    <div class="flip">
+            <div class="front-card">
+                    <div class="topCardTwo">
+                    <h2 class="titleTwo">${sportName}</h2>
+                    </div>
+                    <div class="mediaCardTwo"></div>
+                    <div class="bottomCardTwo"></div>
+            </div>
+
+            <div class="back-card">
+                <div class="topCardTwo">
+                    <h2 class="titleTwo">Mudou</h2>
+                    </div>
+                    <div class="mediaCardThree"></div>
+                    <div class="bottomCardTwo"></div>
+            </div>
+    </div>   
 </div>`;
   });
 }
