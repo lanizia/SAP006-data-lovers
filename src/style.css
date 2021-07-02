@@ -1,285 +1,309 @@
 /*Fazendo um 'reset' para o estilo do navegador não afetar o que esta sendo feito nesse layout*/
 @font-face {
-    font-family:'Rio2016' ;
-    src: url('rio2016-light-regular.otf') format('opentype');
-    font-weight:bold;
-    font-style: normal;
+  font-family: 'Rio2016';
+  src: url('rio2016-light-regular.otf') format('opentype');
+  font-weight: bold;
+  font-style: normal;
 }
 
 html {
-    font-family: 'Open Sans', sans-serif;
+  font-family: 'Open Sans', sans-serif;
 }
 
 body {
-    margin: 0;
-    position: relative; /*para fixar o footer na pagina*/
-    padding-bottom: 160px;/*tamanho do footer add de padding*/
-    
+  margin: 0;
+  position: relative;
+  /*para fixar o footer na pagina*/
+  padding-bottom: 160px;
+  /*tamanho do footer add de padding*/
+
 }
 
-h1, h2, h3, h4, h5, p, span {
-    margin: 0;
-    color: rgb(7, 6, 6);
+h1,
+h2,
+h3,
+h4,
+h5,
+p,
+span {
+  margin: 0;
+  color: rgb(7, 6, 6);
 }
 
 a {
-    font-size: 17px;
+  font-size: 17px;
 }
 
-/* verificar o css dessa parte */
-
-.container1 {
-    max-width: 1920px;
-    width: 100%;
-}
-
-/*Header*/
 
 header {
-    position: relative; /* posição fixa, começa no topo da pagina*/
-    top: 0;
-    height: auto;
-    width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1;
+  background-color: #fff;
+  border-bottom: 1px solid #ccc;
+  font-size: 0;
+  height: 107px;
 }
 
-/* navbar*/
-
-nav { 
-    position: fixed;
-    top: 0;
-    width: 100%;
-    z-index: 1; /*pra sobresair independente em qual altura da pagina eu estiver*/
-    background-color: #fff;
-    border-bottom: 1px solid #ccc;
+header .logo,
+header nav,
+header .search {
+  vertical-align: top;
 }
 
-nav:after {
-    clear: both;
-    content: "";
-    display: block;
+header .logo {
+  display: inline-block;
+  width: 16%;
+  padding: 15px;
+  box-sizing: border-box;
 }
 
-#logo {
-    width: 127px;
-    height: 63px;
-    margin: 20px 45px;
+header .logo img {
+  width: 127px;
+  height: 63px;
 }
 
-.nav-container ul,.nav-container li, .nav-container li li a {
-    margin:0;
-    padding: 0;
-    border-radius: 10px;
+header nav {
+  display: inline-block;
+  width: 60%;
 }
 
-.nav-container ul{
-    display: inline-block;
-    margin: 18px;
-    position: relative;
-    vertical-align: top;
+header nav ul,
+header nav li,
+header nav li li a {
+  margin: 0;
+  padding: 0;
+  border-radius: 10px;
 }
 
-.nav-container li {
-    display: inline-flex;
-    list-style: none;
-    position: relative;
-    text-align: center;
+header nav ul {
+  display: inline-block;
+  margin: 18px 18px 0 18px;
+  position: relative;
+  vertical-align: top;
 }
 
-.nav-container li a {
-    text-decoration: none;
-    color: #666; 
-    padding: 25px;
+header nav li {
+  display: inline-flex;
+  list-style: none;
+  position: relative;
+  text-align: center;
 }
 
-.nav-container li li:hover a {
-    background-color: #7b7bfacc;    
+header nav li a {
+  text-decoration: none;
+  color: #666;
+  padding: 25px;
 }
 
-.nav-container li li a {
-    width: 157px;
-    padding: 15px;     
+header nav li li:hover a {
+  background-color: #7b7bfacc;
 }
 
-.nav-container ul ul {
-    position: absolute;
-    top: 50px;
-    left: 0;
-    display: none;
-    background: #ffff; 
+header nav li li a {
+  width: 157px;
+  padding: 15px;
 }
 
-.nav-container ul li:hover ul {
-    display: block;
-    background: #e3e3e3;
+header nav ul ul {
+  position: absolute;
+  top: 50px;
+  left: 0;
+  display: none;
+  background: #ffff;
+}
+
+header nav ul li:hover ul {
+  display: block;
+  background: #e3e3e3;
+}
+
+header .search {
+  display: inline-block;
+  width: 23%;
+  margin-top: 30px;
+}
+
+header .search input#athlete {
+  background-color: #fff;
+  border-radius: 5px;
+  border-color: rgba(0, 0, 0, 0.432);
+  padding: 10px;
+  font-size: 15px;
+  margin: 0 2% 0 0;
+  box-sizing: border-box;
+  width: 63%;
+}
+
+header .search input#searchAthlete {
+  border-radius: 5px;
+  border-color: transparent;
+  padding: 10px;
+  font-size: 11px;
+  font-weight: bold;
+  margin: 0;
+  background-color: hsl(216, 85%, 64%);
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: 0.5s;
+  box-sizing: border-box;
+  width: 35%;
+}
+
+header .search input#searchAthlete:hover {
+  background-color: #387be049;
 }
 
 /* banner */
 #main-banner {
-    background: url(imagens/backgroundcheguei.jpg) no-repeat;
-    background-size: cover;
-    background-position: 0 50%;
-    position: relative;
-    padding: 20%
+  background: url(imagens/backgroundcheguei.jpg) no-repeat;
+  background-size: cover;
+  background-position: 0 50%;
+  position: relative;
+  padding: 20%;
+  margin-top: 60px;
 }
-   
+
 .texto-introducao p {
-    padding: 15px;
+  padding: 15px;
 }
 
 .texto-introducao h1 {
-    font-family: 'Rio2016';
-    font-size: 50px;
-    text-align: center;  
-    font-weight: 500 bold;
-    color: rgb(38, 69, 156);
-    padding: 30px;
+  font-family: 'Rio2016';
+  font-size: 50px;
+  text-align: center;
+  font-weight: 500 bold;
+  color: rgb(38, 69, 156);
+  padding: 30px;
+  line-height: 60px;
 }
-.texto-introducao{
-    text-align: justify;
-    line-height: 30px;
-    /* padding: 30px; */
-    margin-inline: 80px;
+
+.texto-introducao {
+  text-align: justify;
+  line-height: 30px;
+  margin-inline: 80px;
 }
+
 .texto-introducao img {
-    padding: 15px;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    width: 790px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
 }
-
- #athlete {
-    background-color: #fff;
-    border-radius: 5px;
-    border-color: rgba(0, 0, 0, 0.432);
-    padding: 10px 20px;
-    font-size: 15px;
-    margin: 15px 10px;
-}
-
-.buttom {
-    border-radius: 5px;
-    border-color: transparent;
-    padding: 10px 20px;
-    font-size: 11px bold;
-    margin: 3px 10px;
-    background-color: hsl(216, 85%, 64%);
-    text-transform: uppercase;
-    cursor: poiter;
-    transition: 0.5s;
-}
-.buttom:hover {
-    background-color: #387be049;
-}  
 
 /* Seção dos 3 paises*/
 
 #best-athletes-container {
-    text-align: center;
-    padding-top: 2%;
+  text-align: center;
+  padding-top: 2%;
 }
 
 .wrapper {
-    max-width: 1200px;
-    position: relative;
-    margin-left: auto;
-    margin-right: auto;
+  max-width: 1200px;
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 #best-athletes-container h1 {
-    font-size: 36px;
-    margin-bottom: 50px;
+  font-size: 36px;
+  margin-bottom: 50px;
 }
 
 #best-athletes-container ul {
-    padding: 0;
-    border: 1px solid #CCC;
-    border-radius: 10px;
+  padding: 0;
+  border: 1px solid #CCC;
+  border-radius: 10px;
 }
 
 #best-athletes-container ul li {
-    list-style: none;
-    text-align:  left;
-    border-bottom: solid 1px #CCC ;
-    height: 80px;
-    position: relative;
+  list-style: none;
+  text-align: left;
+  border-bottom: solid 1px #CCC;
+  height: 80px;
+  position: relative;
 }
 
 #best-athletes-container ul li:last-child {
-    border: none;
+  border: none;
 }
 
 .clickarea {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
 }
 
 .country-box {
-    display: inline-block;
-    width: 60%;
-    position: relative;
-    padding-left: 1%;
+  display: inline-block;
+  width: 60%;
+  position: relative;
+  padding-left: 1%;
 }
 
 .country-box img {
-    width: 77px;
-    margin-top: 2.5px;
+  width: 77px;
+  margin-top: 2.5px;
 }
 
 .country-info {
-    display: inline-block;
-    margin-left: 50px;
-    margin-top: 10px;
-    text-align: left;
-    position: absolute;
+  display: inline-block;
+  margin-left: 50px;
+  margin-top: 10px;
+  text-align: left;
+  position: absolute;
 }
+
 .country-info h3 {
-    font-weight: 300;
-    margin-bottom: 10px;
+  font-weight: 300;
+  margin-bottom: 10px;
 }
 
 .country-info p {
-    font-weight: bold;
+  font-weight: bold;
 }
 
 .medal-type {
-   color: #6d6d6d;
-   display: inline-block;
-   width: 25%;
-   position: absolute;
-   height: 100%;
-   line-height: 80px;
+  color: #6d6d6d;
+  display: inline-block;
+  width: 25%;
+  position: absolute;
+  height: 100%;
+  line-height: 80px;
 }
-.medal-type i, .medal-type p {
-    display: inline-block;
+
+.medal-type i,
+.medal-type p {
+  display: inline-block;
 }
 
 .medal-type i {
-    margin-right: 5px;
+  margin-right: 5px;
 }
 
 .btncountry-container {
-    margin-top: 50px;
+  margin-top: 50px;
 }
- 
+
 .btn-country {
-    text-transform: uppercase;
-    background-color: #fff;
-    color: #3381f3;
-    border: 2px solid #3381f3;
-    border-radius: 5px;
-    text-decoration: none;
-    padding: 10px 20px;
-    font-weight: bold;
-    transition: 0.5s;
+  text-transform: uppercase;
+  background-color: #fff;
+  color: #3381f3;
+  border: 2px solid #3381f3;
+  border-radius: 5px;
+  text-decoration: none;
+  padding: 10px 20px;
+  font-weight: bold;
+  transition: 0.5s;
 }
 
 .btn-country:hover {
-    background-color: #3381F3;
-    color: #fff;
+  background-color: #3381F3;
+  color: #fff;
 }
 
 /* Cards */
@@ -287,25 +311,27 @@ nav:after {
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@1,500&display=swap');
 
 .content {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    align-content: center;
-    justify-content: space-around;
-    align-items: stretch;
-   /* justify-content: center;  Para centralizar no eixo x*/
-   /* align-items: center; /* Para centralizar no eixo y
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-content: center;
+  justify-content: space-around;
+  align-items: stretch;
+  /* justify-content: center;  Para centralizar no eixo x*/
+  /* align-items: center; /* Para centralizar no eixo y
    /*align-content: center;*/
-    width: 100%; /* width: largura height: altura*/
-    height: 100%;
-    font-family: 'Roboto', sans-serif;
-    gap: 20px;
+  width: 100%;
+  /* width: largura height: altura*/
+  height: 100%;
+  font-family: 'Roboto', sans-serif;
+  gap: 20px;
 }
-.containerCards{
-    background: #fff;
-    border-radius: 20px;
-    box-shadow: 0px 2px 23px rgba(9, 11, 31, 0.329);
-    width: 267px;
+
+.containerCards {
+  background: #fff;
+  border-radius: 20px;
+  box-shadow: 0px 2px 23px rgba(9, 11, 31, 0.329);
+  width: 267px;
 }
 
 /* .flip-card {
@@ -349,315 +375,387 @@ nav:after {
     color: white;
     padding: 50px;
   } */
-  
+
 .mediaCard {
-    background: url("https://image.freepik.com/vetores-gratis/icone-olimpiadas-rio_1057-1461.jpg") center/cover;
-    /* sempre chamar só o background, jogar a url e marcar center e cover pq não importa o tamanho da largura e altura a imagem vai preencher e centralizar*/
-    height: 215px;
-    width: 100%;
-} 
+  background: url("https://image.freepik.com/vetores-gratis/icone-olimpiadas-rio_1057-1461.jpg") center/cover;
+  /* sempre chamar só o background, jogar a url e marcar center e cover pq não importa o tamanho da largura e altura a imagem vai preencher e centralizar*/
+  height: 215px;
+  width: 100%;
+}
 
 .mediaCardTwo {
-    background: url(imagens/teste.png) center/cover;
-    height:215px;
-    width: 100%;
+  background: url(imagens/teste.png) center/cover;
+  height: 215px;
+  width: 100%;
 }
 
-.title  {
-    color: #2b3d59; /*Contraste da cor*/
-    margin-bottom: 5px;
-    
+.title {
+  color: #2b3d59;
+  /*Contraste da cor*/
+  margin-bottom: 5px;
+
 }
 
-.titleTwo  {
-    color: #ffffff; /*Contraste da cor*/
-    margin-bottom: 5px;
-    text-align: center;
+.titleTwo {
+  color: #ffffff;
+  /*Contraste da cor*/
+  margin-bottom: 5px;
+  text-align: center;
 }
 
-.secondText  {
-    color: #828fa1;
-    text-align: center;
+.secondText {
+  color: #828fa1;
+  text-align: center;
 }
 
 .bottomText {
-    color: #445b73;
-    inline-size: 153px;
+  color: #445b73;
+  inline-size: 153px;
 
 }
 
 .topCard {
-    padding: 15px;
-    background: linear-gradient(to top, #ffcb05, #fdfca5);
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
-} 
+  padding: 15px;
+  background: linear-gradient(to top, #ffcb05, #fdfca5);
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
 
 .topCardTwo {
-    padding: 30px;
-    background: linear-gradient(to right, #082bf3, #39d4df);
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
+  padding: 30px;
+  background: linear-gradient(to right, #082bf3, #39d4df);
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
 }
 
 .bottomCard {
-    padding: 10px;
-    max-height: max-content;
-    background: linear-gradient(to bottom, #ffcb05, #fff);
-    border-bottom-left-radius: 10px;
-    border-bottom-right-radius: 10px; 
+  padding: 10px;
+  max-height: max-content;
+  background: linear-gradient(to bottom, #ffcb05, #fff);
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
 }
 
 .bottomCardTwo {
-    padding: 20px;
-    max-height: max-content;
+  padding: 20px;
+  max-height: max-content;
 }
 
-.containerCards:hover{  
-     transform: scale(1.05);
-     box-shadow: 0 0 40px -10px rgba(0, 0, 0, 0.25);   
+.containerCards:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 40px -10px rgba(0, 0, 0, 0.25);
 }
 
 
 /*Footer*/
 
-.footer #button{
-    width:35px;
-    height:35px;
-    border: #f8e806 12px solid;
-    border-radius:35px;
-    margin:0 auto;
-    position: relative;
-    -webkit-transition: all 1s ease;
-      -moz-transition: all 1s ease;
-      -o-transition: all 1s ease;
-      -ms-transition: all 1s ease;
-      transition: all 1s ease;
-  }
-  .footer #button:hover{
-    width:35px;
-    height:35px;
-    border: #f5c800 12px solid;
-    -webkit-transition: all 1s ease;
-      -moz-transition: all 1s ease;
-      -o-transition: all 1s ease;
-      -ms-transition: all 1s ease;
-      transition: all 1s ease;
-    position:relative;
-  }
-  .footer {
-    bottom:0;
-    left:0;
-    position:absolute; /*para fixar o footer*/
-      width: 100%;
-      height: 2em;
-      overflow:hidden;
-      margin:0 auto;
-    -webkit-transition: all 1s ease;
-      -moz-transition: all 1s ease;
-      -o-transition: all 1s ease;
-      -ms-transition: all 1s ease;
-      transition: all 1s ease;
-    z-index:999;
-  }
-  .footer:hover {
-    -webkit-transition: all 1s ease;
-      -moz-transition: all 1s ease;
-      -o-transition: all 1s ease;
-      -ms-transition: all 1s ease;
-      transition: all 1s ease;
-    height: 10em;
-  }
-  .footer #container{
-    margin-top:5px;
-    width:100%;
-    height:100%;
-    position:relative;
-    top:0;
-    left:0;
-    background: linear-gradient(to right, #4bf308ad, #115e0e9a);
-  }
-  .footer #cont{
-    position:relative;
-    top:-45px;
-    right:190px;
-    width:150px;
-    height:auto;
-    margin:0 auto;
-  }
-  .footer_center{
-    width:500px;
-    float:left;
-    text-align:center;
-  }
+.footer #button {
+  width: 35px;
+  height: 35px;
+  border: #f8e806 12px solid;
+  border-radius: 35px;
+  margin: 0 auto;
+  position: relative;
+  -webkit-transition: all 1s ease;
+  -moz-transition: all 1s ease;
+  -o-transition: all 1s ease;
+  -ms-transition: all 1s ease;
+  transition: all 1s ease;
+}
 
-  
-  .footer h3{
-    font-family: 'Rio2016';
-    font-size: 50px;
-    font-weight: 500 bold;
-    color: #f1f1f1;
-    margin-top:70px;
-    margin-left:40px;
-  }
+.footer #button:hover {
+  width: 35px;
+  height: 35px;
+  border: #f5c800 12px solid;
+  -webkit-transition: all 1s ease;
+  -moz-transition: all 1s ease;
+  -o-transition: all 1s ease;
+  -ms-transition: all 1s ease;
+  transition: all 1s ease;
+  position: relative;
+}
 
- /*Infos sobre as olimpíadas*/
+.footer {
+  bottom: 0;
+  left: 0;
+  position: absolute;
+  /*para fixar o footer*/
+  width: 100%;
+  height: 2em;
+  overflow: hidden;
+  margin: 0 auto;
+  -webkit-transition: all 1s ease;
+  -moz-transition: all 1s ease;
+  -o-transition: all 1s ease;
+  -ms-transition: all 1s ease;
+  transition: all 1s ease;
+  z-index: 999;
+}
 
- .container-flex-home{
-    display:flex;
-    padding:10px;
-    margin: 0 auto;
-    /*background-color:rgb(254, 255, 247);
+.footer:hover {
+  -webkit-transition: all 1s ease;
+  -moz-transition: all 1s ease;
+  -o-transition: all 1s ease;
+  -ms-transition: all 1s ease;
+  transition: all 1s ease;
+  height: 10em;
+}
+
+.footer #container {
+  margin-top: 5px;
+  width: 100%;
+  height: 100%;
+  position: relative;
+  top: 0;
+  left: 0;
+  background: linear-gradient(to right, #4bf308ad, #115e0e9a);
+}
+
+.footer #cont {
+  position: relative;
+  top: -45px;
+  right: 190px;
+  width: 150px;
+  height: auto;
+  margin: 0 auto;
+}
+
+.footer_center {
+  width: 500px;
+  float: left;
+  text-align: center;
+}
+
+
+.footer h3 {
+  font-family: 'Rio2016';
+  font-size: 50px;
+  font-weight: 500 bold;
+  color: #f1f1f1;
+  margin-top: 70px;
+  margin-left: 40px;
+}
+
+/*Infos sobre as olimpíadas*/
+
+.container-flex-home {
+  display: flex;
+  padding: 10px;
+  margin: 0 auto;
+  /*background-color:rgb(254, 255, 247);
     background-image: linear-gradient(to bottom,  rgba(33, 88, 56, 0.986), rgba(108, 250, 155, 0.986));*/
-    justify-content: space-around;
-    flex-wrap:wrap;
-    font-family: arial;
-    width: 85%;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  font-family: arial;
+  width: 85%;
 
+
+}
+
+.container-info .card-info {
+  position: relative;
+}
+
+.container-info .card-info .face {
+  width: 300px;
+  height: 200px;
+  transition: .4s;
+
+}
+
+.container-info .card-info .face.face1 {
+  position: relative;
+  background: #333;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+  z-index: 1;
+  transform: translateY(100px);
+}
+
+.container-info .card-info:hover .face.face1 {
+  transform: translateY(0);
+  box-shadow:
+    inset 0 0 60px whitesmoke,
+    inset 20px 0 80px rgb(255, 251, 0),
+    inset -20px 0 80px #0ff,
+    inset 20px 0 300px rgb(255, 251, 0),
+    inset -20px 0 300px #0ff,
+    0 0 50px #fff,
+    -10px 0 80px rgb(255, 217, 0),
+    10px 0 80px #0ff;
+
+}
+
+
+.container-info .card-info .face.face1 .content-info {
+  opacity: .2;
+  transition: 0.5s;
+  text-align: center;
+
+}
+
+.container-info .card-info:hover .face.face1 .content-info {
+  opacity: 1;
+
+}
+
+.container-info .card-info .face.face1 .content-info img {
+
+  color: white;
+  display: inline-block;
+  width: 300px;
+  height: 200px;
+}
+
+.container-info .card-info .face.face1 .content-info h3 {
+  font-size: 1em;
+  color: white;
+  text-align: center;
+
+
+}
+
+.container-info .card-info .face.face2 {
+  position: relative;
+  background: whitesmoke;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  box-sizing: border-box;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, .8);
+  transform: translateY(-100px);
+}
+
+.container-info .card-info:hover .face.face2 {
+  transform: translateY(0);
+
+
+}
+
+.container-info .card-info .face.face2 .content-info p {
+  font-size: 11pt;
+  margin: 0;
+  padding: 0;
+  color: rgb(51, 51, 51);
+}
+
+.container-info .card-info .face.face2 .content-info h3 {
+  font-family: 'Rio2016';
+  font-size: 24pt;
+  width: 100px;
+  text-decoration: none;
+  color: black;
+  box-sizing: border-box;
+  padding: 8px;
+  margin: 10px 0 0;
+  display: inline-block;
+  text-align: center;
+
+}
+
+/*Responsive*/
+
+@media screen and (max-width: 1024px) {
+
+  #best-athletes-container,
+  .wrapper {
+    max-width: 960px;
+    padding-left: 2em;
+    padding-right: 2em;
   }
-  
-  .container-info .card-info{
-    position: relative;
+}
+
+@media screen and (max-width: 768px) {
+
+  #best-athletes-container,
+  .wrapper {
+    max-width: 700px;
+    padding-left: 2em;
+    padding-right: 2em;
   }
-  
-  .container-info .card-info .face{
-    width: 300px;
-    height: 200px;
-    transition:.4s;
-   
-  }
-  
-  .container-info .card-info .face.face1{
-    position: relative;
-    background: #333;
-    display: flex;
-    justify-content: center;
-    align-content:center;
-    align-items: center;
-    z-index: 1;
-    transform: translateY(100px);
-  }
-  
-  .container-info .card-info:hover .face.face1{
-    transform: translateY(0);
-    box-shadow:
-      inset 0 0 60px whitesmoke,
-      inset 20px 0 80px rgb(255, 251, 0),
-      inset -20px 0 80px #0ff,
-      inset 20px 0 300px rgb(255, 251, 0),
-      inset -20px 0 300px #0ff,
-      0 0 50px #fff,
-      -10px 0 80px rgb(255, 217, 0),
-      10px 0 80px #0ff;
-     
-  }
-  
-  
-  .container-info .card-info .face.face1 .content-info{
-    opacity: .2;
-    transition:  0.5s;
-    text-align: center;
-    
+}
+
+
+@media screen and (max-width: 1024px) {
+  header {
+    height: 150px;
   }
 
-  .container-info .card-info:hover .face.face1 .content-info{
-    opacity: 1;
-   
-  }
- 
- .container-info .card-info .face.face1 .content-info img{
-    
-    color: white;
-    display: inline-block;
-     width: 300px;
-    height: 200px;
-  } 
-  
-  .container-info .card-info .face.face1 .content-info h3{
-    font-size: 1em;
-    color: white;
-    text-align: center;
-    
-  
-  }
-   
-  .container-info .card-info .face.face2{
-     position: relative;
-     background: whitesmoke;
-     display: flex;
-     align-items: center;
-     justify-content: center;
-     padding: 20px;
-    box-sizing: border-box;
-    box-shadow: 0 20px 50px rgba(0,0,0,.8);
-    transform: translateY(-100px);
-  }
-  
-  .container-info .card-info:hover .face.face2{
-      transform: translateY(0);
-  
-  
-  }
-  
-  .container-info .card-info .face.face2 .content-info p{
-    font-size: 11pt;
-    margin: 0 ;
-    padding: 0;
-    color:rgb(51, 51, 51);
-  }
-  
-  .container-info .card-info .face.face2 .content-info h3{
-    font-family: 'Rio2016';
-    font-size: 24pt;
-    width: 100px;
-    text-decoration:none;
-    color: black;
-    box-sizing: border-box;
-    padding: 8px;
-    margin: 10px 0 0;
-    display: inline-block;
-    text-align: center;
-    
+  header .logo {
+    width: 16%;
   }
 
-  /*Responsive*/
+  header nav {
+    width: 84%;
+  }
 
-  @media screen and (max-width: 1024px) {
-      #logo {
-          position: absolute;
-          left: 50px;
-      }
-      .nav-container ul {
-         width: 115%;
-         text-align: center;
-         padding: 0;
-      }
-      
-      .nav-container ul li {
-          position: relative;
-          margin-left: auto;
-          margin-right: auto;
-          
-          display: inline-block;
-          margin: 0 10px;
-      }
+  header .search {
+    display: block;
+    margin-top: 0;
+    margin-left: 58%;
+    width: 40%
+  }
 
-      #best-athletes-container, .wrapper  {
-          max-width: 960px;
-          padding-left: 2em;
-          padding-right: 2em;
-      } 
-      
-  } 
+  #main-banner {
+    margin-top: 100px;
+  }
+}
 
-  @media screen and (max-width: 768px) {
-      
-    #best-athletes-container, .wrapper  {
-        max-width: 700px;
-        padding-left: 2em;
-        padding-right: 2em;
-    } 
-    .container-flex-home {
-        width: 30.4%;
+@media screen and (max-width:768px) {
+    header {
+      height: auto;
+      position: relative;
     }
+  
+    header .logo {
+      width: 100%;
+      text-align: center;
+      display: block;
+    }
+  
+    header nav {
+      width: 100%;
+      text-align: center;
+      display: block;
+    }
+
+    header nav li a {
+        padding:0;
+        display: block;
+    }
+
+    header nav ul li {
+        display: block;
+        position: relative;
+    }
+
+    header nav ul ul {
+        display: block;
+        position: relative;
+        top:0;
+        left: 0;
+        margin: 20px 0 0 0;
+    }
+
+    header nav li li a {
+        padding: 0;
+    }
+
+    header nav li {
+        margin-bottom: 20px;
+    }
+  
+    header .search {
+      margin-top: 0;
+      margin-left: 10%;
+      margin-bottom: 15px;
+      width: 80%
+    }
+
+    #main-banner {
+        margin-top: 0;
+      }
   }
