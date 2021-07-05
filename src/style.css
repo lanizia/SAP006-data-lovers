@@ -1,4 +1,3 @@
-/*Fazendo um 'reset' para o estilo do navegador não afetar o que esta sendo feito nesse layout*/
 @font-face {
   font-family: 'Rio2016';
   src: url('rio2016-light-regular.otf') format('opentype');
@@ -13,10 +12,7 @@ html {
 body {
   margin: 0;
   position: relative;
-  /*para fixar o footer na pagina*/
   padding-bottom: 160px;
-  /*tamanho do footer add de padding*/
-
 }
 
 h1,
@@ -33,7 +29,6 @@ span {
 a {
   font-size: 17px;
 }
-
 
 header {
   position: fixed;
@@ -166,6 +161,12 @@ header .search input#searchAthlete:hover {
   margin-top: 60px;
 }
 
+.texto-introducao {
+  text-align: justify;
+  line-height: 30px;
+  margin-inline: 80px;
+}
+
 .texto-introducao p {
   padding: 15px;
 }
@@ -180,12 +181,6 @@ header .search input#searchAthlete:hover {
   line-height: 60px;
 }
 
-.texto-introducao {
-  text-align: justify;
-  line-height: 30px;
-  margin-inline: 80px;
-}
-
 .texto-introducao img {
   display: block;
   margin-left: auto;
@@ -196,116 +191,45 @@ header .search input#searchAthlete:hover {
 
 /* Seção dos 3 paises*/
 
-#best-athletes-container {
-  text-align: center;
-  padding-top: 2%;
-}
-
 .wrapper {
-  max-width: 1200px;
-  position: relative;
-  margin-left: auto;
-  margin-right: auto;
+  text-align: center;
+  font-size: 18px;
+  margin: 0 auto;
+  max-width: 800px;
+}
+.wrapper h1 {
+  padding: 50px;
 }
 
-#best-athletes-container h1 {
-  font-size: 36px;
-  margin-bottom: 50px;
-}
-
-#best-athletes-container ul {
-  padding: 0;
+.wrapper ul {
   border: 1px solid #CCC;
   border-radius: 10px;
 }
 
-#best-athletes-container ul li {
-  list-style: none;
-  text-align: left;
-  border-bottom: solid 1px #CCC;
-  height: 80px;
-  position: relative;
-}
-
-#best-athletes-container ul li:last-child {
-  border: none;
-}
-
-.clickarea {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-}
-
 .country-box {
-  display: inline-block;
-  width: 60%;
-  position: relative;
-  padding-left: 1%;
+  display: flex;
+  list-style: none;
+  border-bottom: solid 1px #CCC;
 }
+
+.country-box .img-column {
+ flex: 1;
+}
+
+.country-box .text-column {
+  flex: 7;
+  padding: 10px;
+ }
 
 .country-box img {
-  width: 77px;
-  margin-top: 2.5px;
+  width: 65px;
+  height: 65px;
+  padding: 10px;
 }
 
-.country-info {
-  display: inline-block;
-  margin-left: 50px;
-  margin-top: 10px;
-  text-align: left;
-  position: absolute;
-}
-
-.country-info h3 {
-  font-weight: 300;
-  margin-bottom: 10px;
-}
-
-.country-info p {
-  font-weight: bold;
-}
-
-.medal-type {
-  color: #6d6d6d;
-  display: inline-block;
-  width: 25%;
-  position: absolute;
-  height: 100%;
-  line-height: 80px;
-}
-
-.medal-type i,
-.medal-type p {
-  display: inline-block;
-}
-
-.medal-type i {
-  margin-right: 5px;
-}
-
-.btncountry-container {
-  margin-top: 50px;
-}
-
-.btn-country {
-  text-transform: uppercase;
-  background-color: #fff;
-  color: #3381f3;
-  border: 2px solid #3381f3;
-  border-radius: 5px;
-  text-decoration: none;
-  padding: 10px 20px;
-  font-weight: bold;
-  transition: 0.5s;
-}
-
-.btn-country:hover {
-  background-color: #3381F3;
-  color: #fff;
-}
+.country-box .text-column p {
+  margin-top: 10px
+} 
 
 /* Cards */
 
@@ -331,12 +255,9 @@ header .search input#searchAthlete:hover {
     position: relative;/*elemento novo aqui*/
     height: 342px;/*elemento novo aqui*/
     width: 267px; /*elemento novo aqui*/
-    perspective: 1000px;
-     
+    perspective: 1000px;   
 }
 
-
-  
 .mediaCard {
   background: url("https://image.freepik.com/vetores-gratis/icone-olimpiadas-rio_1057-1461.jpg") center/cover;
   /* sempre chamar só o background, jogar a url e marcar center e cover pq não importa o tamanho da largura e altura a imagem vai preencher e centralizar*/
@@ -358,8 +279,7 @@ header .search input#searchAthlete:hover {
 
 .title  {
     color: #2b3d59; /*Contraste da cor*/
-    margin-bottom: 5px;
-    
+    margin-bottom: 5px;  
 }
 
 .titleTwo {
@@ -377,7 +297,6 @@ header .search input#searchAthlete:hover {
 .bottomText {
   color: #445b73;
   inline-size: 153px;
-
 }
 
 .topCard {
@@ -431,7 +350,6 @@ header .search input#searchAthlete:hover {
      transform: scale(1.05);
      box-shadow: 0 0 40px -10px rgba(0, 0, 0, 0.25);   
 } precisa alterar pra ter houver só nos cards atletas*/
-
 
 /*Footer*/
 
@@ -512,7 +430,6 @@ header .search input#searchAthlete:hover {
   text-align: center;
 }
 
-
 .footer h3 {
   font-family: 'Rio2016';
   font-size: 50px;
@@ -528,14 +445,10 @@ header .search input#searchAthlete:hover {
   display: flex;
   padding: 10px;
   margin: 0 auto;
-  /*background-color:rgb(254, 255, 247);
-    background-image: linear-gradient(to bottom,  rgba(33, 88, 56, 0.986), rgba(108, 250, 155, 0.986));*/
   justify-content: space-around;
   flex-wrap: wrap;
   font-family: arial;
   width: 85%;
-
-
 }
 
 .container-info .card-info {
@@ -546,7 +459,6 @@ header .search input#searchAthlete:hover {
   width: 300px;
   height: 200px;
   transition: .4s;
-
 }
 
 .container-info .card-info .face.face1 {
@@ -571,24 +483,19 @@ header .search input#searchAthlete:hover {
     0 0 50px #fff,
     -10px 0 80px rgb(255, 217, 0),
     10px 0 80px #0ff;
-
 }
-
 
 .container-info .card-info .face.face1 .content-info {
   opacity: .2;
   transition: 0.5s;
   text-align: center;
-
 }
 
 .container-info .card-info:hover .face.face1 .content-info {
   opacity: 1;
-
 }
 
 .container-info .card-info .face.face1 .content-info img {
-
   color: white;
   display: inline-block;
   width: 300px;
@@ -599,8 +506,6 @@ header .search input#searchAthlete:hover {
   font-size: 1em;
   color: white;
   text-align: center;
-
-
 }
 
 .container-info .card-info .face.face2 {
@@ -617,8 +522,6 @@ header .search input#searchAthlete:hover {
 
 .container-info .card-info:hover .face.face2 {
   transform: translateY(0);
-
-
 }
 
 .container-info .card-info .face.face2 .content-info p {
@@ -639,31 +542,9 @@ header .search input#searchAthlete:hover {
   margin: 10px 0 0;
   display: inline-block;
   text-align: center;
-
 }
 
 /*Responsive*/
-
-@media screen and (max-width: 1024px) {
-
-  #best-athletes-container,
-  .wrapper {
-    max-width: 960px;
-    padding-left: 2em;
-    padding-right: 2em;
-  }
-}
-
-@media screen and (max-width: 768px) {
-
-  #best-athletes-container,
-  .wrapper {
-    max-width: 700px;
-    padding-left: 2em;
-    padding-right: 2em;
-  }
-}
-
 
 @media screen and (max-width: 1024px) {
   header {
@@ -688,6 +569,7 @@ header .search input#searchAthlete:hover {
   #main-banner {
     margin-top: 100px;
   }
+
 }
 
 @media screen and (max-width:768px) {
@@ -744,4 +626,6 @@ header .search input#searchAthlete:hover {
     #main-banner {
         margin-top: 0;
       }
-  }
+
+}
+
