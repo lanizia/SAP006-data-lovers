@@ -249,7 +249,7 @@ header .search input#searchAthlete:hover {
   /* width: largura height: altura*/
   height: 100%;
   font-family: 'Roboto', sans-serif;
-  gap: 20px;
+  row-gap: 200px; /*era 20px antes*/
 }
 .containerCards{
     position: relative;/*elemento novo aqui*/
@@ -257,7 +257,7 @@ header .search input#searchAthlete:hover {
     width: 267px; /*elemento novo aqui*/
     perspective: 1000px;   
 }
-
+  
 .mediaCard {
   background: url("https://image.freepik.com/vetores-gratis/icone-olimpiadas-rio_1057-1461.jpg") center/cover;
   /* sempre chamar só o background, jogar a url e marcar center e cover pq não importa o tamanho da largura e altura a imagem vai preencher e centralizar*/
@@ -315,6 +315,7 @@ header .search input#searchAthlete:hover {
 
 .bottomCard {
   padding: 10px;
+  /*margin-bottom: 50px;*/
   max-height: max-content;
   background: linear-gradient(to bottom, #ffcb05, #fff);
   border-bottom-left-radius: 10px;

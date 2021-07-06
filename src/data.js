@@ -14,7 +14,7 @@ export const groupedAthletes = athletesList => {
 
 export const getAthletes = athletesList => {
   const  grouped = groupedAthletes(athletesList);
-  return  grouped.slice(0, 30);
+  return  grouped.slice(30, 60);
 }
 
 export const getAthletesByName = (athletesList, athleteName) => {
