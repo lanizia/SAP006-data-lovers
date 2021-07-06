@@ -98,7 +98,7 @@ const printSports = (sortedListSport) => {
 }
 
 homeButton.addEventListener("click", () => {
-  cardsElement.innerHTML = "";
+  window.location.reload();
 });
 
 athletesButton.addEventListener("click", () => {
