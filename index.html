@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>Data Lovers</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="shortcut icon" href="imagens/olimpiada.ico" type="image/x-icon">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+  <!--vai ter a area util desse container por isso fazer tudo dentro dela-->
+  <header>
+    <div class="logo">
+      <img src="imagens/logo_olimpiadas.png" alt="logo">
+    </div>
+
+    <nav>
+      <ul>
+        <li><a href="#" id="homePage">Home</a></li>
+        <li><a href="#" id="athl">Atletas</a></li>
+        <li><a href="#" id="team">Países</a>
+          <ul>
+            <li><a href="#" class="btn-team" data-direction="asc">Países [a-z]</a></li>
+            <li><a href="#" class="btn-team" data-direction="desc">Países [z-a]</a></li>
+          </ul>
+        </li>
+        <li><a href="#" id="sports">Esportes</a>
+          <ul>
+            <li><a href="#" class="btn-sport" data-direction="asc">Esportes [a-z]</a></li>
+            <li><a href="#" class="btn-sport" data-direction="desc">Esportes [z-a]</a></li>
+          </ul>
+        </li>
+        <li><a href="#">Estatísticas</a></li>
+      </ul>
+    </nav>
+
+    <div class="search">
+      <input type="athlete" id="athlete" placeholder="Buscar atleta">
+      <input id="searchAthlete" type="button" value="Filtrar">
+    </div>
+  </header>
+
+  <div id="main-banner">
+  </div>
+
+  <section class="texto-introducao" id="texto-olimpiadas">
+    <h1>Jogos Olímpicos de Verão de 2016</h1>
+    <p>Jogos Olímpicos de 2016 conhecidos oficialmente como os Jogos da XXXI Olimpíada, mais comumente Rio 2016, foi um
+      evento multiesportivo realizado no segundo semestre de 2016, na cidade do Rio de Janeiro, capital do estado
+      homônimo, no Brasil. A escolha da sede foi feita durante a 121ª Sessão do Comitê Olímpico Internacional, que
+      aconteceu em Copenhague, Dinamarca, em 2 de outubro de 2009. Foram os primeiros Jogos Olímpicos de Verão sob a
+      presidência de Thomas Bach e a oitava vez que o Brasil sediou um grande evento multiesportivo.</p>
+    <img src="./imagens/nodo5687.jpg" alt="">
+
+    <p>Foi a primeira edição dos Jogos Olímpicos sediados na América do Sul e a segunda na América Latina e nos
+      trópicos, depois dos Jogos Olímpicos na Cidade do México em 1968. Foi ainda a quarta vez que os Jogos Olímpicos de
+      Verão ocorreram em uma estação climática diferente, mas a primeira que decorreram integralmente no inverno local.
+      Pois os Jogos Rio 2016 ocorreram durante o inverno brasileiro, uma vez que a cidade localiza-se no hemisfério sul.
+    </p>
+
+    <p> O evento decorreu no período de 3 a 21 de agosto de 2016 e as Paralimpíadas ocorreram entre 7 e 18 de setembro
+      desse ano, na mesma cidade e com organização do mesmo comitê. O local de abertura e encerramento foi no Estádio do
+      Maracanã, sendo a primeira vez, desde os Jogos Olímpicos de Verão de 1900 que a cerimônia de abertura aconteceu
+      num local diferente de onde foram realizadas as competições de atletismo, e contou com a presença de diversas
+      celebridades como a modelo Gisele Bündchen e os cantores Anitta, Gilberto Gil e Caetano Veloso. Realizaram-se 306
+      disputas de medalhas em 28 esportes divididos em 42 modalidades, duas a mais em relação aos Jogos Olímpicos de
+      Verão de 2012. O Comitê Executivo do COI sugeriu as inclusões do rugby sevens e do golfe, que foram aprovados
+      durante a 121ª Sessão.</p>
+    <img src="./imagens/caetano-anitta-e-gil.jpg" alt="">
+  </section>
+
+  <section id="best-athletes-container" class="wrapper">
+    <h1>Os 3 países com mais medalhas</h1>
+    <ul>
+      <li class="country-box">
+        <div class="img-column">
+          <img src="imagens/estados-unidos-icone.png" alt="">
+        </div>
+        <div class="text-column">
+          <h3>Estados Unidos</h3>
+          <p>País com maior número de medalhas,sendo 46 medalhas!</p>
+        </div>
+      </li>
+      <li class="country-box">
+        <div class="img-column"><img src="imagens/reino-unido.png" alt="">
+        </div>
+        <div class="text-column">
+          <h3>Reino Unido</h3>
+          <p>Segundo país com maior número de medalhas, sendo 27 medalhas!</p>
+        </div>
+            
+            
+      </li>
+      <li class="country-box">
+        <div class="img-column">
+          <img src="imagens/china.png" alt="">
+        </div>
+        <div class="text-column"> 
+          <h3>China</h3>
+          <p>Terceiro país com maior número de medalhas, sendo 26 medalhas!</p>
+        </div>           
+            
+      </li>
+    </ul>
+  </section>
+
+  <!--infos sobre a olimpiada-->
+  <div class="container-flex-home" id="container-home-1">
+    <div class="container-info">
+      <div class="card-info">
+        <div class="face face1">
+          <div class="content-info">
+            <h3><img src="imagens/medalhas.jpg" alt="medalha"></h3>
+          </div>
+        </div>
+        <div class="face face2">
+          <div class="content-info">
+            <h3>Medalha</h3>
+            <p> Com um design que celebra a relação entre a força dos herois Olímpicos e as da natureza, as medalhas de
+              ouro, prata e bronze, com um peso de 500g, foram feitas seguindo o princípio da sustentabilidade</p>
+
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container-info">
+      <div class="card-info">
+        <div class="face face1">
+          <div class="content-info">
+            <h3><img src="imagens/tocha.jpg" alt="tocha"></h3>
+          </div>
+        </div>
+        <div class="face face2">
+          <div class="content-info">
+            <h3>Tocha</h3>
+            <p> Movimento, inovação e um toque brasileiro formam a essência da tocha, que foi criada com o objetivo de
+              refletir o casamento da chama Olímpica com o calor do povo brasileiro. </p>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container-info">
+      <div class="card-info">
+        <div class="face face1">
+          <div class="content-info" id="cards-info">
+            <h3><img src="imagens/vinicius.jpg" alt="mascote"></h3>
+          </div>
+        </div>
+        <div class="face face2">
+          <div class="content-info">
+            <h3>Mascote</h3>
+            <p> Vinícius é uma mistura de vários animais brasileiros. Sua criação tem inspiração na cultura pop, no
+              vídeo-game e nos personagens de animação. </p>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container-info">
+      <div class="card-info">
+        <div class="face face1">
+          <div class="content-info">
+            <h3><img src="imagens/logo.jpeg" alt="logo"></h3>
+          </div>
+        </div>
+        <div class="face face2">
+          <div class="content-info">
+            <h3>Logo</h3>
+            <p> O logotipo da Rio 2016 é inspirado pela seguinte visão dos organizadores: “Todos os brasileiros unidos
+              para entregar o melhor festival da Terra e avançar com orgulho a nossa promessa nacional de progresso”
+            </p>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <section class="content" id="containerCards"></section>
+
+  <footer>
+    <div class="footer">
+      <div id="button"></div>
+      <div id="container">
+        <div id="cont">
+          <div class="footer_center">
+            <h3>Jogos Olímpicos Rio 2016</h3>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+  </footer>
+  <script src="main.js" type="module"></script>
+</body>
+
+</html>
