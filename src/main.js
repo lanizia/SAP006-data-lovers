@@ -15,9 +15,9 @@ const athletesButton = document.getElementById("athl");
 const athleteName = document.getElementById("athlete");
 const btnSearch = document.getElementById("searchAthlete");
 const btnTeam = document.getElementById("team");
-const btnTeamsWithSort = document.querySelectorAll('.btn-team');
+const btnTeamsWithSort = document.querySelectorAll(".btn-team");
 const btnSports = document.getElementById("sports");
-const btnSportsWithSort = document.querySelectorAll('.btn-sport');
+const btnSportsWithSort = document.querySelectorAll(".btn-sport");
 
 const clean = () => {
   containerHome.innerHTML = "";

@@ -296,7 +296,7 @@ header .search input#searchAthlete:hover {
 
 .bottomText {
   color: #445b73;
-  inline-size: 153px;
+  inline-size: 210px;
 }
 
 .topCard {
@@ -449,7 +449,6 @@ header .search input#searchAthlete:hover {
   justify-content: space-around;
   flex-wrap: wrap;
   font-family: arial;
-  width: 85%;
 }
 
 .container-info .card-info {
@@ -571,6 +570,10 @@ header .search input#searchAthlete:hover {
     margin-top: 100px;
   }
 
+  .container-flex-home {
+    padding: 68px;
+}
+
 }
 
 @media screen and (max-width:768px) {
@@ -628,5 +631,8 @@ header .search input#searchAthlete:hover {
         margin-top: 0;
       }
 
-}
+      .container-flex-home {
+        padding: 85px;
+    }
 
+}
