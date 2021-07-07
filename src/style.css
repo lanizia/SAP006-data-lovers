@@ -94,7 +94,8 @@ header nav li a {
 }
 
 header nav li li:hover a {
-  background-color: #7b7bfacc;
+  background-color: #266edbb8;
+  color: white;
 }
 
 header nav li li a {
@@ -138,6 +139,7 @@ header .search input#searchAthlete {
   padding: 10px;
   font-size: 11px;
   font-weight: bold;
+  color: white;
   margin: 0;
   background-color: hsl(216, 85%, 64%);
   text-transform: uppercase;
@@ -249,7 +251,7 @@ header .search input#searchAthlete:hover {
   /* width: largura height: altura*/
   height: 100%;
   font-family: 'Roboto', sans-serif;
-  row-gap: 200px; /*era 20px antes*/
+  row-gap: 65px; /*era 20px antes*/
 }
 .containerCards{
     position: relative;/*elemento novo aqui*/
@@ -271,10 +273,35 @@ header .search input#searchAthlete:hover {
   width: 100%;
 }
 
+.mediaCardThree, .mediaCardThreeSports {
+  height:215px;
+  width: 100%;
+}
+
 .mediaCardThree {
-    background: url(imagens/fundocard.png) center/cover;
-    height:215px;
-    width: 100%;
+  background: url(imagens/fundocard.png) center/cover;
+}
+
+.mediaCardThreeSports {
+    overflow-y: scroll;
+    line-height: 30px;
+    text-align: center;
+}
+
+.mediaCardThreeSports ul {
+  padding: 26px;
+  margin: 0;
+}
+
+
+.mediaCardThreeSports li {
+  list-style: none;
+  border: 1px solid gainsboro;
+  border-radius: 10px;
+  background: whitesmoke;
+  padding: 5px;
+  color: midnightblue;
+  margin-bottom: 17px;
 }
 
 .title  {
@@ -311,6 +338,7 @@ header .search input#searchAthlete:hover {
   background: linear-gradient(to right, #082bf3, #39d4df);
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
+  min-height: 62px;
 }
 
 .bottomCard {
@@ -323,7 +351,6 @@ header .search input#searchAthlete:hover {
 }
 
 .bottomCardTwo {
-  padding: 20px;
   max-height: max-content;
 }
 
