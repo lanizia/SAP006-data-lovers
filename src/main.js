@@ -2,14 +2,16 @@ import data from './data/athletes/athletes.js'
 import {
   getAthletes,
   getAthletesByName,
-  getElement,
+  getTeams,
+  groupBySportName,
   sortBy 
 } from './data.js';
 
 const sectionText = document.getElementById("texto-olimpiadas");
 const containerHomeCards = document.getElementById ("container-home-1")
 const containerHome = document.getElementById("best-athletes-container");
-const cardsElement = document.getElementById("containerCards");
+const cardsAthletes = document.getElementById("containerCards");
+const cardsElement = document.getElementById("containerCards1");
 const homeButton = document.getElementById("homePage");
 const athletesButton = document.getElementById("athl");
 const athleteName = document.getElementById("athlete");
@@ -21,6 +23,7 @@ const btnSportsWithSort = document.querySelectorAll(".btn-sport");
 
 const clean = () => {
   containerHome.innerHTML = "";
+  cardsAthletes.innerHTML = "";
   cardsElement.innerHTML = "";
   sectionText.innerHTML = "";
   containerHomeCards.innerHTML = "";
@@ -29,7 +32,7 @@ const clean = () => {
 const printAthletes = (athletesList) => {
   clean()
   athletesList.forEach(athlete => {
-    cardsElement.innerHTML += `<div class="containerCards">
+    cardsAthletes.innerHTML += `<div class="containerCards">
         <div class="topCard">
             <h2 class="title">${athlete.name}</h2>
             <span class="secondText"><b>Gênero:</b> ${athlete.gender} <b>Idade:</b> ${athlete.age} </br> <b>País:</b> ${athlete.team} 
@@ -72,7 +75,7 @@ const printTeams = (listTeams) => {
   });
 }
 
-const printSports = (sortedListSport) => {
+const printSports = (sortedListSport, groupedSports) => {
   clean()
   sortedListSport.forEach(sportName => {
     cardsElement.innerHTML += `<div class="containerCards">
@@ -87,9 +90,9 @@ const printSports = (sortedListSport) => {
 
             <div class="back-card">
                 <div class="topCardTwo">
-                    <h2 class="titleTwo">Mudou</h2>
+                    <h2 class="titleTwo">Modalidades</h2>
                     </div>
-                    <div class="mediaCardThree"></div>
+                    <div class="mediaCardThreeSports"> <ul> ${groupedSports[sportName].map(event =>`<li>${event}</li>`).join("")} </ul></div>
                     <div class="bottomCardTwo"></div>
             </div>
     </div>   
@@ -115,32 +118,39 @@ btnSearch.addEventListener("click", () => {
 
 btnTeam.addEventListener("click", () => {
   clean()
-  const listTeams = getElement(data.athletes, "team");
+  const listTeams = getTeams(data.athletes);
   printTeams(listTeams);
 });
 
 btnTeamsWithSort.forEach(btn => {
 btn.addEventListener("click", event => {
   clean()
-  const sortDirection = event.target.getAttribute('data-direction');
-  const listTeams = getElement(data.athletes, "team");
+  const sortDirection = event.target.getAttribute("data-direction");
+  const listTeams = getTeams(data.athletes);
   const sortedListTeams = sortBy(listTeams, sortDirection);
-  printSports(sortedListTeams);
+  printTeams(sortedListTeams);
 })
 });
 
 btnSports.addEventListener("click", () => {
     clean()
-    const listSports = getElement(data.athletes, "sport");
-    printSports(listSports);
+    const groupedSports = groupBySportName(data.athletes);
+    const listSports = Object.keys(groupedSports);
+    printSports(listSports, groupedSports);
 });
 
 btnSportsWithSort.forEach(btn => {
   btn.addEventListener("click", event => {
     clean()
-    const sortDirection = event.target.getAttribute('data-direction');
-    const listSports = getElement(data.athletes, "sport");
+    const sortDirection = event.target.getAttribute("data-direction");
+    const groupedSports = groupBySportName(data.athletes);
+    const listSports = Object.keys(groupedSports);
     const sortedListSport = sortBy(listSports, sortDirection);
-    printSports(sortedListSport);
+    printSports(sortedListSport, groupedSports);
   })
 });
+
+
+
+
+
