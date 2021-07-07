@@ -602,9 +602,6 @@ header .search input#searchAthlete:hover {
     margin-top: 100px;
   }
 
-  .container-flex-home {
-    padding: 68px;
-}
 
 }
 
@@ -662,9 +659,5 @@ header .search input#searchAthlete:hover {
     #main-banner {
         margin-top: 0;
       }
-
-      .container-flex-home {
-        padding: 85px;
-    }
 
 }

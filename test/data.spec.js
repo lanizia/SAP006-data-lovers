@@ -2,8 +2,9 @@ import {
   groupedAthletes,
   getAthletes,
   getAthletesByName,
-  getElement,
-  sortBy
+  getTeams,
+  sortBy,
+  groupBySportName
 } from '../src/data.js';
 const athletes = [{
     "name": "Giovanni Abagnale",
@@ -226,14 +227,25 @@ it('should return athlete when inform name with capital letters', () => {
   }]);
 });
 
-describe('getElement', () => {
+
+describe('groupBySportName', () => {
   it('is a function', () => {
-    expect(typeof getElement).toBe('function');
+    expect(typeof groupBySportName).toBe('function');
+  })
+});
+
+it('should return an object that contains a list of sports as a property and for each property return a string array with the events of each sport.', () => {
+  expect(groupBySportName(athletes, "sports")).toEqual({"Gymnastics": ["Gymnastics Men's Team All-Around", "Gymnastics Men's Horse Vault", "Gymnastics Men's Rings"], "Handball": ["Handball Men's Handball"], "Rowing": ["Rowing Men's Coxless Pairs"], "Swimming": ["Swimming Men's 4 x 100 metres Freestyle Relay"], "Taekwondo": ["Taekwondo Women's Flyweight"], "Wrestling": ["Wrestling Men's Middleweight, Greco-Roman"]});
+});
+
+describe('getTeams', () => {
+  it('is a function', () => {
+    expect(typeof getTeams).toBe('function');
   })
 });
 
 it('should returns a list of non-repeating teams, when a list with repeated teams is entered', () => {
-  expect(getElement(athletes, "team")).toEqual(["Italy", "Azerbaijan", "France", "Iran", "Russia", "Australia"]);
+  expect(getTeams(athletes, "team")).toEqual(["Italy", "Azerbaijan", "France", "Iran", "Russia", "Australia"]);
 });
 
 const teams = ["Italy", "Azerbaijan", "France", "Iran", "Russia", "Australia"]
@@ -250,3 +262,5 @@ it('should returns a sort asc list of non-repeating teams, when a list with repe
 it('should returns a sort desc list of non-repeating teams, when a list with repeated teams is entered', () => {
   expect(sortBy(teams, "desc")).toEqual(["Russia", "Italy", "Iran", "France", "Azerbaijan", "Australia"]);
 });
+
+
