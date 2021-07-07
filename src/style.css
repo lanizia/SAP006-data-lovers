@@ -94,7 +94,8 @@ header nav li a {
 }
 
 header nav li li:hover a {
-  background-color: #7b7bfacc;
+  background-color: #266edbb8;
+  color: white;
 }
 
 header nav li li a {
@@ -138,6 +139,7 @@ header .search input#searchAthlete {
   padding: 10px;
   font-size: 11px;
   font-weight: bold;
+  color: white;
   margin: 0;
   background-color: hsl(216, 85%, 64%);
   text-transform: uppercase;
@@ -169,6 +171,7 @@ header .search input#searchAthlete:hover {
 
 .texto-introducao p {
   padding: 15px;
+  font-size: 18px;
 }
 
 .texto-introducao h1 {
@@ -239,23 +242,26 @@ header .search input#searchAthlete:hover {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  align-content: center;
   justify-content: space-around;
-  align-items: stretch;
-  /* justify-content: center;  Para centralizar no eixo x*/
-  /* align-items: center; /* Para centralizar no eixo y
-   /*align-content: center;*/
-  width: 100%;
-  /* width: largura height: altura*/
-  height: 100%;
   font-family: 'Roboto', sans-serif;
-  row-gap: 200px; /*era 20px antes*/
+  row-gap: 260px; /*era 20px antes*/
 }
+
+.content1 {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  font-family: 'Roboto', sans-serif;
+  row-gap: 65px; /*era 20px antes*/
+}
+
+
 .containerCards{
     position: relative;/*elemento novo aqui*/
     height: 342px;/*elemento novo aqui*/
-    width: 267px; /*elemento novo aqui*/
-    perspective: 1000px;   
+    width: 275px; /*elemento novo aqui*/
+    perspective: 1000px;  
 }
   
 .mediaCard {
@@ -267,19 +273,70 @@ header .search input#searchAthlete:hover {
 
 .mediaCardTwo {
   background: url(imagens/teste.png) center/cover;
-  height: 215px;
+}
+
+.mediaCardTwo, .mediaCardThree, .mediaCardThreeSports {
+  height:215px;
   width: 100%;
 }
 
 .mediaCardThree {
-    background: url(imagens/fundocard.png) center/cover;
-    height:215px;
-    width: 100%;
+  background: url(imagens/fundocard.png) center/cover;
+}
+
+.mediaCardThreeSports {
+    overflow-y: scroll;
+    line-height: 30px;
+    text-align: center;
+}
+
+.mediaCardThreeSports ul {
+  padding: 26px;
+  margin: 0;
+}
+
+
+.mediaCardThreeSports li {
+  list-style: none;
+  border: 1px solid gainsboro;
+  border-radius: 10px;
+  background: linear-gradient(to right, #082bf3, #39d4df);
+  padding: 5px;
+  color: white;
+  margin-bottom: 17px;
 }
 
 .title  {
     color: #2b3d59; /*Contraste da cor*/
-    margin-bottom: 5px;  
+    margin-bottom: 10px; 
+    height: 85px;
+}
+
+.secondText {
+  color: #5e6876;;
+  line-height: 22px;
+}
+
+.bottomText {
+  color: #445b73;
+  line-height: 22px;
+}
+
+.topCard {
+  padding: 15px;
+  background: linear-gradient(to top, #ffcb05, #fdfca5);
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  height: 142px;
+  text-align: center;
+}
+
+.topCardTwo {
+  padding: 30px;
+  background: linear-gradient(to right, #082bf3, #39d4df);
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  min-height: 62px;
 }
 
 .titleTwo {
@@ -289,33 +346,8 @@ header .search input#searchAthlete:hover {
   text-align: center;
 }
 
-.secondText {
-  color: #828fa1;
-  text-align: center;
-}
-
-.bottomText {
-  color: #445b73;
-  inline-size: 210px;
-}
-
-.topCard {
-  padding: 15px;
-  background: linear-gradient(to top, #ffcb05, #fdfca5);
-  border-top-left-radius: 10px;
-  border-top-right-radius: 10px;
-}
-
-.topCardTwo {
-  padding: 30px;
-  background: linear-gradient(to right, #082bf3, #39d4df);
-  border-top-left-radius: 10px;
-  border-top-right-radius: 10px;
-}
-
 .bottomCard {
   padding: 10px;
-  /*margin-bottom: 50px;*/
   max-height: max-content;
   background: linear-gradient(to bottom, #ffcb05, #fff);
   border-bottom-left-radius: 10px;
@@ -323,7 +355,6 @@ header .search input#searchAthlete:hover {
 }
 
 .bottomCardTwo {
-  padding: 20px;
   max-height: max-content;
 }
 
@@ -529,6 +560,7 @@ header .search input#searchAthlete:hover {
   margin: 0;
   padding: 0;
   color: rgb(51, 51, 51);
+  text-align: justify;
 }
 
 .container-info .card-info .face.face2 .content-info h3 {
@@ -655,7 +687,6 @@ header .search input#searchAthlete:hover {
     margin-top: 100px;
   }
 
- 
 }
 
 @media screen and (max-width:768px) {
@@ -712,7 +743,5 @@ header .search input#searchAthlete:hover {
     #main-banner {
         margin-top: 0;
       }
-
-   
 
 }
