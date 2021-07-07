@@ -4,7 +4,9 @@ import {
   getAthletesByName,
   getTeams,
   sortBy,
-  groupBySportName
+  groupBySportName,
+  getWomanAthletes, 
+  getMedalsofWoman
 } from '../src/data.js';
 const athletes = [{
     "name": "Giovanni Abagnale",
@@ -263,4 +265,18 @@ it('should returns a sort desc list of non-repeating teams, when a list with rep
   expect(sortBy(teams, "desc")).toEqual(["Russia", "Italy", "Iran", "France", "Azerbaijan", "Australia"]);
 });
 
+  describe('getWomanAthletes',() =>{
+    it('is a function', () =>{
+      expect(typeof getWomanAthletes).toBe('function');
+    })});
+    it('should return the number of percentage of female athlete non-repeted that won medals', () => {
+      expect(getWomanAthletes (athletes, "gender")).toEqual(16);
+    });
 
+  describe('getMedalsofWoman', () => {
+    it('is a function', () => {
+      expect(typeof getMedalsofWoman).toBe('function');
+    })});
+    it('should return the total number of medals that female athletes won', () => {
+      expect(getMedalsofWoman (athletes, "gender")).toEqual(1);
+    });

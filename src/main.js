@@ -4,7 +4,9 @@ import {
   getAthletesByName,
   getTeams,
   groupBySportName,
-  sortBy 
+  sortBy,
+  getWomanAthletes,
+  getMedalsofWoman  
 } from './data.js';
 
 const sectionText = document.getElementById("texto-olimpiadas");
@@ -20,6 +22,7 @@ const btnTeam = document.getElementById("team");
 const btnTeamsWithSort = document.querySelectorAll(".btn-team");
 const btnSports = document.getElementById("sports");
 const btnSportsWithSort = document.querySelectorAll(".btn-sport");
+const btnStatistic = document.getElementById("statistic");
 
 const clean = () => {
   containerHome.innerHTML = "";
@@ -100,6 +103,41 @@ const printSports = (sortedListSport, groupedSports) => {
   });
 }
 
+const printStatistics = (statisticNumberOfWoman, statisticNumberofMedal) => {
+  clean()
+  cardsElement.innerHTML += `<section id="sec">
+  <h2>Mulheres nas Olimpíadas
+  </h2>
+  <ul>
+    <li>
+      <span class="women-hist"></span>
+
+      <h3>História</h3>
+      <p>A edição das Olimpíadas de Paris em 1900, foi a primeira na qual mulheres puderam competir no evento.
+      Porém ganhavam apenas um certificado de participação. 
+      A presença das mulheres nas modalidades olímpicas foi gradativa. No tiro com arco, por exemplo, elas puderam competir a partir de 1904. Já no badminton e no judô, apenas em 1992, enquanto o wrestling só teve disputas femininas em 2004, e o boxe, em 2012.
+      Desde 1991, todos os esportes que pleiteiam espaço no programa olímpico precisam incluir eventos femininos.
+       </p>
+    </li>
+    <li><span class="women-static"></span>
+      <h3>Estatística</h3>
+      <p>Durante as Olimpiadas do Rio de Janeiro de 2016 a porcentagem de mulheres que ganharam medalhas, em relação aos homens, foi de ${statisticNumberOfWoman}%.
+       No total, as mulheres conquistaram o número de ${statisticNumberofMedal} medalhas.</p>
+    </li>
+    <li><span class="women-txt"></span>
+      <h3>Marco</h3>
+      <p>Um marco histórico da participação feminina nos Jogos Olímpicos aconteceu em 2016, nas Olimpíadas do Rio de Janeiro, pois, dentre os 11 mil atletas participantes, 45% eram mulheres.
+
+      Além disso, nessa edição, outro marco importante é que alguns países tinham mais atletas mulheres em suas delegações do que homens, a exemplo os Estados Unidos da América.
+      
+      A presença de atletas brasileiras também fez parte desse marco, pois, desde a primeira participação do Brasil nos Jogos Olímpicos, essa foi a edição com maior número de mulheres: foram 209 competidoras no total.
+      </p></li>
+
+  </ul>
+</section> 
+`;
+}
+
 homeButton.addEventListener("click", () => {
   window.location.reload();
 });
@@ -150,7 +188,10 @@ btnSportsWithSort.forEach(btn => {
   })
 });
 
-
-
-
+btnStatistic.addEventListener("click", () =>{
+  clean()
+  const statisticNumberofMedal = getMedalsofWoman(data.athletes, "gender");
+  const statisticNumberOfWoman = getWomanAthletes(data.athletes, "gender");
+  printStatistics(statisticNumberOfWoman, statisticNumberofMedal);
+});
 
