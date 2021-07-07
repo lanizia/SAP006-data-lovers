@@ -3,7 +3,9 @@ import {
   getAthletes,
   getAthletesByName,
   getElement,
-  sortBy 
+  sortBy,
+  getWomanAthletes,
+  getMedalsofWoman 
 } from './data.js';
 
 const sectionText = document.getElementById("texto-olimpiadas");
@@ -18,6 +20,7 @@ const btnTeam = document.getElementById("team");
 const btnTeamsWithSort = document.querySelectorAll(".btn-team");
 const btnSports = document.getElementById("sports");
 const btnSportsWithSort = document.querySelectorAll(".btn-sport");
+const btnStatistic = document.getElementById("statistic");
 
 const clean = () => {
   containerHome.innerHTML = "";
@@ -97,6 +100,29 @@ const printSports = (sortedListSport) => {
   });
 }
 
+const printStatistics = (statisticNumberOfWoman, statisticNumberofMedal) => {
+  clean()
+  cardsElement.innerHTML += `<div class="containerCards">
+  <div class="flip">
+          <div class="front-card">
+                  <div class="topCardTwo">
+                  <h2 class="titleTwo">Porcentagem de mulheres que ganharam medalha:${statisticNumberOfWoman}%</h2>
+                  </div>
+                  <div class="mediaCardTwo"></div>
+                  <div class="bottomCardTwo"></div>
+          </div>
+
+          <div class="back-card">
+              <div class="topCardTwo">
+                  <h2 class="titleTwo">Total de medalhas:${statisticNumberofMedal}</h2>
+                  </div>
+                  <div class="mediaCardThree"></div>
+                  <div class="bottomCardTwo"></div>
+          </div>
+  </div>   
+</div>`;
+}
+
 homeButton.addEventListener("click", () => {
   window.location.reload();
 });
@@ -144,3 +170,12 @@ btnSportsWithSort.forEach(btn => {
     printSports(sortedListSport);
   })
 });
+
+btnStatistic.addEventListener("click", () =>{
+  clean()
+  const statisticNumberofMedal = getMedalsofWoman(data.athletes, "gender");
+  const statisticNumberOfWoman = getWomanAthletes(data.athletes, "gender");
+  console.log(statisticNumberOfWoman, statisticNumberofMedal);
+  printStatistics(statisticNumberOfWoman, statisticNumberofMedal);
+});
+

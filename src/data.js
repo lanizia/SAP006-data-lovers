@@ -38,3 +38,16 @@ export const sortBy = (list, direction) => {
   }) 
 }
 
+export const getWomanAthletes = (athletesList, condition) => {
+  const  grouped = groupedAthletes(athletesList);
+  const womanAthlete = grouped.filter(athlete => athlete[condition] === "F");
+  const numberWomanAthlete = womanAthlete.length;
+  const porcent = parseInt((numberWomanAthlete / grouped.length )*100);
+  return porcent;
+}
+
+export const getMedalsofWoman = (athletesList, condition) => {
+  const medalsOfWoman = athletesList.filter(athlete => athlete[condition] ==="F");
+  const numberOfMedals = medalsOfWoman.length;
+  return numberOfMedals;
+}
