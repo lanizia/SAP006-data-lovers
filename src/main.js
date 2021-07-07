@@ -187,7 +187,6 @@ btnStatistic.addEventListener("click", () =>{
   clean()
   const statisticNumberofMedal = getMedalsofWoman(data.athletes, "gender");
   const statisticNumberOfWoman = getWomanAthletes(data.athletes, "gender");
-  console.log(statisticNumberOfWoman, statisticNumberofMedal);
   printStatistics(statisticNumberOfWoman, statisticNumberofMedal);
 });
 
