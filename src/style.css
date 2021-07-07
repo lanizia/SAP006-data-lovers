@@ -171,6 +171,7 @@ header .search input#searchAthlete:hover {
 
 .texto-introducao p {
   padding: 15px;
+  font-size: 18px;
 }
 
 .texto-introducao h1 {
@@ -241,23 +242,26 @@ header .search input#searchAthlete:hover {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  align-content: center;
   justify-content: space-around;
-  align-items: stretch;
-  /* justify-content: center;  Para centralizar no eixo x*/
-  /* align-items: center; /* Para centralizar no eixo y
-   /*align-content: center;*/
-  width: 100%;
-  /* width: largura height: altura*/
-  height: 100%;
+  font-family: 'Roboto', sans-serif;
+  row-gap: 260px; /*era 20px antes*/
+}
+
+.content1 {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
   font-family: 'Roboto', sans-serif;
   row-gap: 65px; /*era 20px antes*/
 }
+
+
 .containerCards{
     position: relative;/*elemento novo aqui*/
     height: 342px;/*elemento novo aqui*/
-    width: 267px; /*elemento novo aqui*/
-    perspective: 1000px;   
+    width: 275px; /*elemento novo aqui*/
+    perspective: 1000px;  
 }
   
 .mediaCard {
@@ -269,11 +273,9 @@ header .search input#searchAthlete:hover {
 
 .mediaCardTwo {
   background: url(imagens/teste.png) center/cover;
-  height: 215px;
-  width: 100%;
 }
 
-.mediaCardThree, .mediaCardThreeSports {
+.mediaCardTwo, .mediaCardThree, .mediaCardThreeSports {
   height:215px;
   width: 100%;
 }
@@ -298,32 +300,26 @@ header .search input#searchAthlete:hover {
   list-style: none;
   border: 1px solid gainsboro;
   border-radius: 10px;
-  background: whitesmoke;
+  background: linear-gradient(to right, #082bf3, #39d4df);
   padding: 5px;
-  color: midnightblue;
+  color: white;
   margin-bottom: 17px;
 }
 
 .title  {
     color: #2b3d59; /*Contraste da cor*/
-    margin-bottom: 5px;  
-}
-
-.titleTwo {
-  color: #ffffff;
-  /*Contraste da cor*/
-  margin-bottom: 5px;
-  text-align: center;
+    margin-bottom: 10px; 
+    height: 85px;
 }
 
 .secondText {
-  color: #828fa1;
-  text-align: center;
+  color: #5e6876;;
+  line-height: 22px;
 }
 
 .bottomText {
   color: #445b73;
-  inline-size: 210px;
+  line-height: 22px;
 }
 
 .topCard {
@@ -331,6 +327,8 @@ header .search input#searchAthlete:hover {
   background: linear-gradient(to top, #ffcb05, #fdfca5);
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
+  height: 142px;
+  text-align: center;
 }
 
 .topCardTwo {
@@ -341,9 +339,15 @@ header .search input#searchAthlete:hover {
   min-height: 62px;
 }
 
+.titleTwo {
+  color: #ffffff;
+  /*Contraste da cor*/
+  margin-bottom: 5px;
+  text-align: center;
+}
+
 .bottomCard {
   padding: 10px;
-  /*margin-bottom: 50px;*/
   max-height: max-content;
   background: linear-gradient(to bottom, #ffcb05, #fff);
   border-bottom-left-radius: 10px;
@@ -556,6 +560,7 @@ header .search input#searchAthlete:hover {
   margin: 0;
   padding: 0;
   color: rgb(51, 51, 51);
+  text-align: justify;
 }
 
 .container-info .card-info .face.face2 .content-info h3 {

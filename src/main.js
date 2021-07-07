@@ -10,7 +10,8 @@ import {
 const sectionText = document.getElementById("texto-olimpiadas");
 const containerHomeCards = document.getElementById ("container-home-1")
 const containerHome = document.getElementById("best-athletes-container");
-const cardsElement = document.getElementById("containerCards");
+const cardsAthletes = document.getElementById("containerCards");
+const cardsElement = document.getElementById("containerCards1");
 const homeButton = document.getElementById("homePage");
 const athletesButton = document.getElementById("athl");
 const athleteName = document.getElementById("athlete");
@@ -22,6 +23,7 @@ const btnSportsWithSort = document.querySelectorAll(".btn-sport");
 
 const clean = () => {
   containerHome.innerHTML = "";
+  cardsAthletes.innerHTML = "";
   cardsElement.innerHTML = "";
   sectionText.innerHTML = "";
   containerHomeCards.innerHTML = "";
@@ -30,7 +32,7 @@ const clean = () => {
 const printAthletes = (athletesList) => {
   clean()
   athletesList.forEach(athlete => {
-    cardsElement.innerHTML += `<div class="containerCards">
+    cardsAthletes.innerHTML += `<div class="containerCards">
         <div class="topCard">
             <h2 class="title">${athlete.name}</h2>
             <span class="secondText"><b>Gênero:</b> ${athlete.gender} <b>Idade:</b> ${athlete.age} </br> <b>País:</b> ${athlete.team} 
