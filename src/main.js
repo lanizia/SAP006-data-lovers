@@ -6,7 +6,7 @@ import {
   groupBySportName,
   sortBy,
   getWomanAthletes,
-  getMedalsofWoman  
+  getMedalsofWoman,  
 } from './data.js';
 
 const sectionText = document.getElementById("texto-olimpiadas");
@@ -32,26 +32,57 @@ const clean = () => {
   containerHomeCards.innerHTML = "";
 }
 
+// const printAthletes = (athletesList) => {
+//   clean()
+//   athletesList.forEach(athlete => {
+//     cardsAthletes.innerHTML += `<div class="containerCards">
+//         <div class="topCard">
+//             <h2 class="title">${athlete.name}</h2>
+//             <span class="secondText"><b>Gênero:</b> ${athlete.gender} <b>Idade:</b> ${athlete.age} </br> <b>País:</b> ${athlete.team} 
+//         </div>
+//         <div class="mediaCard"></div>
+//         <div class="bottomCard">
+//             <p class="bottomText">
+//             <b>Altura:</b> ${athlete.height} cm
+//             <b>Peso:</b> ${athlete.weight} kg</br>
+//             <b>Esporte:</b> ${athlete.sport}</br>         
+//             <b>Modalidade:</b> <ul> ${athlete.events.map(event => `<li>${event.name} ${event.medal}</li>`).join('')} </ul>
+//         </div>
+//     </div>`;
+//   });
+// }
+
 const printAthletes = (athletesList) => {
   clean()
   athletesList.forEach(athlete => {
-    cardsAthletes.innerHTML += `<div class="containerCards">
-        <div class="topCard">
+    cardsElement.innerHTML += `<div class="containerCards">
+    <div class="flip">
+    <div class="front-card">
+            <div class="topCard">
             <h2 class="title">${athlete.name}</h2>
-            <span class="secondText"><b>Gênero:</b> ${athlete.gender} <b>Idade:</b> ${athlete.age} </br> <b>País:</b> ${athlete.team} 
-        </div>
-        <div class="mediaCard"></div>
-        <div class="bottomCard">
-            <p class="bottomText">
-            <b>Altura:</b> ${athlete.height} cm
-            <b>Peso:</b> ${athlete.weight} kg</br>
-            <b>Esporte:</b> ${athlete.sport}</br>
-            <b>Modalidade:</b> ${athlete.events.join(', ')}</br>
-            <b>Medalha:</b> ${athlete.medal}</p> 
-        </div>
-    </div>`;
-  });
+            </div>
+            <div class="mediaCard"></div>
+            <div class="bottomCardTwo"></div>
+    </div>
+    <div class="back-card">
+        <div class="topCard">
+            <h2 class="title">Saiba mais sobre o Atleta!</h2>
+            </div>
+          <div class="mediaCardOne">
+          <ul>
+          <li><b>Altura:</b> ${athlete.height} cm </li>
+          <li><b>Peso:</b> ${athlete.weight} kg</br> </li>
+          <li><b>Esporte:</b> ${athlete.sport}</br> </li>
+          <li>
+          ${athlete.events.map(event => `<li> <b>Modalidade:</b> ${event.name}</li> <li><b>Medalha:</b> ${event.medal}</li>`).join('')}</li> </ul>
+            </div>
+            <div class="bottomCardTwo"></div>
+    </div>
+</div>   
+</div>`;
+});
 }
+
 
 const printTeams = (listTeams) => {
   clean()
@@ -90,7 +121,6 @@ const printSports = (sortedListSport, groupedSports) => {
                     <div class="mediaCardTwo"></div>
                     <div class="bottomCardTwo"></div>
             </div>
-
             <div class="back-card">
                 <div class="topCardTwo">
                     <h2 class="titleTwo">Modalidades</h2>
@@ -194,4 +224,6 @@ btnStatistic.addEventListener("click", () =>{
   const statisticNumberOfWoman = getWomanAthletes(data.athletes, "gender");
   printStatistics(statisticNumberOfWoman, statisticNumberofMedal);
 });
+
+
 

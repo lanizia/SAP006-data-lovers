@@ -20,7 +20,7 @@ const athletes = [{
     "event": "Rowing Men's Coxless Pairs",
     "medal": "Bronze"
   },
-  {
+ {
     "name": "Patimat Abakarova",
     "gender": "F",
     "height": "165",
@@ -121,7 +121,7 @@ describe("groupedAthletes", () => {
         "noc": "ITA",
         "age": 21,
         "events": ["Rowing Men's Coxless Pairs", ],
-        "medal": "Bronze"
+        "medals": ["Bronze"]
       },
       {
         "name": "Patimat Abakarova",
@@ -133,7 +133,7 @@ describe("groupedAthletes", () => {
         "noc": "AZE",
         "age": 21,
         "events": ["Taekwondo Women's Flyweight", ],
-        "medal": "Bronze"
+        "medals": ["Bronze"]
       },
       {
         "name": "Luc Abalo",
@@ -145,7 +145,7 @@ describe("groupedAthletes", () => {
         "noc": "FRA",
         "age": 31,
         "events": ["Handball Men's Handball", ],
-        "medal": "Silver"
+        "medals": ["Silver"]
       },
       {
         "name": "Saeid Morad Abdevali",
@@ -157,7 +157,7 @@ describe("groupedAthletes", () => {
         "noc": "IRI",
         "age": 26,
         "events": ["Wrestling Men's Middleweight, Greco-Roman", ],
-        "medal": "Bronze"
+        "medals": ["Bronze"]
       },
       {
         "name": "Denis Mikhaylovich Ablyazin",
@@ -169,7 +169,7 @@ describe("groupedAthletes", () => {
         "noc": "RUS",
         "age": 24,
         "events": ["Gymnastics Men's Team All-Around", "Gymnastics Men's Horse Vault", "Gymnastics Men's Rings", ],
-        "medal": "Silver"
+        "medals": ["Silver", "Silver", "Bronze"]
       },
       {
         "name": "Matthew \"Matt\" Abood",
@@ -181,7 +181,7 @@ describe("groupedAthletes", () => {
         "noc": "AUS",
         "age": 30,
         "events": ["Swimming Men's 4 x 100 metres Freestyle Relay", ],
-        "medal": "Bronze"
+        "medals": ["Bronze"]
       }
     ])
   })
@@ -210,7 +210,7 @@ it('should return athlete when inform partial name', () => {
     "noc": "ITA",
     "age": 21,
     "events": ["Rowing Men's Coxless Pairs", ],
-    "medal": "Bronze"
+    "medals": ["Bronze"]
   }]);
 });
 
@@ -225,7 +225,7 @@ it('should return athlete when inform name with capital letters', () => {
     "noc": "FRA",
     "age": 31,
     "events": ["Handball Men's Handball", ],
-    "medal": "Silver"
+    "medals": ["Silver"]
   }]);
 });
 

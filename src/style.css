@@ -253,48 +253,64 @@ header .search input#searchAthlete:hover {
   flex-wrap: wrap;
   justify-content: space-around;
   font-family: 'Roboto', sans-serif;
-  row-gap: 65px; /*era 20px antes*/
+  row-gap: 65px; 
 }
 
-
 .containerCards{
-    position: relative;/*elemento novo aqui*/
-    height: 342px;/*elemento novo aqui*/
-    width: 275px; /*elemento novo aqui*/
+    position: relative;
+    height: 342px;
+    width: 275px; 
     perspective: 1000px;  
+}
+
+.topCard {
+  background: linear-gradient(to top, #ffcb05, #fdfca5);
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  min-height: 88px;
+  padding: 22px
 }
   
 .mediaCard {
   background: url("https://image.freepik.com/vetores-gratis/icone-olimpiadas-rio_1057-1461.jpg") center/cover;
-  /* sempre chamar só o background, jogar a url e marcar center e cover pq não importa o tamanho da largura e altura a imagem vai preencher e centralizar*/
-  height: 215px;
-  width: 100%;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
 }
 
 .mediaCardTwo {
   background: url(imagens/teste.png) center/cover;
 }
 
-.mediaCardTwo, .mediaCardThree, .mediaCardThreeSports {
-  height:215px;
-  width: 100%;
-}
-
 .mediaCardThree {
   background: url(imagens/fundocard.png) center/cover;
 }
 
-.mediaCardThreeSports {
+.mediaCard, .mediaCardTwo, .mediaCardThree, .mediaCardThreeSports, .mediaCardOne {
+  height:215px;
+  width: 100%;
+}
+
+.mediaCardOne {
+  background: linear-gradient(to bottom, #ffcb05, #fff);
+  color: #27364e;
+}
+
+
+.mediaCardThreeSports, .mediaCardOne {
     overflow-y: scroll;
     line-height: 30px;
     text-align: center;
 }
 
-.mediaCardThreeSports ul {
+.mediaCardThreeSports ul, .mediaCardOne ul {
   padding: 26px;
   margin: 0;
 }
 
+.mediaCardOne li {
+  list-style: none;
+  margin: 0;
+}
 
 .mediaCardThreeSports li {
   list-style: none;
@@ -306,31 +322,6 @@ header .search input#searchAthlete:hover {
   margin-bottom: 17px;
 }
 
-.title  {
-    color: #2b3d59; /*Contraste da cor*/
-    margin-bottom: 10px; 
-    height: 85px;
-}
-
-.secondText {
-  color: #5e6876;;
-  line-height: 22px;
-}
-
-.bottomText {
-  color: #445b73;
-  line-height: 22px;
-}
-
-.topCard {
-  padding: 15px;
-  background: linear-gradient(to top, #ffcb05, #fdfca5);
-  border-top-left-radius: 10px;
-  border-top-right-radius: 10px;
-  height: 142px;
-  text-align: center;
-}
-
 .topCardTwo {
   padding: 30px;
   background: linear-gradient(to right, #082bf3, #39d4df);
@@ -339,19 +330,16 @@ header .search input#searchAthlete:hover {
   min-height: 62px;
 }
 
-.titleTwo {
-  color: #ffffff;
-  /*Contraste da cor*/
+.title  {
+  color: #2b3d59; /*Contraste da cor*/
   margin-bottom: 5px;
   text-align: center;
 }
 
-.bottomCard {
-  padding: 10px;
-  max-height: max-content;
-  background: linear-gradient(to bottom, #ffcb05, #fff);
-  border-bottom-left-radius: 10px;
-  border-bottom-right-radius: 10px;
+.titleTwo {
+  color: #ffffff;
+  margin-bottom: 5px;
+  text-align: center;
 }
 
 .bottomCardTwo {
@@ -377,11 +365,6 @@ header .search input#searchAthlete:hover {
 .back-card{
     transform: rotateY(180deg);
 }
-
-/*.containerCards:hover{  
-     transform: scale(1.05);
-     box-shadow: 0 0 40px -10px rgba(0, 0, 0, 0.25);   
-} precisa alterar pra ter houver só nos cards atletas*/
 
 /*Footer*/
 
@@ -653,7 +636,7 @@ header .search input#searchAthlete:hover {
 }
 #sec ul li p {
   color: #555454;
-  text-align: left;
+  text-align: justify;
   text-indent: 1em;
   font-size: 18px;
   line-height: 26px;
