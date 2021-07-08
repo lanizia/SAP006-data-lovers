@@ -2,7 +2,7 @@ import {
   groupedAthletes,
   getAthletes,
   getAthletesByName,
-  getTeams,
+  groupByTeamsAthletes,
   sortBy,
   groupBySportName,
   getWomanAthletes, 
@@ -240,15 +240,16 @@ it('should return an object that contains a list of sports as a property and for
   expect(groupBySportName(athletes, "sports")).toEqual({"Gymnastics": ["Gymnastics Men's Team All-Around", "Gymnastics Men's Horse Vault", "Gymnastics Men's Rings"], "Handball": ["Handball Men's Handball"], "Rowing": ["Rowing Men's Coxless Pairs"], "Swimming": ["Swimming Men's 4 x 100 metres Freestyle Relay"], "Taekwondo": ["Taekwondo Women's Flyweight"], "Wrestling": ["Wrestling Men's Middleweight, Greco-Roman"]});
 });
 
-describe('getTeams', () => {
+describe('groupByTeamsAthletes', () => {
   it('is a function', () => {
-    expect(typeof getTeams).toBe('function');
+    expect(typeof groupByTeamsAthletes).toBe('function');
   })
 });
 
-it('should returns a list of non-repeating teams, when a list with repeated teams is entered', () => {
-  expect(getTeams(athletes, "team")).toEqual(["Italy", "Azerbaijan", "France", "Iran", "Russia", "Australia"]);
+it('should return an object that contains a list of teams as a property and for each property return a string array with the names of each athlete', () => {
+  expect(groupByTeamsAthletes(athletes, "team")).toEqual({"Italy": ["Giovanni Abagnale"], "Azerbaijan": ["Patimat Abakarova"], "France": ["Luc Abalo"], "Iran": ["Saeid Morad Abdevali"], "Russia": ["Denis Mikhaylovich Ablyazin"], "Australia": ["Matthew \"Matt\" Abood"]});
 });
+
 
 const teams = ["Italy", "Azerbaijan", "France", "Iran", "Russia", "Australia"]
 
