@@ -200,6 +200,7 @@ header .search input#searchAthlete:hover {
   margin: 0 auto;
   max-width: 800px;
 }
+
 .wrapper h1 {
   padding: 50px;
 }
@@ -216,13 +217,13 @@ header .search input#searchAthlete:hover {
 }
 
 .country-box .img-column {
- flex: 1;
+  flex: 1;
 }
 
 .country-box .text-column {
   flex: 7;
   padding: 10px;
- }
+}
 
 .country-box img {
   width: 65px;
@@ -232,7 +233,7 @@ header .search input#searchAthlete:hover {
 
 .country-box .text-column p {
   margin-top: 10px
-} 
+}
 
 /* Cards */
 
@@ -244,7 +245,7 @@ header .search input#searchAthlete:hover {
   flex-wrap: wrap;
   justify-content: space-around;
   font-family: 'Roboto', sans-serif;
-  row-gap: 260px; /*era 20px antes*/
+  row-gap: 260px;
 }
 
 .content1 {
@@ -253,48 +254,69 @@ header .search input#searchAthlete:hover {
   flex-wrap: wrap;
   justify-content: space-around;
   font-family: 'Roboto', sans-serif;
-  row-gap: 65px; /*era 20px antes*/
+  row-gap: 65px;
 }
 
-
-.containerCards{
-    position: relative;/*elemento novo aqui*/
-    height: 342px;/*elemento novo aqui*/
-    width: 275px; /*elemento novo aqui*/
-    perspective: 1000px;  
+.containerCards {
+  position: relative;
+  height: 342px;
+  width: 275px;
+  perspective: 1000px;
 }
-  
+
+.topCard {
+  background: linear-gradient(to top, #ffcb05, #fdfca5);
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  min-height: 88px;
+  padding: 22px
+}
+
 .mediaCard {
   background: url("https://image.freepik.com/vetores-gratis/icone-olimpiadas-rio_1057-1461.jpg") center/cover;
-  /* sempre chamar só o background, jogar a url e marcar center e cover pq não importa o tamanho da largura e altura a imagem vai preencher e centralizar*/
-  height: 215px;
-  width: 100%;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
 }
 
 .mediaCardTwo {
   background: url(imagens/teste.png) center/cover;
 }
 
-.mediaCardTwo, .mediaCardThree, .mediaCardThreeSports {
-  height:215px;
-  width: 100%;
-}
-
 .mediaCardThree {
   background: url(imagens/fundocard.png) center/cover;
 }
 
-.mediaCardThreeSports {
-    overflow-y: scroll;
-    line-height: 30px;
-    text-align: center;
+.mediaCard,
+.mediaCardTwo,
+.mediaCardThree,
+.mediaCardThreeSports,
+.mediaCardOne {
+  height: 215px;
+  width: 100%;
 }
 
-.mediaCardThreeSports ul {
+.mediaCardOne {
+  background: linear-gradient(to bottom, #ffcb05, #fff);
+  color: #27364e;
+}
+
+.mediaCardThreeSports,
+.mediaCardOne {
+  overflow-y: scroll;
+  line-height: 30px;
+  text-align: center;
+}
+
+.mediaCardThreeSports ul,
+.mediaCardOne ul {
   padding: 26px;
   margin: 0;
 }
 
+.mediaCardOne li {
+  list-style: none;
+  margin: 0;
+}
 
 .mediaCardThreeSports li {
   list-style: none;
@@ -306,31 +328,6 @@ header .search input#searchAthlete:hover {
   margin-bottom: 17px;
 }
 
-.title  {
-    color: #2b3d59; /*Contraste da cor*/
-    margin-bottom: 10px; 
-    height: 85px;
-}
-
-.secondText {
-  color: #5e6876;;
-  line-height: 22px;
-}
-
-.bottomText {
-  color: #445b73;
-  line-height: 22px;
-}
-
-.topCard {
-  padding: 15px;
-  background: linear-gradient(to top, #ffcb05, #fdfca5);
-  border-top-left-radius: 10px;
-  border-top-right-radius: 10px;
-  height: 142px;
-  text-align: center;
-}
-
 .topCardTwo {
   padding: 30px;
   background: linear-gradient(to right, #082bf3, #39d4df);
@@ -339,19 +336,17 @@ header .search input#searchAthlete:hover {
   min-height: 62px;
 }
 
-.titleTwo {
-  color: #ffffff;
+.title {
+  color: #2b3d59;
   /*Contraste da cor*/
   margin-bottom: 5px;
   text-align: center;
 }
 
-.bottomCard {
-  padding: 10px;
-  max-height: max-content;
-  background: linear-gradient(to bottom, #ffcb05, #fff);
-  border-bottom-left-radius: 10px;
-  border-bottom-right-radius: 10px;
+.titleTwo {
+  color: #ffffff;
+  margin-bottom: 5px;
+  text-align: center;
 }
 
 .bottomCardTwo {
@@ -359,29 +354,27 @@ header .search input#searchAthlete:hover {
 }
 
 .containerCards .flip {
-    transition: transform 0.7s;
-    transform-style: preserve-3d;
+  transition: transform 0.7s;
+  transform-style: preserve-3d;
 }
 
 .containerCards:hover .flip {
-    transform:rotateY(180deg);
+  transform: rotateY(180deg);
 }
 
-.front-card, .back-card {
-    position: absolute; /*vai deixar os itens front card e back card paralelo um ao outro*/
-    backface-visibility: hidden;
-    width: 267px; 
-    border-radius: 20px;
-    box-shadow: 0px 2px 23px rgba(9, 11, 31, 0.329);
-}
-.back-card{
-    transform: rotateY(180deg);
+.front-card,
+.back-card {
+  position: absolute;
+  /*vai deixar os itens front card e back card paralelo um ao outro*/
+  backface-visibility: hidden;
+  width: 267px;
+  border-radius: 20px;
+  box-shadow: 0px 2px 23px rgba(9, 11, 31, 0.329);
 }
 
-/*.containerCards:hover{  
-     transform: scale(1.05);
-     box-shadow: 0 0 40px -10px rgba(0, 0, 0, 0.25);   
-} precisa alterar pra ter houver só nos cards atletas*/
+.back-card {
+  transform: rotateY(180deg);
+}
 
 /*Footer*/
 
@@ -415,7 +408,6 @@ header .search input#searchAthlete:hover {
   bottom: 0;
   left: 0;
   position: absolute;
-  /*para fixar o footer*/
   width: 100%;
   height: 2em;
   overflow: hidden;
@@ -583,6 +575,7 @@ header .search input#searchAthlete:hover {
   word-wrap: break-word;
   margin-right: 30px;
 }
+
 #sec h2 {
   font-family: 'Rio2016';
   font-weight: 200;
@@ -590,6 +583,7 @@ header .search input#searchAthlete:hover {
   color: #e66363;
   margin-bottom: 20px;
 }
+
 #sec ul {
   margin: 0;
   display: flex;
@@ -599,6 +593,7 @@ header .search input#searchAthlete:hover {
   column-gap: 10px;
   row-gap: 12px;
 }
+
 #sec ul li {
   padding: 40px;
   width: 300px;
@@ -606,30 +601,39 @@ header .search input#searchAthlete:hover {
   background: linear-gradient(to top, #f5033fbd, #f5e0e5);
   border-radius: 10px;
 }
+
 #sec ul li:hover {
   box-shadow: 0 12px 15px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0 rgba(0, 0, 0, 0.19);
 }
+
 #sec ul li:hover span {
   color: #63b7e6;
 }
+
 #sec ul li:hover p {
   color: rgb(34, 33, 33);
 }
+
 #sec ul li:hover h3 {
   color: #fa1f3c;
 }
+
 #sec ul li:hover h3:after {
   width: 25px;
 }
+
 #sec ul li span {
   font-size: 2.6em;
   display: block;
   transition: color 0.3s;
   color: #a2a2a2;
 }
-#sec ul li span:before, #sec ul li span:after {
+
+#sec ul li span:before,
+#sec ul li span:after {
   position: static;
 }
+
 #sec ul li h3 {
   color: #6f6f6f;
   display: inline-block;
@@ -639,11 +643,11 @@ header .search input#searchAthlete:hover {
   transition: color 0.3s;
   padding-bottom: 10px;
 }
+
 #sec ul li h3:after {
   content: '';
   position: relative;
   left: 50%;
-  /*top: 20px;*/
   transform: translateX(-50%);
   display: block;
   width: 40px;
@@ -651,15 +655,15 @@ header .search input#searchAthlete:hover {
   background: #6f6f6f;
   transition: width 0.3s;
 }
+
 #sec ul li p {
   color: #555454;
-  text-align: left;
+  text-align: justify;
   text-indent: 1em;
   font-size: 18px;
   line-height: 26px;
   transition: color 0.3s;
 }
-
 
 /*Responsive*/
 
@@ -690,58 +694,58 @@ header .search input#searchAthlete:hover {
 }
 
 @media screen and (max-width:768px) {
-    header {
-      height: auto;
-      position: relative;
-    }
-  
-    header .logo {
-      width: 100%;
-      text-align: center;
-      display: block;
-    }
-  
-    header nav {
-      width: 100%;
-      text-align: center;
-      display: block;
-    }
+  header {
+    height: auto;
+    position: relative;
+  }
 
-    header nav li a {
-        padding:0;
-        display: block;
-    }
+  header .logo {
+    width: 100%;
+    text-align: center;
+    display: block;
+  }
 
-    header nav ul li {
-        display: block;
-        position: relative;
-    }
+  header nav {
+    width: 100%;
+    text-align: center;
+    display: block;
+  }
 
-    header nav ul ul {
-        display: block;
-        position: relative;
-        top:0;
-        left: 0;
-        margin: 20px 0 0 0;
-    }
+  header nav li a {
+    padding: 0;
+    display: block;
+  }
 
-    header nav li li a {
-        padding: 0;
-    }
+  header nav ul li {
+    display: block;
+    position: relative;
+  }
 
-    header nav li {
-        margin-bottom: 20px;
-    }
-  
-    header .search {
-      margin-top: 0;
-      margin-left: 10%;
-      margin-bottom: 15px;
-      width: 80%
-    }
+  header nav ul ul {
+    display: block;
+    position: relative;
+    top: 0;
+    left: 0;
+    margin: 20px 0 0 0;
+  }
 
-    #main-banner {
-        margin-top: 0;
-      }
+  header nav li li a {
+    padding: 0;
+  }
+
+  header nav li {
+    margin-bottom: 20px;
+  }
+
+  header .search {
+    margin-top: 0;
+    margin-left: 10%;
+    margin-bottom: 15px;
+    width: 80%
+  }
+
+  #main-banner {
+    margin-top: 0;
+  }
 
 }

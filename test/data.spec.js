@@ -20,7 +20,7 @@ const athletes = [{
     "event": "Rowing Men's Coxless Pairs",
     "medal": "Bronze"
   },
-  {
+ {
     "name": "Patimat Abakarova",
     "gender": "F",
     "height": "165",
@@ -120,8 +120,9 @@ describe("groupedAthletes", () => {
         "team": "Italy",
         "noc": "ITA",
         "age": 21,
-        "events": ["Rowing Men's Coxless Pairs", ],
-        "medal": "Bronze"
+        "events": [{
+          "medal": "Bronze",
+          "name": "Rowing Men's Coxless Pairs",}]
       },
       {
         "name": "Patimat Abakarova",
@@ -132,8 +133,9 @@ describe("groupedAthletes", () => {
         "team": "Azerbaijan",
         "noc": "AZE",
         "age": 21,
-        "events": ["Taekwondo Women's Flyweight", ],
-        "medal": "Bronze"
+        "events": [{
+        "medal": "Bronze",
+        "name": "Taekwondo Women's Flyweight",}]
       },
       {
         "name": "Luc Abalo",
@@ -144,8 +146,9 @@ describe("groupedAthletes", () => {
         "team": "France",
         "noc": "FRA",
         "age": 31,
-        "events": ["Handball Men's Handball", ],
-        "medal": "Silver"
+        "events": [{
+         "medal": "Silver",
+         "name": "Handball Men's Handball",}]
       },
       {
         "name": "Saeid Morad Abdevali",
@@ -156,8 +159,9 @@ describe("groupedAthletes", () => {
         "team": "Iran",
         "noc": "IRI",
         "age": 26,
-        "events": ["Wrestling Men's Middleweight, Greco-Roman", ],
-        "medal": "Bronze"
+        "events":  [{
+          "medal": "Bronze",
+          "name": "Wrestling Men's Middleweight, Greco-Roman",}]
       },
       {
         "name": "Denis Mikhaylovich Ablyazin",
@@ -168,8 +172,11 @@ describe("groupedAthletes", () => {
         "team": "Russia",
         "noc": "RUS",
         "age": 24,
-        "events": ["Gymnastics Men's Team All-Around", "Gymnastics Men's Horse Vault", "Gymnastics Men's Rings", ],
-        "medal": "Silver"
+        "events": [
+          {"medal": "Silver", "name": "Gymnastics Men's Team All-Around",},  
+          {"medal": "Silver", "name": "Gymnastics Men's Horse Vault"},
+          {"medal":"Bronze", "name": "Gymnastics Men's Rings"}
+        ]
       },
       {
         "name": "Matthew \"Matt\" Abood",
@@ -180,8 +187,9 @@ describe("groupedAthletes", () => {
         "team": "Australia",
         "noc": "AUS",
         "age": 30,
-        "events": ["Swimming Men's 4 x 100 metres Freestyle Relay", ],
-        "medal": "Bronze"
+        "events":  [{
+          "medal": "Bronze",
+          "name": "Swimming Men's 4 x 100 metres Freestyle Relay",}]
       }
     ])
   })
@@ -209,8 +217,9 @@ it('should return athlete when inform partial name', () => {
     "team": "Italy",
     "noc": "ITA",
     "age": 21,
-    "events": ["Rowing Men's Coxless Pairs", ],
-    "medal": "Bronze"
+    "events":  [{
+      "medal": "Bronze",
+      "name": "Rowing Men's Coxless Pairs",}]
   }]);
 });
 
@@ -224,8 +233,9 @@ it('should return athlete when inform name with capital letters', () => {
     "team": "France",
     "noc": "FRA",
     "age": 31,
-    "events": ["Handball Men's Handball", ],
-    "medal": "Silver"
+    "events":  [{
+      "medal": "Silver",
+      "name": "Handball Men's Handball",}]
   }]);
 });
 

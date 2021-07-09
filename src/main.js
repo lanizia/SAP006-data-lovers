@@ -9,12 +9,11 @@ import {
  groupByTeamsAthletes  
 } from './data.js';
 
-const sectionText = document.getElementById("texto-olimpiadas");
-const containerHomeCards = document.getElementById ("container-home-1")
-const containerHome = document.getElementById("best-athletes-container");
-const cardsAthletes = document.getElementById("containerCards");
-const cardsElement = document.getElementById("containerCards1");
 const homeButton = document.getElementById("homePage");
+const sectionText = document.getElementById("texto-olimpiadas");
+const containerHome = document.getElementById("best-athletes-container");
+const containerHomeCards = document.getElementById("container-home-1");
+const cardsElement = document.getElementById("containerCards1");
 const athletesButton = document.getElementById("athl");
 const athleteName = document.getElementById("athlete");
 const btnSearch = document.getElementById("searchAthlete");
@@ -26,30 +25,44 @@ const btnStatistic = document.getElementById("statistic");
 
 const clean = () => {
   containerHome.innerHTML = "";
-  cardsAthletes.innerHTML = "";
   cardsElement.innerHTML = "";
   sectionText.innerHTML = "";
   containerHomeCards.innerHTML = "";
 }
 
+
 const printAthletes = (athletesList) => {
   clean()
+  const medalMap = {
+    Gold: "🥇",
+    Silver: "🥈",
+    Bronze: "🥉"
+  }
   athletesList.forEach(athlete => {
-    cardsAthletes.innerHTML += `<div class="containerCards">
-        <div class="topCard">
+    cardsElement.innerHTML += `<div class="containerCards">
+     <div class="flip">
+        <div class="front-card">
+          <div class="topCard">
             <h2 class="title">${athlete.name}</h2>
-            <span class="secondText"><b>Gênero:</b> ${athlete.gender} <b>Idade:</b> ${athlete.age} </br> <b>País:</b> ${athlete.team} 
+          </div>
+          <div class="mediaCard"></div>
+          <div class="bottomCardTwo"></div>
         </div>
-        <div class="mediaCard"></div>
-        <div class="bottomCard">
-            <p class="bottomText">
-            <b>Altura:</b> ${athlete.height} cm
-            <b>Peso:</b> ${athlete.weight} kg</br>
-            <b>Esporte:</b> ${athlete.sport}</br>
-            <b>Modalidade:</b> ${athlete.events.join(', ')}</br>
-            <b>Medalha:</b> ${athlete.medal}</p> 
-        </div>
-    </div>`;
+        <div class="back-card">
+          <div class="topCard">
+            <h2 class="title"> Atleta vencedor de ${athlete.events.length} 🏅</h2>
+          </div>
+          <div class="mediaCardOne">
+           <ul>
+            <li><b>Altura:</b> ${athlete.height} cm </li>
+            <li><b>Peso:</b> ${athlete.weight} kg</br> </li>
+            <li><b>Esporte:</b> ${athlete.sport}</br> </li>
+            <li>${athlete.events.map(event => `<li> <b>Modalidade:</b> ${event.name}</li> <li><b>Medalha:</b> ${event.medal} ${medalMap[event.medal]} </li>`).join('')}</li>
+           </ul>
+          </div>
+         <div class="bottomCardTwo"></div>
+     </div>   
+</div>`;
   });
 }
 
@@ -68,7 +81,7 @@ const printTeams = (sortedListTeams, groupedTeams) => {
 
             <div class="back-card">
                 <div class="topCardTwo">
-                    <h2 class="titleTwo">Atletas por Países</h2>
+                    <h2 class="titleTwo">💪 Atletas Participantes!</h2>
                     </div>
                     <div class="mediaCardThreeSports"> <ul> ${groupedTeams[athleteTeam].map(name =>`<li>${name}</li>`).join("")} </ul></div>
                     <div class="bottomCardTwo"></div>
@@ -83,21 +96,20 @@ const printSports = (sortedListSport, groupedSports) => {
   sortedListSport.forEach(sportName => {
     cardsElement.innerHTML += `<div class="containerCards">
     <div class="flip">
-            <div class="front-card">
-                    <div class="topCardTwo">
-                    <h2 class="titleTwo">${sportName}</h2>
-                    </div>
-                    <div class="mediaCardTwo"></div>
-                    <div class="bottomCardTwo"></div>
-            </div>
-
-            <div class="back-card">
-                <div class="topCardTwo">
-                    <h2 class="titleTwo">Modalidades</h2>
-                    </div>
-                    <div class="mediaCardThreeSports"> <ul> ${groupedSports[sportName].map(event =>`<li>${event}</li>`).join("")} </ul></div>
-                    <div class="bottomCardTwo"></div>
-            </div>
+      <div class="front-card">
+        <div class="topCardTwo">
+          <h2 class="titleTwo">${sportName}</h2>
+        </div>
+        <div class="mediaCardTwo"></div>
+        <div class="bottomCardTwo"></div>
+      </div>
+      <div class="back-card">
+        <div class="topCardTwo">
+          <h2 class="titleTwo">Modalidades</h2>
+        </div>
+        <div class="mediaCardThreeSports"> <ul> ${groupedSports[sportName].map(event =>`<li>${event}</li>`).join("")} </ul></div>
+        <div class="bottomCardTwo"></div>
+      </div>
     </div>   
 </div>`;
   });
@@ -106,18 +118,15 @@ const printSports = (sortedListSport, groupedSports) => {
 const printStatistics = (statisticNumberOfWoman, statisticNumberofMedal) => {
   clean()
   cardsElement.innerHTML += `<section id="sec">
-  <h2>Mulheres nas Olimpíadas
-  </h2>
+  <h2>Mulheres nas Olimpíadas</h2>
   <ul>
     <li>
       <span class="women-hist"></span>
-
       <h3>História</h3>
       <p>A edição das Olimpíadas de Paris em 1900, foi a primeira na qual mulheres puderam competir no evento.
       Porém ganhavam apenas um certificado de participação. 
       A presença das mulheres nas modalidades olímpicas foi gradativa. No tiro com arco, por exemplo, elas puderam competir a partir de 1904. Já no badminton e no judô, apenas em 1992, enquanto o wrestling só teve disputas femininas em 2004, e o boxe, em 2012.
-      Desde 1991, todos os esportes que pleiteiam espaço no programa olímpico precisam incluir eventos femininos.
-       </p>
+      Desde 1991, todos os esportes que pleiteiam espaço no programa olímpico precisam incluir eventos femininos.</p>
     </li>
     <li><span class="women-static"></span>
       <h3>Estatística</h3>
@@ -134,8 +143,7 @@ const printStatistics = (statisticNumberOfWoman, statisticNumberofMedal) => {
       </p></li>
 
   </ul>
-</section> 
-`;
+</section>`;
 }
 
 homeButton.addEventListener("click", () => {
@@ -173,10 +181,10 @@ btn.addEventListener("click", event => {
 });
 
 btnSports.addEventListener("click", () => {
-    clean()
-    const groupedSports = groupBySportName(data.athletes);
-    const listSports = Object.keys(groupedSports);
-    printSports(listSports, groupedSports);
+  clean()
+  const groupedSports = groupBySportName(data.athletes);
+  const listSports = Object.keys(groupedSports);
+  printSports(listSports, groupedSports);
 });
 
 btnSportsWithSort.forEach(btn => {
@@ -190,10 +198,9 @@ btnSportsWithSort.forEach(btn => {
   })
 });
 
-btnStatistic.addEventListener("click", () =>{
+btnStatistic.addEventListener("click", () => {
   clean()
   const statisticNumberofMedal = getMedalsofWoman(data.athletes, "gender");
   const statisticNumberOfWoman = getWomanAthletes(data.athletes, "gender");
   printStatistics(statisticNumberOfWoman, statisticNumberofMedal);
 });
-
