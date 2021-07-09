@@ -49,11 +49,6 @@ export const getAthletesByName = (athletesList, athleteName) => {
   return grouped.filter(athlete => athlete.name.toLowerCase().startsWith(lowerCaseName));
 }
 
-export const getTeams = (athletesList) => {
-  const teamsOfAthletes = athletesList.map(athlete => athlete.team);
-  return [...new Set(teamsOfAthletes)];
-}
-
 export const sortBy = (list, direction) => {
   return list.sort((a, b) => {
     if (direction === "desc") {
@@ -64,16 +59,32 @@ export const sortBy = (list, direction) => {
   })
 }
 
-const isFemale = athlete => athlete.gender === 'F';
+const isFemale = (athlete => athlete.gender === "F");
 
 export const getWomanAthletes = (athletesList) => {
-  const grouped = groupedAthletes(athletesList);
+  const  grouped = groupedAthletes(athletesList);
   const womanAthlete = grouped.filter(isFemale);
-  const porcent = parseInt((womanAthlete.length / grouped.length) * 100);
+  const porcent = parseInt((womanAthlete.length / grouped.length )*100);
   return porcent;
 }
 
 export const getMedalsofWoman = (athletesList) => {
   const medalsOfWoman = athletesList.filter(isFemale);
   return medalsOfWoman.length;
+}
+
+
+  export const groupByTeamsAthletes = athletesList => {
+  const indexOfAthletesByTeams = athletesList.reduce((grouped, athlete) => {
+    const teamNotFound = !grouped[athlete.team]
+    if (teamNotFound) {
+      grouped[athlete.team] = [];
+    }
+    const nameNotFound = !grouped[athlete.team].includes(athlete.name)
+    if (nameNotFound) {
+      grouped[athlete.team].push(athlete.name);
+    }
+    return grouped;
+  }, {});
+  return indexOfAthletesByTeams;
 }

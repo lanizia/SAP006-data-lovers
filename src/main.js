@@ -2,11 +2,11 @@ import data from './data/athletes/athletes.js'
 import {
   getAthletes,
   getAthletesByName,
-  getTeams,
   groupBySportName,
   sortBy,
   getWomanAthletes,
   getMedalsofWoman,
+ groupByTeamsAthletes  
 } from './data.js';
 
 const homeButton = document.getElementById("homePage");
@@ -66,26 +66,26 @@ const printAthletes = (athletesList) => {
   });
 }
 
-
-const printTeams = (listTeams) => {
+const printTeams = (sortedListTeams, groupedTeams) => {
   clean()
-  listTeams.forEach(athleteTeam => {
+  sortedListTeams.forEach(athleteTeam => {
     cardsElement.innerHTML += `<div class="containerCards">
     <div class="flip">
-      <div class="front-card">
-        <div class="topCardTwo">
-         <h2 class="titleTwo">${athleteTeam}</h2>
-        </div>
-        <div class="mediaCardTwo"></div>
-        <div class="bottomCardTwo"></div>
-      </div>
-     <div class="back-card">
-        <div class="topCardTwo">
-          <h2 class="titleTwo">Mudou</h2>
-        </div>
-        <div class="mediaCardThree"></div>
-        <div class="bottomCardTwo"></div>
-     </div>
+            <div class="front-card">
+                    <div class="topCardTwo">
+                    <h2 class="titleTwo">${athleteTeam}</h2>
+                    </div>
+                    <div class="mediaCardTwo"></div>
+                    <div class="bottomCardTwo"></div>
+            </div>
+
+            <div class="back-card">
+                <div class="topCardTwo">
+                    <h2 class="titleTwo">💪 Atletas Participantes!</h2>
+                    </div>
+                    <div class="mediaCardThreeSports"> <ul> ${groupedTeams[athleteTeam].map(name =>`<li>${name}</li>`).join("")} </ul></div>
+                    <div class="bottomCardTwo"></div>
+            </div>
     </div>   
 </div>`;
   });
@@ -164,18 +164,20 @@ btnSearch.addEventListener("click", () => {
 
 btnTeam.addEventListener("click", () => {
   clean()
-  const listTeams = getTeams(data.athletes);
-  printTeams(listTeams);
+  const groupedTeams = groupByTeamsAthletes(data.athletes);
+  const listTeams = Object.keys(groupedTeams);
+  printTeams(listTeams, groupedTeams);
 });
 
 btnTeamsWithSort.forEach(btn => {
-  btn.addEventListener("click", event => {
-    clean()
-    const sortDirection = event.target.getAttribute("data-direction");
-    const listTeams = getTeams(data.athletes);
-    const sortedListTeams = sortBy(listTeams, sortDirection);
-    printTeams(sortedListTeams);
-  })
+btn.addEventListener("click", event => {
+  clean()
+  const sortDirection = event.target.getAttribute("data-direction");
+  const groupedTeams = groupByTeamsAthletes(data.athletes);
+  const listTeams = Object.keys(groupedTeams);
+  const sortedListTeams = sortBy(listTeams, sortDirection);
+  printTeams(sortedListTeams, groupedTeams);
+})
 });
 
 btnSports.addEventListener("click", () => {
