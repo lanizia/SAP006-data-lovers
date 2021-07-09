@@ -1,16 +1,22 @@
 export const groupedAthletes = athletesList => {
   const indexed = athletesList.reduce((grouped, athlete) => {
     if (grouped[athlete.name]) {
-      grouped[athlete.name].events.push({ name: athlete.event, medal: athlete.medal });
+      grouped[athlete.name].events.push({
+        name: athlete.event,
+        medal: athlete.medal
+      });
     } else {
       grouped[athlete.name] = {
         ...athlete
       };
-      grouped[athlete.name].events = [{ name: athlete.event, medal: athlete.medal }];
+      grouped[athlete.name].events = [{
+        name: athlete.event,
+        medal: athlete.medal
+      }];
       delete grouped[athlete.name].event;
       delete grouped[athlete.name].medal;
-      }
-      return grouped;
+    }
+    return grouped;
 
   }, {});
   return Object.values(indexed);
@@ -61,13 +67,13 @@ export const sortBy = (list, direction) => {
 const isFemale = athlete => athlete.gender === 'F';
 
 export const getWomanAthletes = (athletesList) => {
-  const  grouped = groupedAthletes(athletesList);
+  const grouped = groupedAthletes(athletesList);
   const womanAthlete = grouped.filter(isFemale);
-  const porcent = parseInt((womanAthlete.length / grouped.length )*100);
+  const porcent = parseInt((womanAthlete.length / grouped.length) * 100);
   return porcent;
 }
 
 export const getMedalsofWoman = (athletesList) => {
   const medalsOfWoman = athletesList.filter(isFemale);
-  return medalsOfWoman.length; 
+  return medalsOfWoman.length;
 }
