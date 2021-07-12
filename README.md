@@ -63,5 +63,5 @@ Melhoramos também o design da aplicação, padronizando os tamanhos de todos os
 ## 8. Considerações Tecnicas e Execução
 
 ## 9. Autores
-O projeto é a segunda aplicação desenvolvida no bootcamp da Laboratória, pelas estudantes de fron-end [Monique Ténorio] (https://github.com/tenorionique) e [Lana Souza] (https://github.com/lanizia). Foi um desafio incrível que proporcionou muito aprendizado, ótimo trabalho em equipe e ainda boas risadas! 
+O projeto é a segunda aplicação desenvolvida no bootcamp da Laboratória, pelas estudantes de fron-end [Monique Ténorio](https://github.com/tenorionique) e [Lana Souza](https://github.com/lanizia). Foi um desafio incrível que proporcionou muito aprendizado, ótimo trabalho em equipe e ainda boas risadas! 
 
