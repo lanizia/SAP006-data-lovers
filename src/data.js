@@ -43,6 +43,21 @@ export const groupBySportName = athletesList =>
     return grouped;
   }, {});
 
+  export const groupByTeamsAthletes = athletesList => {
+    const indexOfAthletesByTeams = athletesList.reduce((grouped, athlete) => {
+      const teamNotFound = !grouped[athlete.team]
+      if (teamNotFound) {
+        grouped[athlete.team] = [];
+      }
+      const nameNotFound = !grouped[athlete.team].includes(athlete.name)
+      if (nameNotFound) {
+        grouped[athlete.team].push(athlete.name);
+      }
+      return grouped;
+    }, {});
+    return indexOfAthletesByTeams;
+  }
+
 export const getAthletesByName = (athletesList, athleteName) => {
   const lowerCaseName = athleteName.toLowerCase();
   const grouped = groupedAthletes(athletesList);
@@ -74,17 +89,3 @@ export const getMedalsofWoman = (athletesList) => {
 }
 
 
-  export const groupByTeamsAthletes = athletesList => {
-  const indexOfAthletesByTeams = athletesList.reduce((grouped, athlete) => {
-    const teamNotFound = !grouped[athlete.team]
-    if (teamNotFound) {
-      grouped[athlete.team] = [];
-    }
-    const nameNotFound = !grouped[athlete.team].includes(athlete.name)
-    if (nameNotFound) {
-      grouped[athlete.team].push(athlete.name);
-    }
-    return grouped;
-  }, {});
-  return indexOfAthletesByTeams;
-}
