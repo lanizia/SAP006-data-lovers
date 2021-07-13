@@ -9,12 +9,12 @@
 * [5. Protótipo de Baixa Fidelidade](#5-Protótipo-de-Baixa-Fidelidade)
 * [6. Teste de Usabilidade](#6-Teste-de-Usabilidade)
 * [7. Demonstração da Aplicação](#7-Funcionalidades-da-Aplicação)
-* [8. Considerações Tecnicas e Execução](#8-Considerações-Tecnicas-e-Execução)
+* [8. Considerações Técnicas e Execução](#8-Considerações-Técnicas-e-Execução)
 * [9. Autores](#9-Autores)
 
 ***
 
-<p align="center"> <img src="./src/assert/banner olimpiadas data lovers.png" heigh="125" width="500">
+<p align="center"> <img src="./src/assert/banner.png" heigh="125" width="500">
 </p>
 
 <h4 align="center"> Olimpíadas Data Lovers :fireworks: Concluído :fireworks:
@@ -40,11 +40,11 @@ Criamos um site que permite ao nosso usuário pesquisar seus atletas favoritos, 
 ## 3. Definição do Usuário: :woman: :family: :alien: :man:
 Para elucidar quem seriam os usuarios em potencial, escolhemos criar personas para melhorar o entendimentos das necessidades de cada um. Veja o exemplo abaixo.
 **Persona Um**
-<p align="center"> <img src="./src/assert/persona-um.jpg">
+<p align="center"> <img src="./src/assert/persona-um.png">
 </p>
 
  **Persona Dois**
-<p align="center"> <img src="./src/assert/persona-dois.jpg">
+<p align="center"> <img src="./src/assert/persona-dois.png">
 </p>
 
 ## 4. Histórias de Usuário: :book:
@@ -61,6 +61,11 @@ Para elucidar quem seriam os usuarios em potencial, escolhemos criar personas pa
 **Quarta História de Usuário**
 >Como usuário, quero saber o o número de mulheres atletas que participaram e ganharam medalhas. Também é importante poder acessar curiosidades e informações basicas a respeito das Olimpíadas do Rio 2016.
  
+## 5. Protótipo de Baixa Fidelidade: :pencil: :pencil2:
+Um website nada mais é que um produto, dessa forma é muito importante o processo de construção do mesmo. 
+Após as definições das necessidades dos usuários e pensando em sua experiencia com o produto, foram feitos os primeiros esboços dos esqueletos do site. Seguindo o requisito proposto pelo projeto, nosso Wireframe é considerado de Baixa Fidelidade, foi construido manualmente, com lápis e papel. Alguns detalhes foram adicionados, como cor tema do card e cor do botão, com poucas especificações. O foco maior foram a disposição dos elementos na tela. 
+Os desenhos foram feitos já pensando na responsividade da tela, e projetados primeiramente para Mobile. 
+Abaixo temos os desenhos das interfaces agrupadas por tamanho de tela: Desktop, Tablet e Mobile. 
 
 **Wireframe - Desktop**
 <p align="center"> <img src="./src/assert/desktop.jpg" width="500">
@@ -95,9 +100,9 @@ Por meio de gifs vamos demonstrar a usabilidade do nosso produto em formato Desk
 
 **Mobile**
 <p align="center"> <img src="./src/assert/mobile.gif" alt="gif-mobile">
-</p
+</p>
 
-## 8. Considerações Tecnicas e Execução: :exclamation: :grey_exclamation:
+## 8. Considerações Técnicas e Execução: :exclamation: :grey_exclamation:
 A estruturação do conteudo foi feita utilizando o _HTML_, como boa pratica fizemos o uso do HTML Semântico, pensando na acessibiliade do produto.
 
 A estilização foi feita com o _CSS_, pudemos criar efeitos visuais, pensando em como deixar o produto mais agradavel, dinamico e personalizado, tendo como foco a responsividade. 
@@ -109,8 +114,8 @@ Verificamos a funcionalidade de nosso site atraves do _Jest_, framework de de te
 **Instalando e Executando** :tada:
 
 Para executar o projeto é preciso ter instalado no seu computador:
--Um editor de codigo, por exemplo o [VSCode] (https://code.visualstudio.com/)
-[Git](https://git-scm.com/downloads) [Node/NPM] (https://nodejs.org/en/download/)
+-Um editor de codigo, por exemplo o [VSCode](https://code.visualstudio.com/)
+[Git](https://git-scm.com/downloads) [Node/NPM](https://nodejs.org/en/download/)
 
 -Abra um terminal (pode ser no seu editor de codigo);
 -Para instalar esse projeto, basta clona-lo no seu terminal:
