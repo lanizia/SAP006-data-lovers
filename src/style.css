@@ -665,6 +665,8 @@ header .search input#searchAthlete:hover {
   transition: color 0.3s;
 }
 
+
+
 /*Responsive*/
 
 @media screen and (max-width: 1024px) {
