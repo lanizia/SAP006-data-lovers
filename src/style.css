@@ -184,6 +184,12 @@ header .search input#searchAthlete:hover {
   line-height: 60px;
 }
 
+h2.texto-introducao, .texto-introducao h2 {
+  color: rgb(38, 69, 156);
+  padding-left: 15px;
+  line-height: 60px;
+}
+
 .texto-introducao img {
   display: block;
   margin-left: auto;
