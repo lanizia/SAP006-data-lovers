@@ -719,6 +719,8 @@ h2.texto-introducao, .texto-introducao h2 {
   transition: color 0.3s;
 }
 
+
+
 /*Responsive*/
 
 @media screen and (max-width: 1024px) {
