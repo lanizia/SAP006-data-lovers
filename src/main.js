@@ -1,7 +1,7 @@
 import data from './data/athletes/athletes.js'
 import {
   paginateAthletes,
-  getAthletesByName,
+  paginateAthletesByName,
   groupBySportName,
   sortBy,
   getWomanAthletes,
@@ -31,7 +31,6 @@ const clean = () => {
   sectionText.innerHTML = "";
   containerHomeCards.innerHTML = "";
 }
-
 
 const printAthletes = (athletesList) => {
   clean()
@@ -164,6 +163,7 @@ const printStatistics = (statisticNumberOfWoman, statisticNumberofMedal) => {
 </section>`;
 }
 
+
 homeButton.addEventListener("click", () => {
   window.location.reload();
 });
@@ -208,11 +208,55 @@ athletesButton.addEventListener("click", () => {
   changeAthletePage(initialPage, quantityPerPage);
 });
 
+
+
+
+const changePageAthleteName = (page, quantityPerPage) => {
+  const pagination = paginateAthletesByName(data.athletes, athleteName.value, page, quantityPerPage);
+  const athletesList = pagination.items;
+  const totalPages = pagination.totalPages;
+
+  printAthletes(athletesList);
+  printPagination(page);
+
+  document.querySelector("#paginate .first").addEventListener("click", () => {
+    if (page > 1) {
+      changePageAthleteName(1, quantityPerPage);
+    }
+  });
+
+  document.querySelector("#paginate .prev").addEventListener("click", () => {
+    if (page > 1) {
+      changePageAthleteName(page - 1, quantityPerPage);
+    }
+  });
+
+  document.querySelector("#paginate .next").addEventListener("click", () => {
+    if (page < totalPages) {
+      changePageAthleteName(page + 1, quantityPerPage);
+    }
+  });
+
+  document.querySelector("#paginate .last").addEventListener("click", () => {
+    if (page < totalPages) {
+      changePageAthleteName(totalPages, quantityPerPage);
+    }
+  });
+}
+
+
+
+
 btnSearch.addEventListener("click", () => {
   clean()
-  const searchAthleteByName = getAthletesByName(data.athletes, athleteName.value);
-  printAthletes(searchAthleteByName);
+  const initialPage = 1;
+  const quantityPerPage = 30;
+  changePageAthleteName(initialPage, quantityPerPage);
 });
+
+
+
+
 
 btnTeam.addEventListener("click", () => {
   clean()

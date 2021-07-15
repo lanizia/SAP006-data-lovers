@@ -44,11 +44,7 @@ export const paginateAthletesByName = (athletesList, athleteName, page, quantity
   return paginate(filtered, page, quantityPerPage);
 }
 
-export const getAthletesByName = (athletesList, athleteName) => {
-  const lowerCaseName = athleteName.toLowerCase();
-  const grouped = groupedAthletes(athletesList);
-  return grouped.filter(athlete => athlete.name.toLowerCase().startsWith(lowerCaseName));
-}
+
 
 export const groupBySportName = athletesList =>
   athletesList.reduce((grouped, athlete) => {
