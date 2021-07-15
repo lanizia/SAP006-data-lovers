@@ -27,7 +27,7 @@ Originalmente, os Jogos Olímpicos da Antiguidade foram realizados em Olímpia, 
 
 Os Jogos têm crescido em escala, a ponto de quase todas as nações serem representadas. A cada dois anos, os Jogos Olímpicos e sua exposição à mídia proporcionam a atletas desconhecidos a chance de alcançar fama nacional e, em casos especiais, a fama internacional. Os Jogos também constituem uma oportunidade importante para a cidade e o país se promover e mostrar-se para o mundo.
 
-Nosso projeto, **OLIMPÍADAS DATA LOVERS**,  foi desenvolvido a partir do banco de dados dos Jogos Olímpicos do Rio de Janeiro e se trata de uma aplicação web que ajuda os amantes dos Jogos Olímpicos a terem mais informações sobre os atletas participantes, os esportes e modalidades praticados e ainda conhecer os países que participam dessa competição.
+Nosso projeto, **OLIMPÍADAS DATA LOVERS**,  foi desenvolvido a partir do banco de dados dos Jogos Olímpicos do Rio de Janeiro e se trata de uma aplicação web que ajuda os amantes dos Jogos Olímpicos a terem mais informações sobre os atletas medalhistas, os esportes e modalidades praticados e ainda conhecer os países que participam dessa competição.
 
 
 ## 2. Definição de Produto: :pencil: 
