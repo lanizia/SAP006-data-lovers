@@ -25,6 +25,7 @@ const btnSports = document.getElementById("sports");
 const btnSportsWithSort = document.querySelectorAll(".btn-sport");
 const btnStatistic = document.getElementById("statistic");
 
+
 const clean = () => {
   containerHome.innerHTML = "";
   cardsElement.innerHTML = "";
@@ -208,9 +209,6 @@ athletesButton.addEventListener("click", () => {
   changeAthletePage(initialPage, quantityPerPage);
 });
 
-
-
-
 const changePageAthleteName = (page, quantityPerPage) => {
   const pagination = paginateAthletesByName(data.athletes, athleteName.value, page, quantityPerPage);
   const athletesList = pagination.items;
@@ -244,19 +242,12 @@ const changePageAthleteName = (page, quantityPerPage) => {
   });
 }
 
-
-
-
 btnSearch.addEventListener("click", () => {
   clean()
   const initialPage = 1;
   const quantityPerPage = 30;
   changePageAthleteName(initialPage, quantityPerPage);
 });
-
-
-
-
 
 btnTeam.addEventListener("click", () => {
   clean()
@@ -298,30 +289,35 @@ btnStatistic.addEventListener("click", () => {
   clean()
   const statisticNumberofMedal = getMedalsofWoman(data.athletes, "gender");
   const statisticNumberOfWoman = getWomanAthletes(data.athletes, "gender");
+  
+
+  const google=window.google; 
+  
   function drawChart() {
-    var data = google.visualization.arrayToDataTable([
-      ['gender', 'medals'],
-      ['Mulheres',     47],
-      ['Homens',      53]  
+    const data = google.visualization.arrayToDataTable([
+      ["gender", "medals"],
+      ["Mulheres",     47],
+      ["Homens",      53]  
     ]);
   
-    var options = {
-      title: 'Porcentagem de Medalhas por Gênero',
+    const options = {
+      title: "Porcentagem de Medalhas por Gênero",
       titleTextStyle: {color:'#555454'},
       is3D: true,
-      chartArea: {width: '80%', height:'60%'},
-      backgroundColor: '#f5e0e5',
+      chartArea: {width: "80%", height:"60%"},
+      backgroundColor: "#f5e0e5",
       position:'center',
       fontSize: 15,
-      legend:{position: 'bottom', textStyle: {color:'#504f4f', fontSize:14}},
-      slices: [{color:'pink'}, {color:'lightblue'}],
-      pieSliceTextStyle: {color: '#555454'} 
+      legend:{position: "bottom", textStyle: {color:"#504f4f", fontSize:14}},
+      slices: [{color:"pink"}, {color:"lightblue"}],
+      pieSliceTextStyle: {color: "#555454"} 
     };
   
-    var chart = new google.visualization.PieChart(document.getElementById('piechart_3d'));
+    const chart = new google.visualization.PieChart(document.getElementById("piechart_3d"));
     chart.draw(data, options);
   }
- const printChart= google.charts.setOnLoadCallback(drawChart); 
+  
+  const printChart= google.charts.setOnLoadCallback(drawChart); 
   printStatistics(statisticNumberOfWoman, statisticNumberofMedal,printChart);
 });
 

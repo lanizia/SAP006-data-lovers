@@ -1,7 +1,7 @@
 import {
   groupedAthletes,
-  getAthletes,
-  getAthletesByName,
+  paginateAthletes,
+  paginateAthletesByName,
   groupByTeamsAthletes,
   sortBy,
   groupBySportName,
@@ -195,36 +195,72 @@ describe("groupedAthletes", () => {
   })
 });
 
-describe('getAthletes', () => {
-  it('is a function', () => {
-    expect(typeof getAthletes).toBe('function');
+
+describe("paginateAthletes", () => {
+  it("is a function", () => {
+    expect(typeof paginateAthletes).toBe('function');
   })
+  it("should return agruped athletes per Page", () => {
+    expect(paginateAthletes(athletes, 1, 2)).toEqual({
+      items:[{
+      "name": "Giovanni Abagnale",
+      "gender": "M",
+      "height": "198",
+      "weight": "90",
+      "sport": "Rowing",
+      "team": "Italy",
+      "noc": "ITA",
+      "age": 21,
+      "events": [{
+        "medal": "Bronze",
+        "name": "Rowing Men's Coxless Pairs",}]
+    },
+    {
+      "name": "Patimat Abakarova",
+      "gender": "F",
+      "height": "165",
+      "weight": "49",
+      "sport": "Taekwondo",
+      "team": "Azerbaijan",
+      "noc": "AZE",
+      "age": 21,
+      "events": [{
+      "medal": "Bronze",
+      "name": "Taekwondo Women's Flyweight",}]
+    },
+],
+        totalPages: 3
+      })
+})
 });
 
-describe('getAthletesByName', () => {
+describe("paginateAthletesByName", () => {
   it('is a function', () => {
-    expect(typeof getAthletesByName).toBe('function');
+    expect(typeof paginateAthletesByName).toBe('function');
   })
-});
 
 it('should return athlete when inform partial name', () => {
-  expect(getAthletesByName(athletes, "giova")).toEqual([{
-    "name": "Giovanni Abagnale",
-    "gender": "M",
-    "height": "198",
-    "weight": "90",
-    "sport": "Rowing",
-    "team": "Italy",
-    "noc": "ITA",
-    "age": 21,
-    "events":  [{
-      "medal": "Bronze",
-      "name": "Rowing Men's Coxless Pairs",}]
-  }]);
+  expect(paginateAthletesByName(athletes, "giova", 1, 2)).toEqual({ 
+    items: [{
+      "name": "Giovanni Abagnale",
+      "gender": "M",
+      "height": "198",
+      "weight": "90",
+      "sport": "Rowing",
+      "team": "Italy",
+      "noc": "ITA",
+      "age": 21,
+      "events":  [{
+        "medal": "Bronze",
+        "name": "Rowing Men's Coxless Pairs",}]
+    }],
+    totalPages: 1,
+  });
 });
 
 it('should return athlete when inform name with capital letters', () => {
-  expect(getAthletesByName(athletes, "LUC ABALO")).toEqual([{
+  expect(paginateAthletesByName(athletes, "LUC ABALO", 1, 2)).toEqual({ 
+    items: [{
     "name": "Luc Abalo",
     "gender": "M",
     "height": "182",
@@ -236,7 +272,10 @@ it('should return athlete when inform name with capital letters', () => {
     "events":  [{
       "medal": "Silver",
       "name": "Handball Men's Handball",}]
-  }]);
+    }],
+    totalPages: 1,
+  });
+});
 });
 
 

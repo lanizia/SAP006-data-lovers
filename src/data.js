@@ -44,8 +44,6 @@ export const paginateAthletesByName = (athletesList, athleteName, page, quantity
   return paginate(filtered, page, quantityPerPage);
 }
 
-
-
 export const groupBySportName = athletesList =>
   athletesList.reduce((grouped, athlete) => {
     const sportNotFound = !grouped[athlete.sport]
