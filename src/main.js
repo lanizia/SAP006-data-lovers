@@ -9,6 +9,8 @@ import {
   groupByTeamsAthletes
 } from './data.js';
 
+
+
 const homeButton = document.getElementById("homePage");
 const sectionText = document.getElementById("texto-olimpiadas");
 const containerHome = document.getElementById("best-athletes-container");
@@ -145,8 +147,9 @@ const printStatistics = (statisticNumberOfWoman, statisticNumberofMedal) => {
     </li>
     <li><span class="women-static"></span>
       <h3>Estatística</h3>
-      <p>Durante as Olimpiadas do Rio de Janeiro de 2016 a porcentagem de mulheres que ganharam medalhas, em relação aos homens, foi de ${statisticNumberOfWoman}%.
-       No total, as mulheres conquistaram o número de ${statisticNumberofMedal} medalhas.</p>
+      <p>Durante as Olimpiadas do Rio de Janeiro de 2016 a porcentagem de mulheres que ganharam medalhas, em relação aos homens, foi de <b> ${statisticNumberOfWoman}% </b>.
+       No total, as mulheres conquistaram o número de <b>${statisticNumberofMedal}</b> medalhas.</p>
+       <div id="piechart_3d" class="chart" style="width:300px; height:200px; margin-top:30px"></div>
     </li>
     <li><span class="women-txt"></span>
       <h3>Marco</h3>
@@ -251,5 +254,32 @@ btnStatistic.addEventListener("click", () => {
   clean()
   const statisticNumberofMedal = getMedalsofWoman(data.athletes, "gender");
   const statisticNumberOfWoman = getWomanAthletes(data.athletes, "gender");
-  printStatistics(statisticNumberOfWoman, statisticNumberofMedal);
+  function drawChart() {
+    var data = google.visualization.arrayToDataTable([
+      ['gender', 'medals'],
+      ['Mulheres',     47],
+      ['Homens',      53]  
+    ]);
+  
+    var options = {
+      title: 'Porcentagem de Medalhas por Gênero',
+      titleTextStyle: {color:'#555454'},
+      is3D: true,
+      chartArea: {width: '80%', height:'60%'},
+      backgroundColor: '#f5e0e5',
+      position:'center',
+      fontSize: 15,
+      legend:{position: 'bottom', textStyle: {color:'#504f4f', fontSize:14}},
+      slices: [{color:'pink'}, {color:'lightblue'}],
+      pieSliceTextStyle: {color: '#555454'} 
+    };
+  
+    var chart = new google.visualization.PieChart(document.getElementById('piechart_3d'));
+    chart.draw(data, options);
+  }
+ const printChart= google.charts.setOnLoadCallback(drawChart); 
+  printStatistics(statisticNumberOfWoman, statisticNumberofMedal,printChart);
 });
+
+
+
