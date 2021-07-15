@@ -161,8 +161,6 @@ const printStatistics = (statisticNumberOfWoman, statisticNumberofMedal) => {
 </section>`;
 }
 
-
-
 homeButton.addEventListener("click", () => {
   window.location.reload();
 });
@@ -186,7 +184,6 @@ const changeAthletePage = (page, quantityPerPage) => {
       changeAthletePage(page - 1, quantityPerPage);
     }
   });
-
 
   document.querySelector("#paginate .next").addEventListener("click", () => {
     if (page < totalPages) {
