@@ -1,12 +1,12 @@
 import data from './data/athletes/athletes.js'
 import {
-  getAthletes,
+  paginateAthletes,
   getAthletesByName,
   groupBySportName,
   sortBy,
   getWomanAthletes,
   getMedalsofWoman,
- groupByTeamsAthletes  
+  groupByTeamsAthletes
 } from './data.js';
 
 
@@ -63,9 +63,24 @@ const printAthletes = (athletesList) => {
            </ul>
           </div>
          <div class="bottomCardTwo"></div>
-     </div>   
-</div>`;
+         </div>`;
+
   });
+}
+
+const printPagination = (page) => {
+  cardsElement.innerHTML += `</div>
+    <div id="paginate">
+      <div class="controls">
+          <div class="first">&#171;</div>
+          <div class="prev"><</div>
+          <div class="numbers">
+              <div>${page}</div>
+          </div>
+          <div class="next">></div>
+          <div class="last">&#187;</div>
+      </div>
+    </div>`
 }
 
 const printTeams = (sortedListTeams, groupedTeams) => {
@@ -149,14 +164,51 @@ const printStatistics = (statisticNumberOfWoman, statisticNumberofMedal) => {
 </section>`;
 }
 
+
+
 homeButton.addEventListener("click", () => {
   window.location.reload();
 });
 
+const changeAthletePage = (page, quantityPerPage) => {
+  const pagination = paginateAthletes(data.athletes, page, quantityPerPage);
+  const athletesList = pagination.items;
+  const totalPages = pagination.totalPages;
+
+  printAthletes(athletesList);
+  printPagination(page);
+
+  document.querySelector("#paginate .first").addEventListener("click", () => {
+    if (page > 1) {
+      changeAthletePage(1, quantityPerPage);
+    }
+  });
+
+  document.querySelector("#paginate .prev").addEventListener("click", () => {
+    if (page > 1) {
+      changeAthletePage(page - 1, quantityPerPage);
+    }
+  });
+
+
+  document.querySelector("#paginate .next").addEventListener("click", () => {
+    if (page < totalPages) {
+      changeAthletePage(page + 1, quantityPerPage);
+    }
+  });
+
+  document.querySelector("#paginate .last").addEventListener("click", () => {
+    if (page < totalPages) {
+      changeAthletePage(totalPages, quantityPerPage);
+    }
+  });
+}
+
 athletesButton.addEventListener("click", () => {
   clean()
-  const athletesList = getAthletes(data.athletes);
-  printAthletes(athletesList);
+  const initialPage = 1;
+  const quantityPerPage = 30;
+  changeAthletePage(initialPage, quantityPerPage);
 });
 
 btnSearch.addEventListener("click", () => {
@@ -173,14 +225,14 @@ btnTeam.addEventListener("click", () => {
 });
 
 btnTeamsWithSort.forEach(btn => {
-btn.addEventListener("click", event => {
-  clean()
-  const sortDirection = event.target.getAttribute("data-direction");
-  const groupedTeams = groupByTeamsAthletes(data.athletes);
-  const listTeams = Object.keys(groupedTeams);
-  const sortedListTeams = sortBy(listTeams, sortDirection);
-  printTeams(sortedListTeams, groupedTeams);
-})
+  btn.addEventListener("click", event => {
+    clean()
+    const sortDirection = event.target.getAttribute("data-direction");
+    const groupedTeams = groupByTeamsAthletes(data.athletes);
+    const listTeams = Object.keys(groupedTeams);
+    const sortedListTeams = sortBy(listTeams, sortDirection);
+    printTeams(sortedListTeams, groupedTeams);
+  })
 });
 
 btnSports.addEventListener("click", () => {

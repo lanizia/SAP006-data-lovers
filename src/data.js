@@ -22,10 +22,32 @@ export const groupedAthletes = athletesList => {
   return Object.values(indexed);
 }
 
+const paginate = (list, page, quantityPerPage) => {
+  const start = (page - 1) * quantityPerPage;
+  const end = start + quantityPerPage;
 
-export const getAthletes = athletesList => {
+  const items = list.slice(start, end);
+  const totalPages = Math.ceil(list.length / quantityPerPage);
+
+  return { items, totalPages }
+}
+
+export const paginateAthletes = (athletesList, page, quantityPerPage) => {
   const grouped = groupedAthletes(athletesList);
-  return grouped.slice(0, 30);
+  return paginate(grouped, page, quantityPerPage);
+}
+
+export const paginateAthletesByName = (athletesList, athleteName, page, quantityPerPage) => {
+  const lowerCaseName = athleteName.toLowerCase();
+  const grouped = groupedAthletes(athletesList);
+  const filtered = grouped.filter(athlete => athlete.name.toLowerCase().startsWith(lowerCaseName));
+  return paginate(filtered, page, quantityPerPage);
+}
+
+export const getAthletesByName = (athletesList, athleteName) => {
+  const lowerCaseName = athleteName.toLowerCase();
+  const grouped = groupedAthletes(athletesList);
+  return grouped.filter(athlete => athlete.name.toLowerCase().startsWith(lowerCaseName));
 }
 
 export const groupBySportName = athletesList =>
@@ -57,12 +79,6 @@ export const groupBySportName = athletesList =>
     }, {});
     return indexOfAthletesByTeams;
   }
-
-export const getAthletesByName = (athletesList, athleteName) => {
-  const lowerCaseName = athleteName.toLowerCase();
-  const grouped = groupedAthletes(athletesList);
-  return grouped.filter(athlete => athlete.name.toLowerCase().startsWith(lowerCaseName));
-}
 
 export const sortBy = (list, direction) => {
   return list.sort((a, b) => {
