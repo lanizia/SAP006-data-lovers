@@ -363,11 +363,18 @@ h2.texto-introducao, .texto-introducao h2 {
 
 .containerCards .flip {
   transition: transform 0.7s;
+  /*Adicionei webkit agora, não sei se é pra colocar só ease*/
+  -webkit-transition:all 0.7s ease-in-out; 
+  -moz-transition: all 0.7s ease-in-out;
   transform-style: preserve-3d;
+  -webkit-transform-style: preserve-3d;
+  -moz-transform-style: preserve-3d;
 }
 
 .containerCards:hover .flip {
   transform: rotateY(180deg);
+  -webkit-transform: rotateY(180deg);
+  -moz-transform: rotateY(180deg);
 }
 
 .front-card,
@@ -375,6 +382,8 @@ h2.texto-introducao, .texto-introducao h2 {
   position: absolute;
   /*vai deixar os itens front card e back card paralelo um ao outro*/
   backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  -moz-backface-visibility: hidden;
   width: 267px;
   border-radius: 20px;
   box-shadow: 0px 2px 23px rgba(9, 11, 31, 0.329);
@@ -382,6 +391,8 @@ h2.texto-introducao, .texto-introducao h2 {
 
 .back-card {
   transform: rotateY(180deg);
+  -webkit-transform: rotateY(180deg);
+  -moz-transform: rotateY(180deg);
 }
 
 /* paginacao */
