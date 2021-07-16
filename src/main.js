@@ -34,11 +34,17 @@ const clean = () => {
 
 const printAthletes = (athletesList) => {
   clean()
+
+  if((athletesList.length) == 0) {
+    cardsElement.innerHTML += `<div class="notFound">ATLETA NÃO ENCONTRADO</div>`
+  }
+
   const medalMap = {
     Gold: "🥇",
     Silver: "🥈",
     Bronze: "🥉"
   }
+
   athletesList.forEach(athlete => {
     cardsElement.innerHTML += `<div class="containerCards">
      <div class="flip">
@@ -63,12 +69,10 @@ const printAthletes = (athletesList) => {
           </div>
          <div class="bottomCardTwo"></div>
          </div>`;
-
   });
 }
 
-const printPagination = (page, totalPages) => {
-  if(totalPages > 1) {
+const printPagination = (page) => {
     cardsElement.innerHTML += `</div>
     <div id="paginate">
       <div class="controls">
@@ -82,7 +86,6 @@ const printPagination = (page, totalPages) => {
       </div>
     </div>`
   }
-}
 
 const changeAthletePage = (page, quantityPerPage) => {
   const pagination = paginateAthletes(data.athletes, page, quantityPerPage);
@@ -90,7 +93,7 @@ const changeAthletePage = (page, quantityPerPage) => {
   const totalPages = pagination.totalPages;
 
   printAthletes(athletesList);
-  printPagination(page, totalPages);
+  printPagination(page);
 
   document.querySelector("#paginate .first").addEventListener("click", () => {
     if (page > 1) {
@@ -121,35 +124,37 @@ const changePageAthleteName = (page, quantityPerPage) => {
   const pagination = paginateAthletesByName(data.athletes, athleteName.value, page, quantityPerPage);
   const athletesList = pagination.items;
   const totalPages = pagination.totalPages;
+ 
+    printAthletes(athletesList);
+    if(totalPages > 1) {
+    printPagination(page, totalPages);
 
-  printAthletes(athletesList);
-  printPagination(page, totalPages);
-
-  document.querySelector("#paginate .first").addEventListener("click", () => {
-    if (page > 1) {
-      changePageAthleteName(1, quantityPerPage);
-    }
-  });
-
-  document.querySelector("#paginate .prev").addEventListener("click", () => {
-    if (page > 1) {
-      changePageAthleteName(page - 1, quantityPerPage);
-    }
-  });
-
-  document.querySelector("#paginate .next").addEventListener("click", () => {
-    if (page < totalPages) {
-      changePageAthleteName(page + 1, quantityPerPage);
-    }
-  });
-
-  document.querySelector("#paginate .last").addEventListener("click", () => {
-    if (page < totalPages) {
-      changePageAthleteName(totalPages, quantityPerPage);
-    }
-  });
+    document.querySelector("#paginate .first").addEventListener("click", () => {
+      if (page > 1) {
+        changePageAthleteName(1, quantityPerPage);
+      }
+    });
+  
+    document.querySelector("#paginate .prev").addEventListener("click", () => {
+      if (page > 1) {
+        changePageAthleteName(page - 1, quantityPerPage);
+      }
+    });
+  
+    document.querySelector("#paginate .next").addEventListener("click", () => {
+      if (page < totalPages) {
+        changePageAthleteName(page + 1, quantityPerPage);
+      }
+    });
+  
+    document.querySelector("#paginate .last").addEventListener("click", () => {
+      if (page < totalPages) {
+        changePageAthleteName(totalPages, quantityPerPage);
+      }
+    });
+  }
 }
-
+  
 const printTeams = (sortedListTeams, groupedTeams) => {
   clean()
   sortedListTeams.forEach(athleteTeam => {
@@ -226,7 +231,6 @@ const printStatistics = (statisticNumberOfWoman, statisticNumberofMedal) => {
       
       A presença de atletas brasileiras também fez parte desse marco, pois, desde a primeira participação do Brasil nos Jogos Olímpicos, essa foi a edição com maior número de mulheres: foram 209 competidoras no total.
       </p></li>
-
   </ul>
 </section>`;
 }
