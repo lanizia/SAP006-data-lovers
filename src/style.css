@@ -207,8 +207,10 @@ h2.texto-introducao, .texto-introducao h2 {
   max-width: 800px;
 }
 
-.wrapper h1 {
-  padding: 50px;
+.wrapper h2 {
+  padding: 30px;
+  color: rgb(38, 69, 156);
+  font-size: 24px;
 }
 
 .wrapper ul {
