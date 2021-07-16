@@ -1,14 +1,13 @@
 import data from './data/athletes/athletes.js'
 import {
   paginateAthletes,
-  getAthletesByName,
+  paginateAthletesByName,
   groupBySportName,
   sortBy,
   getWomanAthletes,
   getMedalsofWoman,
   groupByTeamsAthletes
 } from './data.js';
-
 
 
 const homeButton = document.getElementById("homePage");
@@ -25,13 +24,13 @@ const btnSports = document.getElementById("sports");
 const btnSportsWithSort = document.querySelectorAll(".btn-sport");
 const btnStatistic = document.getElementById("statistic");
 
+
 const clean = () => {
   containerHome.innerHTML = "";
   cardsElement.innerHTML = "";
   sectionText.innerHTML = "";
   containerHomeCards.innerHTML = "";
 }
-
 
 const printAthletes = (athletesList) => {
   clean()
@@ -68,8 +67,9 @@ const printAthletes = (athletesList) => {
   });
 }
 
-const printPagination = (page) => {
-  cardsElement.innerHTML += `</div>
+const printPagination = (page, totalPages) => {
+  if(totalPages > 1) {
+    cardsElement.innerHTML += `</div>
     <div id="paginate">
       <div class="controls">
           <div class="first">&#171;</div>
@@ -81,6 +81,73 @@ const printPagination = (page) => {
           <div class="last">&#187;</div>
       </div>
     </div>`
+  }
+}
+
+const changeAthletePage = (page, quantityPerPage) => {
+  const pagination = paginateAthletes(data.athletes, page, quantityPerPage);
+  const athletesList = pagination.items;
+  const totalPages = pagination.totalPages;
+
+  printAthletes(athletesList);
+  printPagination(page, totalPages);
+
+  document.querySelector("#paginate .first").addEventListener("click", () => {
+    if (page > 1) {
+      changeAthletePage(1, quantityPerPage);
+    }
+  });
+
+  document.querySelector("#paginate .prev").addEventListener("click", () => {
+    if (page > 1) {
+      changeAthletePage(page - 1, quantityPerPage);
+    }
+  });
+
+  document.querySelector("#paginate .next").addEventListener("click", () => {
+    if (page < totalPages) {
+      changeAthletePage(page + 1, quantityPerPage);
+    }
+  });
+
+  document.querySelector("#paginate .last").addEventListener("click", () => {
+    if (page < totalPages) {
+      changeAthletePage(totalPages, quantityPerPage);
+    }
+  });
+}
+
+const changePageAthleteName = (page, quantityPerPage) => {
+  const pagination = paginateAthletesByName(data.athletes, athleteName.value, page, quantityPerPage);
+  const athletesList = pagination.items;
+  const totalPages = pagination.totalPages;
+
+  printAthletes(athletesList);
+  printPagination(page, totalPages);
+
+  document.querySelector("#paginate .first").addEventListener("click", () => {
+    if (page > 1) {
+      changePageAthleteName(1, quantityPerPage);
+    }
+  });
+
+  document.querySelector("#paginate .prev").addEventListener("click", () => {
+    if (page > 1) {
+      changePageAthleteName(page - 1, quantityPerPage);
+    }
+  });
+
+  document.querySelector("#paginate .next").addEventListener("click", () => {
+    if (page < totalPages) {
+      changePageAthleteName(page + 1, quantityPerPage);
+    }
+  });
+
+  document.querySelector("#paginate .last").addEventListener("click", () => {
+    if (page < totalPages) {
+      changePageAthleteName(totalPages, quantityPerPage);
+    }
+  });
 }
 
 const printTeams = (sortedListTeams, groupedTeams) => {
@@ -164,45 +231,9 @@ const printStatistics = (statisticNumberOfWoman, statisticNumberofMedal) => {
 </section>`;
 }
 
-
-
 homeButton.addEventListener("click", () => {
   window.location.reload();
 });
-
-const changeAthletePage = (page, quantityPerPage) => {
-  const pagination = paginateAthletes(data.athletes, page, quantityPerPage);
-  const athletesList = pagination.items;
-  const totalPages = pagination.totalPages;
-
-  printAthletes(athletesList);
-  printPagination(page);
-
-  document.querySelector("#paginate .first").addEventListener("click", () => {
-    if (page > 1) {
-      changeAthletePage(1, quantityPerPage);
-    }
-  });
-
-  document.querySelector("#paginate .prev").addEventListener("click", () => {
-    if (page > 1) {
-      changeAthletePage(page - 1, quantityPerPage);
-    }
-  });
-
-
-  document.querySelector("#paginate .next").addEventListener("click", () => {
-    if (page < totalPages) {
-      changeAthletePage(page + 1, quantityPerPage);
-    }
-  });
-
-  document.querySelector("#paginate .last").addEventListener("click", () => {
-    if (page < totalPages) {
-      changeAthletePage(totalPages, quantityPerPage);
-    }
-  });
-}
 
 athletesButton.addEventListener("click", () => {
   clean()
@@ -213,8 +244,9 @@ athletesButton.addEventListener("click", () => {
 
 btnSearch.addEventListener("click", () => {
   clean()
-  const searchAthleteByName = getAthletesByName(data.athletes, athleteName.value);
-  printAthletes(searchAthleteByName);
+  const initialPage = 1;
+  const quantityPerPage = 30;
+  changePageAthleteName(initialPage, quantityPerPage);
 });
 
 btnTeam.addEventListener("click", () => {
@@ -255,33 +287,38 @@ btnSportsWithSort.forEach(btn => {
 
 btnStatistic.addEventListener("click", () => {
   clean()
-  const statisticNumberofMedal = getMedalsofWoman(data.athletes, "gender");
-  const statisticNumberOfWoman = getWomanAthletes(data.athletes, "gender");
+  const statisticNumberofMedal = getMedalsofWoman(data.athletes);
+  const statisticNumberOfWoman = getWomanAthletes(data.athletes);
+  
+
+const google=window.google; 
+  
   function drawChart() {
-    var data = google.visualization.arrayToDataTable([
-      ['gender', 'medals'],
-      ['Mulheres',     47],
-      ['Homens',      53]  
+    const data = google.visualization.arrayToDataTable([
+      ["gender", "medals"],
+      ["Mulheres",     47],
+      ["Homens",      53]  
     ]);
   
-    var options = {
-      title: 'Porcentagem de Medalhas por Gênero',
-      titleTextStyle: {color:'#555454'},
+    const options = {
+      title: "Porcentagem de Medalhas por Gênero",
+      titleTextStyle: {color:"#555454"},
       is3D: true,
-      chartArea: {width: '80%', height:'60%'},
-      backgroundColor: '#f5e0e5',
-      position:'center',
+      chartArea: {width: "80%", height:"60%"},
+      backgroundColor: "#f5e0e5",
+      position:"center",
       fontSize: 15,
-      legend:{position: 'bottom', textStyle: {color:'#504f4f', fontSize:14}},
-      slices: [{color:'pink'}, {color:'lightblue'}],
-      pieSliceTextStyle: {color: '#555454'} 
+      legend:{position: "bottom", textStyle: {color:"#504f4f", fontSize:14}},
+      slices: [{color:"pink"}, {color:"lightblue"}],
+      pieSliceTextStyle: {color: "#555454"} 
     };
   
-    var chart = new google.visualization.PieChart(document.getElementById('piechart_3d'));
+    const chart = new google.visualization.PieChart(document.getElementById("piechart_3d"));
     chart.draw(data, options);
   }
- const printChart= google.charts.setOnLoadCallback(drawChart); 
-  printStatistics(statisticNumberOfWoman, statisticNumberofMedal,printChart);
+  
+  const printChart= google.charts.setOnLoadCallback(drawChart); 
+  printStatistics(statisticNumberOfWoman, statisticNumberofMedal, printChart);
 });
 
 

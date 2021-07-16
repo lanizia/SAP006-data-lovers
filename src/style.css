@@ -207,8 +207,10 @@ h2.texto-introducao, .texto-introducao h2 {
   max-width: 800px;
 }
 
-.wrapper h1 {
-  padding: 50px;
+.wrapper h2 {
+  padding: 30px;
+  color: rgb(38, 69, 156);
+  font-size: 24px;
 }
 
 .wrapper ul {
@@ -400,15 +402,6 @@ h2.texto-introducao, .texto-introducao h2 {
   margin: 32px auto;
 }
 
-#paginate .item {
-  border-bottom: 1px solid hsl(32, 98%, 12%);
-  padding: 16px 32px;
-}
-
-#paginate .item:hover {
-  background-color: rgba(255, 255, 255, 0.04);
-}
-
 #paginate .controls {
   display: flex;
   align-items: center;
@@ -418,26 +411,20 @@ h2.texto-introducao, .texto-introducao h2 {
 
 #paginate .controls div {
   cursor: pointer;
-
-  /* border: 1px solid #eee; */
-
   display: flex;
   align-items: center;
   justify-content: center;
-
-  font-size: 14;
+  color: rgb(192, 22, 113);  
 }
 
 #paginate .controls div:not(.numbers),
 #paginate .controls div.numbers div{
-  width: 40px;
-  height: 40px;
+  width: 70px;
+  height: 70px;
+  font-size: 24;
+  font-weight: bold;
 }
 
-#paginate .controls div.numbers div:hover,
-#paginate .controls div.numbers div.active {
-  color: var(--primary);
-}
 
 /*Footer*/
 
