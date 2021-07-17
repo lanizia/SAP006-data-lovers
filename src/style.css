@@ -247,6 +247,15 @@ h2.texto-introducao, .texto-introducao h2 {
 
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@1,500&display=swap');
 
+.notFound{
+  color: white;
+  border: solid red;
+  padding: 18px;
+  background: red;
+  font-size: 14px;
+  border-radius: 10px;
+}
+
 .content {
   display: flex;
   flex-direction: row;
