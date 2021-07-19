@@ -184,6 +184,12 @@ header .search input#searchAthlete:hover {
   line-height: 60px;
 }
 
+h2.texto-introducao, .texto-introducao h2 {
+  color: rgb(38, 69, 156);
+  padding-left: 15px;
+  line-height: 60px;
+}
+
 .texto-introducao img {
   display: block;
   margin-left: auto;
@@ -201,8 +207,10 @@ header .search input#searchAthlete:hover {
   max-width: 800px;
 }
 
-.wrapper h1 {
-  padding: 50px;
+.wrapper h2 {
+  padding: 30px;
+  color: rgb(38, 69, 156);
+  font-size: 24px;
 }
 
 .wrapper ul {
@@ -238,6 +246,15 @@ header .search input#searchAthlete:hover {
 /* Cards */
 
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@1,500&display=swap');
+
+.notFound{
+  color: white;
+  border: solid red;
+  padding: 18px;
+  background: red;
+  font-size: 14px;
+  border-radius: 10px;
+}
 
 .content {
   display: flex;
@@ -355,11 +372,18 @@ header .search input#searchAthlete:hover {
 
 .containerCards .flip {
   transition: transform 0.7s;
+  /*Adicionei webkit agora, não sei se é pra colocar só ease*/
+  -webkit-transition:all 0.7s ease-in-out; 
+  -moz-transition: all 0.7s ease-in-out;
   transform-style: preserve-3d;
+  -webkit-transform-style: preserve-3d;
+  -moz-transform-style: preserve-3d;
 }
 
 .containerCards:hover .flip {
   transform: rotateY(180deg);
+  -webkit-transform: rotateY(180deg);
+  -moz-transform: rotateY(180deg);
 }
 
 .front-card,
@@ -367,6 +391,8 @@ header .search input#searchAthlete:hover {
   position: absolute;
   /*vai deixar os itens front card e back card paralelo um ao outro*/
   backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  -moz-backface-visibility: hidden;
   width: 267px;
   border-radius: 20px;
   box-shadow: 0px 2px 23px rgba(9, 11, 31, 0.329);
@@ -374,7 +400,40 @@ header .search input#searchAthlete:hover {
 
 .back-card {
   transform: rotateY(180deg);
+  -webkit-transform: rotateY(180deg);
+  -moz-transform: rotateY(180deg);
 }
+
+/* paginacao */
+
+#paginate {
+  width: 100%;
+  margin: 32px auto;
+}
+
+#paginate .controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 8px;
+}
+
+#paginate .controls div {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgb(192, 22, 113);  
+}
+
+#paginate .controls div:not(.numbers),
+#paginate .controls div.numbers div{
+  width: 70px;
+  height: 70px;
+  font-size: 24;
+  font-weight: bold;
+}
+
 
 /*Footer*/
 
@@ -664,6 +723,8 @@ header .search input#searchAthlete:hover {
   line-height: 26px;
   transition: color 0.3s;
 }
+
+
 
 /*Responsive*/
 
