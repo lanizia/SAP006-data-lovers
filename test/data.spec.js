@@ -107,10 +107,10 @@ const athletes = [{
 ];
 
 describe("groupedAthletes", () => {
-  it('is a function', () => {
-    expect(typeof groupedAthletes).toEqual('function');
+  it("is a function", () => {
+    expect(typeof groupedAthletes).toEqual("function");
   })
-  it('should return only one object for each athlete with a unique list that includes all sports', () => {
+  it("should return only one object for each athlete with a unique list that includes all sports", () => {
     expect(groupedAthletes(athletes)).toEqual([{
         "name": "Giovanni Abagnale",
         "gender": "M",
@@ -235,11 +235,11 @@ describe("paginateAthletes", () => {
 });
 
 describe("paginateAthletesByName", () => {
-  it('is a function', () => {
-    expect(typeof paginateAthletesByName).toBe('function');
+  it("is a function", () => {
+    expect(typeof paginateAthletesByName).toBe("function");
   })
 
-it('should return athlete when inform partial name', () => {
+it("should return athlete when inform partial name", () => {
   expect(paginateAthletesByName(athletes, "giova", 1, 2)).toEqual({ 
     items: [{
       "name": "Giovanni Abagnale",
@@ -258,7 +258,7 @@ it('should return athlete when inform partial name', () => {
   });
 });
 
-it('should return athlete when inform name with capital letters', () => {
+it("should return athlete when inform name with capital letters", () => {
   expect(paginateAthletesByName(athletes, "LUC ABALO", 1, 2)).toEqual({ 
     items: [{
     "name": "Luc Abalo",
@@ -279,54 +279,54 @@ it('should return athlete when inform name with capital letters', () => {
 });
 
 
-describe('groupBySportName', () => {
-  it('is a function', () => {
-    expect(typeof groupBySportName).toBe('function');
+describe("groupBySportName", () => {
+  it("is a function", () => {
+    expect(typeof groupBySportName).toBe("function");
   })
 });
 
-it('should return an object that contains a list of sports as a property and for each property return a string array with the events of each sport.', () => {
+it("should return an object that contains a list of sports as a property and for each property return a string array with the events of each sport.", () => {
   expect(groupBySportName(athletes, "sports")).toEqual({"Gymnastics": ["Gymnastics Men's Team All-Around", "Gymnastics Men's Horse Vault", "Gymnastics Men's Rings"], "Handball": ["Handball Men's Handball"], "Rowing": ["Rowing Men's Coxless Pairs"], "Swimming": ["Swimming Men's 4 x 100 metres Freestyle Relay"], "Taekwondo": ["Taekwondo Women's Flyweight"], "Wrestling": ["Wrestling Men's Middleweight, Greco-Roman"]});
 });
 
-describe('groupByTeamsAthletes', () => {
-  it('is a function', () => {
-    expect(typeof groupByTeamsAthletes).toBe('function');
+describe("groupByTeamsAthletes", () => {
+  it("is a function", () => {
+    expect(typeof groupByTeamsAthletes).toBe("function");
   })
 });
 
-it('should return an object that contains a list of teams as a property and for each property return a string array with the names of each athlete', () => {
+it("should return an object that contains a list of teams as a property and for each property return a string array with the names of each athlete", () => {
   expect(groupByTeamsAthletes(athletes, "team")).toEqual({"Italy": ["Giovanni Abagnale"], "Azerbaijan": ["Patimat Abakarova"], "France": ["Luc Abalo"], "Iran": ["Saeid Morad Abdevali"], "Russia": ["Denis Mikhaylovich Ablyazin"], "Australia": ["Matthew \"Matt\" Abood"]});
 });
 
-
 const teams = ["Italy", "Azerbaijan", "France", "Iran", "Russia", "Australia"]
 
-describe('sortBy', () => {
-  it('is a function', () => {
-    expect(typeof sortBy).toBe('function');
+describe("sortBy", () => {
+  it("is a function", () => {
+    expect(typeof sortBy).toBe("function");
   })
 });
 
-it('should returns a sort asc list of non-repeating teams, when a list with repeated teams is entered', () => {
+it("should returns a sort asc list of non-repeating teams, when a list with repeated teams is entered", () => {
   expect(sortBy(teams, "asc")).toEqual(["Australia", "Azerbaijan", "France", "Iran", "Italy", "Russia"]);
 });
-it('should returns a sort desc list of non-repeating teams, when a list with repeated teams is entered', () => {
+
+it("should returns a sort desc list of non-repeating teams, when a list with repeated teams is entered", () => {
   expect(sortBy(teams, "desc")).toEqual(["Russia", "Italy", "Iran", "France", "Azerbaijan", "Australia"]);
 });
 
-  describe('getWomanAthletes',() =>{
-    it('is a function', () =>{
-      expect(typeof getWomanAthletes).toBe('function');
+describe("getWomanAthletes",() =>{
+    it("is a function", () =>{
+      expect(typeof getWomanAthletes).toBe("function");
     })});
-    it('should return the number of percentage of female athlete non-repeted that won medals', () => {
+it("should return the number of percentage of female athlete non-repeted that won medals", () => {
       expect(getWomanAthletes (athletes, "gender")).toEqual(16);
     });
 
-  describe('getMedalsofWoman', () => {
-    it('is a function', () => {
-      expect(typeof getMedalsofWoman).toBe('function');
+describe("getMedalsofWoman", () => {
+it("is a function", () => {
+      expect(typeof getMedalsofWoman).toBe("function");
     })});
-    it('should return the total number of medals that female athletes won', () => {
+it("should return the total number of medals that female athletes won", () => {
       expect(getMedalsofWoman (athletes, "gender")).toEqual(1);
     });
