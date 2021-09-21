@@ -59,7 +59,7 @@ export const groupBySportName = athletesList =>
     return grouped;
   }, {});
 
-  export const groupByTeamsAthletes = athletesList => {
+export const groupByTeamsAthletes = athletesList => {
     const indexOfAthletesByTeams = athletesList.reduce((grouped, athlete) => {
       const teamNotFound = !grouped[athlete.team]
       if (teamNotFound) {
