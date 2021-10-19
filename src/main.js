@@ -1,4 +1,4 @@
-import data from './data/athletes/athletes.js'
+import data from "./data/athletes/athletes.js";
 import {
   paginateAthletes,
   paginateAthletesByName,
@@ -6,9 +6,8 @@ import {
   sortBy,
   getWomanAthletes,
   getMedalsofWoman,
-  groupByTeamsAthletes
-} from './data.js';
-
+  groupByTeamsAthletes,
+} from "./data.js";
 
 const homeButton = document.getElementById("homePage");
 const sectionText = document.getElementById("texto-olimpiadas");
@@ -24,28 +23,27 @@ const btnSports = document.getElementById("sports");
 const btnSportsWithSort = document.querySelectorAll(".btn-sport");
 const btnStatistic = document.getElementById("statistic");
 
-
 const clean = () => {
   containerHome.innerHTML = "";
   cardsElement.innerHTML = "";
   sectionText.innerHTML = "";
   containerHomeCards.innerHTML = "";
-}
+};
 
 const printAthletes = (athletesList) => {
-  clean()
+  clean();
 
-  if((athletesList.length) == 0) {
-    cardsElement.innerHTML += `<div class="notFound">ATLETA NÃO ENCONTRADO</div>`
+  if (athletesList.length == 0) {
+    cardsElement.innerHTML += `<div class="notFound">ATLETA NÃO ENCONTRADO</div>`;
   }
 
   const medalMap = {
     Gold: "🥇",
     Silver: "🥈",
-    Bronze: "🥉"
-  }
+    Bronze: "🥉",
+  };
 
-  athletesList.forEach(athlete => {
+  athletesList.forEach((athlete) => {
     cardsElement.innerHTML += `<div class="containerCards">
      <div class="flip">
         <div class="front-card">
@@ -57,23 +55,34 @@ const printAthletes = (athletesList) => {
         </div>
         <div class="back-card">
           <div class="topCard">
-            <h2 class="title"> Atleta vencedor de ${athlete.events.length} 🏅</h2>
+            <h2 class="title"> Atleta vencedor de ${
+              athlete.events.length
+            } 🏅</h2>
           </div>
           <div class="mediaCardOne">
            <ul>
             <li><b>Altura:</b> ${athlete.height} cm </li>
             <li><b>Peso:</b> ${athlete.weight} kg</br> </li>
             <li><b>Esporte:</b> ${athlete.sport}</br> </li>
-            <li>${athlete.events.map(event => `<li> <b>Modalidade:</b> ${event.name}</li> <li><b>Medalha:</b> ${event.medal} ${medalMap[event.medal]} </li>`).join('')}</li>
+            <li>${athlete.events
+              .map(
+                (event) =>
+                  `<li> <b>Modalidade:</b> ${
+                    event.name
+                  }</li> <li><b>Medalha:</b> ${event.medal} ${
+                    medalMap[event.medal]
+                  } </li>`
+              )
+              .join("")}</li>
            </ul>
           </div>
          <div class="bottomCardTwo"></div>
          </div>`;
   });
-}
+};
 
 const printPagination = (page) => {
-    cardsElement.innerHTML += `</div>
+  cardsElement.innerHTML += `</div>
     <div id="paginate">
       <div class="controls">
           <div class="first">&#171;</div>
@@ -84,8 +93,8 @@ const printPagination = (page) => {
           <div class="next">></div>
           <div class="last">&#187;</div>
       </div>
-    </div>`
-  }
+    </div>`;
+};
 
 const changeAthletePage = (page, quantityPerPage) => {
   const pagination = paginateAthletes(data.athletes, page, quantityPerPage);
@@ -118,15 +127,20 @@ const changeAthletePage = (page, quantityPerPage) => {
       changeAthletePage(totalPages, quantityPerPage);
     }
   });
-}
+};
 
 const changePageAthleteName = (page, quantityPerPage) => {
-  const pagination = paginateAthletesByName(data.athletes, athleteName.value, page, quantityPerPage);
+  const pagination = paginateAthletesByName(
+    data.athletes,
+    athleteName.value,
+    page,
+    quantityPerPage
+  );
   const athletesList = pagination.items;
   const totalPages = pagination.totalPages;
- 
-    printAthletes(athletesList);
-    if(totalPages > 1) {
+
+  printAthletes(athletesList);
+  if (totalPages > 1) {
     printPagination(page, totalPages);
 
     document.querySelector("#paginate .first").addEventListener("click", () => {
@@ -134,30 +148,30 @@ const changePageAthleteName = (page, quantityPerPage) => {
         changePageAthleteName(1, quantityPerPage);
       }
     });
-  
+
     document.querySelector("#paginate .prev").addEventListener("click", () => {
       if (page > 1) {
         changePageAthleteName(page - 1, quantityPerPage);
       }
     });
-  
+
     document.querySelector("#paginate .next").addEventListener("click", () => {
       if (page < totalPages) {
         changePageAthleteName(page + 1, quantityPerPage);
       }
     });
-  
+
     document.querySelector("#paginate .last").addEventListener("click", () => {
       if (page < totalPages) {
         changePageAthleteName(totalPages, quantityPerPage);
       }
     });
   }
-}
-  
+};
+
 const printTeams = (sortedListTeams, groupedTeams) => {
-  clean()
-  sortedListTeams.forEach(athleteTeam => {
+  clean();
+  sortedListTeams.forEach((athleteTeam) => {
     cardsElement.innerHTML += `<div class="containerCards">
     <div class="flip">
             <div class="front-card">
@@ -172,17 +186,21 @@ const printTeams = (sortedListTeams, groupedTeams) => {
                 <div class="topCardTwo">
                     <h2 class="titleTwo">💪 Atletas Participantes!</h2>
                     </div>
-                    <div class="mediaCardThreeSports"> <ul> ${groupedTeams[athleteTeam].map(name =>`<li>${name}</li>`).join("")} </ul></div>
+                    <div class="mediaCardThreeSports"> <ul> ${groupedTeams[
+                      athleteTeam
+                    ]
+                      .map((name) => `<li>${name}</li>`)
+                      .join("")} </ul></div>
                     <div class="bottomCardTwo"></div>
             </div>
     </div>   
 </div>`;
   });
-}
+};
 
 const printSports = (sortedListSport, groupedSports) => {
-  clean()
-  sortedListSport.forEach(sportName => {
+  clean();
+  sortedListSport.forEach((sportName) => {
     cardsElement.innerHTML += `<div class="containerCards">
     <div class="flip">
       <div class="front-card">
@@ -196,16 +214,18 @@ const printSports = (sortedListSport, groupedSports) => {
         <div class="topCardTwo">
           <h2 class="titleTwo">Modalidades</h2>
         </div>
-        <div class="mediaCardThreeSports"> <ul> ${groupedSports[sportName].map(event =>`<li>${event}</li>`).join("")} </ul></div>
+        <div class="mediaCardThreeSports"> <ul> ${groupedSports[sportName]
+          .map((event) => `<li>${event}</li>`)
+          .join("")} </ul></div>
         <div class="bottomCardTwo"></div>
       </div>
     </div>   
 </div>`;
   });
-}
+};
 
 const printStatistics = (statisticNumberOfWoman, statisticNumberofMedal) => {
-  clean()
+  clean();
   cardsElement.innerHTML += `<section id="sec">
   <h2>Mulheres nas Olimpíadas</h2>
   <ul>
@@ -233,97 +253,98 @@ const printStatistics = (statisticNumberOfWoman, statisticNumberofMedal) => {
       </p></li>
   </ul>
 </section>`;
-}
+};
 
 homeButton.addEventListener("click", () => {
   window.location.reload();
 });
 
 athletesButton.addEventListener("click", () => {
-  clean()
+  clean();
   const initialPage = 1;
   const quantityPerPage = 30;
   changeAthletePage(initialPage, quantityPerPage);
 });
 
 btnSearch.addEventListener("click", () => {
-  clean()
+  clean();
   const initialPage = 1;
   const quantityPerPage = 30;
   changePageAthleteName(initialPage, quantityPerPage);
 });
 
 btnTeam.addEventListener("click", () => {
-  clean()
+  clean();
   const groupedTeams = groupByTeamsAthletes(data.athletes);
   const listTeams = Object.keys(groupedTeams);
   printTeams(listTeams, groupedTeams);
 });
 
-btnTeamsWithSort.forEach(btn => {
-  btn.addEventListener("click", event => {
-    clean()
+btnTeamsWithSort.forEach((btn) => {
+  btn.addEventListener("click", (event) => {
+    clean();
     const sortDirection = event.target.getAttribute("data-direction");
     const groupedTeams = groupByTeamsAthletes(data.athletes);
     const listTeams = Object.keys(groupedTeams);
     const sortedListTeams = sortBy(listTeams, sortDirection);
     printTeams(sortedListTeams, groupedTeams);
-  })
+  });
 });
 
 btnSports.addEventListener("click", () => {
-  clean()
+  clean();
   const groupedSports = groupBySportName(data.athletes);
   const listSports = Object.keys(groupedSports);
   printSports(listSports, groupedSports);
 });
 
-btnSportsWithSort.forEach(btn => {
-  btn.addEventListener("click", event => {
-    clean()
+btnSportsWithSort.forEach((btn) => {
+  btn.addEventListener("click", (event) => {
+    clean();
     const sortDirection = event.target.getAttribute("data-direction");
     const groupedSports = groupBySportName(data.athletes);
     const listSports = Object.keys(groupedSports);
     const sortedListSport = sortBy(listSports, sortDirection);
     printSports(sortedListSport, groupedSports);
-  })
+  });
 });
 
 btnStatistic.addEventListener("click", () => {
-  clean()
+  clean();
   const statisticNumberofMedal = getMedalsofWoman(data.athletes);
   const statisticNumberOfWoman = getWomanAthletes(data.athletes);
-  
 
-const google=window.google; 
-  
+  const google = window.google;
+
   function drawChart() {
     const data = google.visualization.arrayToDataTable([
       ["gender", "medals"],
-      ["Mulheres",     47],
-      ["Homens",      53]  
+      ["Mulheres", 47],
+      ["Homens", 53],
     ]);
-  
+
     const options = {
       title: "Porcentagem de Medalhas por Gênero",
-      titleTextStyle: {color:"#555454"},
+      titleTextStyle: { color: "#555454" },
       is3D: true,
-      chartArea: {width: "80%", height:"60%"},
+      chartArea: { width: "80%", height: "60%" },
       backgroundColor: "#f5e0e5",
-      position:"center",
+      position: "center",
       fontSize: 15,
-      legend:{position: "bottom", textStyle: {color:"#504f4f", fontSize:14}},
-      slices: [{color:"pink"}, {color:"lightblue"}],
-      pieSliceTextStyle: {color: "#555454"} 
+      legend: {
+        position: "bottom",
+        textStyle: { color: "#504f4f", fontSize: 14 },
+      },
+      slices: [{ color: "pink" }, { color: "lightblue" }],
+      pieSliceTextStyle: { color: "#555454" },
     };
-  
-    const chart = new google.visualization.PieChart(document.getElementById("piechart_3d"));
+
+    const chart = new google.visualization.PieChart(
+      document.getElementById("piechart_3d")
+    );
     chart.draw(data, options);
   }
-  
-  const printChart= google.charts.setOnLoadCallback(drawChart); 
+
+  const printChart = google.charts.setOnLoadCallback(drawChart);
   printStatistics(statisticNumberOfWoman, statisticNumberofMedal, printChart);
 });
-
-
-

@@ -6,7 +6,7 @@ import {
   sortBy,
   groupBySportName,
   getWomanAthletes, 
-  getMedalsofWoman
+  getMedalsofWoman,
 } from '../src/data.js';
 const athletes = [{
     "name": "Giovanni Abagnale",
@@ -104,6 +104,18 @@ const athletes = [{
     "event": "Swimming Men's 4 x 100 metres Freestyle Relay",
     "medal": "Bronze"
   },
+  {
+    "name": "Matthew \"Matt\" Abood",
+    "gender": "M",
+    "height": "197",
+    "weight": "93",
+    "sport": "Swimming",
+    "team": "Australia",
+    "noc": "AUS",
+    "age": 30,
+    "event": "Swimming Men's 4 x 100 metres Freestyle Relay",
+    "medal": "Bronze"
+  },
 ];
 
 describe("groupedAthletes", () => {
@@ -190,6 +202,19 @@ describe("groupedAthletes", () => {
         "events":  [{
           "medal": "Bronze",
           "name": "Swimming Men's 4 x 100 metres Freestyle Relay",}]
+      },
+      {
+        "name": "Matthew \"Matt\" Abood",
+        "gender": "M",
+        "height": "197",
+        "weight": "93",
+        "sport": "Swimming",
+        "team": "Australia",
+        "noc": "AUS",
+        "age": 30,
+        "events":  [{
+          "medal": "Bronze",
+          "name": "Swimming Men's 4 x 100 metres Freestyle Relay",}]
       }
     ])
   })
@@ -202,7 +227,7 @@ describe("paginateAthletes", () => {
   })
   it("should return agruped athletes per Page", () => {
     expect(paginateAthletes(athletes, 1, 2)).toEqual({
-      items:[{
+      "items":[{
       "name": "Giovanni Abagnale",
       "gender": "M",
       "height": "198",
@@ -229,7 +254,7 @@ describe("paginateAthletes", () => {
       "name": "Taekwondo Women's Flyweight",}]
     },
 ],
-        totalPages: 3
+        totalPages: 4
       })
 })
 });
@@ -241,7 +266,7 @@ describe("paginateAthletesByName", () => {
 
 it("should return athlete when inform partial name", () => {
   expect(paginateAthletesByName(athletes, "giova", 1, 2)).toEqual({ 
-    items: [{
+    "items": [{
       "name": "Giovanni Abagnale",
       "gender": "M",
       "height": "198",
@@ -260,7 +285,7 @@ it("should return athlete when inform partial name", () => {
 
 it("should return athlete when inform name with capital letters", () => {
   expect(paginateAthletesByName(athletes, "LUC ABALO", 1, 2)).toEqual({ 
-    items: [{
+    "items": [{
     "name": "Luc Abalo",
     "gender": "M",
     "height": "182",
@@ -288,6 +313,7 @@ describe("groupBySportName", () => {
 it("should return an object that contains a list of sports as a property and for each property return a string array with the events of each sport.", () => {
   expect(groupBySportName(athletes, "sports")).toEqual({"Gymnastics": ["Gymnastics Men's Team All-Around", "Gymnastics Men's Horse Vault", "Gymnastics Men's Rings"], "Handball": ["Handball Men's Handball"], "Rowing": ["Rowing Men's Coxless Pairs"], "Swimming": ["Swimming Men's 4 x 100 metres Freestyle Relay"], "Taekwondo": ["Taekwondo Women's Flyweight"], "Wrestling": ["Wrestling Men's Middleweight, Greco-Roman"]});
 });
+
 
 describe("groupByTeamsAthletes", () => {
   it("is a function", () => {
@@ -320,7 +346,7 @@ describe("getWomanAthletes",() =>{
       expect(typeof getWomanAthletes).toBe("function");
     })});
 it("should return the number of percentage of female athlete non-repeted that won medals", () => {
-      expect(getWomanAthletes (athletes, "gender")).toEqual(16);
+      expect(getWomanAthletes (athletes, "gender")).toEqual(14);
     });
 
 describe("getMedalsofWoman", () => {
