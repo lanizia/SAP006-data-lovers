@@ -1,12 +1,12 @@
 @font-face {
-  font-family: 'Rio2016';
-  src: url('rio2016-light-regular.otf') format('opentype');
+  font-family: "Rio2016";
+  src: url("rio2016-light-regular.otf") format("opentype");
   font-weight: bold;
   font-style: normal;
 }
 
 html {
-  font-family: 'Open Sans', sans-serif;
+  font-family: "Open Sans", sans-serif;
 }
 
 body {
@@ -20,8 +20,7 @@ h2,
 h3,
 h4,
 h5,
-p
-{
+p {
   margin: 0;
   color: rgb(7, 6, 6);
 }
@@ -175,7 +174,7 @@ header .search input#searchAthlete:hover {
 }
 
 .texto-introducao h1 {
-  font-family: 'Rio2016';
+  font-family: "Rio2016";
   font-size: 50px;
   text-align: center;
   font-weight: 500 bold;
@@ -184,7 +183,8 @@ header .search input#searchAthlete:hover {
   line-height: 60px;
 }
 
-h2.texto-introducao, .texto-introducao h2 {
+h2.texto-introducao,
+.texto-introducao h2 {
   color: rgb(38, 69, 156);
   padding-left: 15px;
   line-height: 60px;
@@ -214,14 +214,14 @@ h2.texto-introducao, .texto-introducao h2 {
 }
 
 .wrapper ul {
-  border: 1px solid #CCC;
+  border: 1px solid #ccc;
   border-radius: 10px;
 }
 
 .country-box {
   display: flex;
   list-style: none;
-  border-bottom: solid 1px #CCC;
+  border-bottom: solid 1px #ccc;
 }
 
 .country-box .img-column {
@@ -240,14 +240,14 @@ h2.texto-introducao, .texto-introducao h2 {
 }
 
 .country-box .text-column p {
-  margin-top: 10px
+  margin-top: 10px;
 }
 
 /* Cards */
 
-@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@1,500&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@1,500&display=swap");
 
-.notFound{
+.notFound {
   color: white;
   border: solid red;
   padding: 18px;
@@ -261,7 +261,7 @@ h2.texto-introducao, .texto-introducao h2 {
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: space-around;
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
   row-gap: 260px;
 }
 
@@ -270,7 +270,7 @@ h2.texto-introducao, .texto-introducao h2 {
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: space-around;
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
   row-gap: 65px;
 }
 
@@ -286,11 +286,12 @@ h2.texto-introducao, .texto-introducao h2 {
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
   min-height: 88px;
-  padding: 22px
+  padding: 22px;
 }
 
 .mediaCard {
-  background: url("https://image.freepik.com/vetores-gratis/icone-olimpiadas-rio_1057-1461.jpg") center/cover;
+  background: url("https://image.freepik.com/vetores-gratis/icone-olimpiadas-rio_1057-1461.jpg")
+    center/cover;
   border-bottom-left-radius: 20px;
   border-bottom-right-radius: 20px;
 }
@@ -371,7 +372,7 @@ h2.texto-introducao, .texto-introducao h2 {
 
 .containerCards .flip {
   transition: transform 0.7s;
-  -webkit-transition:all 0.7s ease-in-out; 
+  -webkit-transition: all 0.7s ease-in-out;
   -moz-transition: all 0.7s ease-in-out;
   transform-style: preserve-3d;
   -webkit-transform-style: preserve-3d;
@@ -420,17 +421,16 @@ h2.texto-introducao, .texto-introducao h2 {
   display: flex;
   align-items: center;
   justify-content: center;
-  color: rgb(192, 22, 113);  
+  color: rgb(192, 22, 113);
 }
 
 #paginate .controls div:not(.numbers),
-#paginate .controls div.numbers div{
+#paginate .controls div.numbers div {
   width: 70px;
   height: 70px;
   font-size: 24;
   font-weight: bold;
 }
-
 
 /*Footer*/
 
@@ -511,7 +511,7 @@ h2.texto-introducao, .texto-introducao h2 {
 }
 
 .footer h3 {
-  font-family: 'Rio2016';
+  font-family: "Rio2016";
   font-size: 30px;
   font-weight: 500 bold;
   color: #f1f1f1;
@@ -537,7 +537,7 @@ h2.texto-introducao, .texto-introducao h2 {
 .container-info .card-info .face {
   width: 300px;
   height: 200px;
-  transition: .4s;
+  transition: 0.4s;
 }
 
 .container-info .card-info .face.face1 {
@@ -553,19 +553,14 @@ h2.texto-introducao, .texto-introducao h2 {
 
 .container-info .card-info:hover .face.face1 {
   transform: translateY(0);
-  box-shadow:
-    inset 0 0 60px whitesmoke,
-    inset 20px 0 80px rgb(255, 251, 0),
-    inset -20px 0 80px #0ff,
-    inset 20px 0 300px rgb(255, 251, 0),
-    inset -20px 0 300px #0ff,
-    0 0 50px #fff,
-    -10px 0 80px rgb(255, 217, 0),
+  box-shadow: inset 0 0 60px whitesmoke, inset 20px 0 80px rgb(255, 251, 0),
+    inset -20px 0 80px #0ff, inset 20px 0 300px rgb(255, 251, 0),
+    inset -20px 0 300px #0ff, 0 0 50px #fff, -10px 0 80px rgb(255, 217, 0),
     10px 0 80px #0ff;
 }
 
 .container-info .card-info .face.face1 .content-info {
-  opacity: .2;
+  opacity: 0.2;
   transition: 0.5s;
   text-align: center;
 }
@@ -595,7 +590,7 @@ h2.texto-introducao, .texto-introducao h2 {
   justify-content: center;
   padding: 20px;
   box-sizing: border-box;
-  box-shadow: 0 20px 50px rgba(0, 0, 0, .8);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.8);
   transform: translateY(-100px);
 }
 
@@ -612,7 +607,7 @@ h2.texto-introducao, .texto-introducao h2 {
 }
 
 .container-info .card-info .face.face2 .content-info h3 {
-  font-family: 'Rio2016';
+  font-family: "Rio2016";
   font-size: 24pt;
   width: 100px;
   text-decoration: none;
@@ -626,14 +621,14 @@ h2.texto-introducao, .texto-introducao h2 {
 
 /*Statistic*/
 #sec {
-  font-family: 'Raleway', sans-serif;
+  font-family: "Raleway", sans-serif;
   text-align: center;
   word-wrap: break-word;
   margin-right: 30px;
 }
 
 #sec h2 {
-  font-family: 'Rio2016';
+  font-family: "Rio2016";
   font-weight: 200;
   font-size: 50px;
   color: #e66363;
@@ -659,7 +654,8 @@ h2.texto-introducao, .texto-introducao h2 {
 }
 
 #sec ul li:hover {
-  box-shadow: 0 12px 15px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0 rgba(0, 0, 0, 0.19);
+  box-shadow: 0 12px 15px 0 rgba(0, 0, 0, 0.24),
+    0 17px 50px 0 rgba(0, 0, 0, 0.19);
 }
 
 #sec ul li:hover span {
@@ -693,7 +689,7 @@ h2.texto-introducao, .texto-introducao h2 {
 #sec ul li h3 {
   color: #6f6f6f;
   display: inline-block;
-  font-family: 'Rio2016';
+  font-family: "Rio2016";
   font-size: 30px;
   font-weight: 100;
   transition: color 0.3s;
@@ -701,7 +697,7 @@ h2.texto-introducao, .texto-introducao h2 {
 }
 
 #sec ul li h3:after {
-  content: '';
+  content: "";
   position: relative;
   left: 50%;
   transform: translateX(-50%);
@@ -720,8 +716,6 @@ h2.texto-introducao, .texto-introducao h2 {
   line-height: 26px;
   transition: color 0.3s;
 }
-
-
 
 /*Responsive*/
 
@@ -742,16 +736,15 @@ h2.texto-introducao, .texto-introducao h2 {
     display: block;
     margin-top: 0;
     margin-left: 58%;
-    width: 40%
+    width: 40%;
   }
 
   #main-banner {
     margin-top: 100px;
   }
-
 }
 
-@media screen and (max-width:768px) {
+@media screen and (max-width: 768px) {
   header {
     height: auto;
     position: relative;
@@ -799,11 +792,10 @@ h2.texto-introducao, .texto-introducao h2 {
     margin-top: 0;
     margin-left: 10%;
     margin-bottom: 15px;
-    width: 80%
+    width: 80%;
   }
 
   #main-banner {
     margin-top: 0;
   }
-
 }
