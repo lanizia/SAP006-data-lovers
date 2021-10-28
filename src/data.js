@@ -1,20 +1,23 @@
+const getAthleteIndex = ({ name, gender, height, weight, sport, age }) => 
+  [name, gender, height, weight, sport, age].join('-');
+
 export const groupedAthletes = athletesList => {
   const indexed = athletesList.reduce((grouped, athlete) => {
-    if (grouped[athlete.name]) {
-      grouped[athlete.name].events.push({
+    if (grouped[getAthleteIndex(athlete)]) {
+      grouped[getAthleteIndex(athlete)].events.push({
         name: athlete.event,
         medal: athlete.medal
       });
     } else {
-      grouped[athlete.name] = {
+      grouped[getAthleteIndex(athlete)] = {
         ...athlete
       };
-      grouped[athlete.name].events = [{
+      grouped[getAthleteIndex(athlete)].events = [{
         name: athlete.event,
         medal: athlete.medal
       }];
-      delete grouped[athlete.name].event;
-      delete grouped[athlete.name].medal;
+      delete grouped[getAthleteIndex(athlete)].event;
+      delete grouped[getAthleteIndex(athlete)].medal;
     }
     return grouped;
 
